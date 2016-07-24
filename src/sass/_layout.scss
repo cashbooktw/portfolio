@@ -1,76 +1,49 @@
-/*  SECTIONS  */
-.section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
+// @import "compass/layout";
+// @import "compass/layout/grid-background";
+
+
+/* 12-column responsive grid */
+
+.row {
+    clear: both;
+    max-width: 1040px;
+    margin: 0 auto;
 }
 
-/*  COLUMN SETUP  */
-.col {
-	display: block;
-	float:left;
-	margin: 1% 0 1% 1.6%;
-}
-.col:first-child { margin-left: 0; }
-
-/*  GROUPING  */
-.group:before,
-.group:after { content:""; display:table; }
-.group:after { clear:both;}
-.group { zoom:1; /* For IE 6/7 */ }
-/*  GRID OF TWELVE  */
-.span_12_of_12 {
-	width: 100%;
+[class^="col-"] {
+    float: left;
+    margin: 0 3.84615384615% 0 0;
+    list-style: none;
+    position: relative;
 }
 
-.span_11_of_12 {
-  	width: 91.53%;
-}
-.span_10_of_12 {
-  	width: 83.06%;
+[class^="col-"]:last-child {
+    margin: 0;
 }
 
-.span_9_of_12 {
-  	width: 74.6%;
+.col-1 { width: 4.8076923077% }
+.col-2 { width: 13.4615384615% }
+.col-3 { width: 22.1153846154% }
+.col-4 { width: 30.7692307692% }
+.col-5 { width: 39.4230769231% }
+.col-6 { width: 48.0769230769% }
+.col-7 { width: 56.7307692308% }
+.col-8 { width: 65.3846153846% }
+.col-9 { width: 74.0384615385% }
+.col-10 { width: 82.6923076923% }
+.col-11 { width: 91.3461538462% }
+.col-12 { width: 100%; margin: 0 }
+
+
+.vertical-align-middle-parent {
+  position: relative;
 }
-
-.span_8_of_12 {
-  	width: 66.13%;
+.vertical-align-middle-child {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
-
-.span_7_of_12 {
-  	width: 57.66%;
-}
-
-.span_6_of_12 {
-  	width: 49.2%;
-}
-
-.span_5_of_12 {
-  	width: 40.73%;
-}
-
-.span_4_of_12 {
-  	width: 32.26%;
-}
-
-.span_3_of_12 {
-  	width: 23.8%;
-}
-
-.span_2_of_12 {
-  	width: 15.33%;
-}
-
-.span_1_of_12 {
-  	width: 6.866%;
-}
-
-/*  GO FULL WIDTH BELOW 480 PIXELS */
-@media only screen and (max-width: 480px) {
-	.col {  margin: 1% 0 1% 0%; }
-
-    .span_1_of_12, .span_2_of_12, .span_3_of_12, .span_4_of_12, .span_5_of_12, .span_6_of_12, .span_7_of_12, .span_8_of_12, .span_9_of_12, .span_10_of_12, .span_11_of_12, .span_12_of_12 {
-	width: 100%;
-	}
+.horizontal-align-middle-parent {
+  left: 50%;
+  transform: translateX(-50%);
 }

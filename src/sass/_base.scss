@@ -1,0 +1,28 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+	font-size: 7rem;
+	line-height: 1.2em;
+}
+
+h2 {
+	font-size: 5rem;
+	line-height: 1.2em;
+  font-weight: 500;
+}
+
+h3 {
+	font-size: 1.8rem;
+	line-height: 1.4em;
+}
+
+h4 {
+	font-size: 1.5rem;
+	line-height: 1.4em;
+}
+
+p {
+	@extend h4;
+}

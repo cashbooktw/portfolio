@@ -1,0 +1,51 @@
+.header {
+  height: 92px;
+}
+.content {
+  width: 100%;
+}
+
+// .viewPage {
+//   height: 600px;
+// }
+
+video {
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -100;
+  background: url('../images/White-Keyboard.jpg') no-repeat;
+  background-size: cover;
+}
+
+.video--words {
+  position: absolute;
+  top: 55%;
+  // transform: translateY(-50%);
+}
+
+// .whiteSpace {
+//   position: relative;
+//   bottom: 0;
+//   height: 159px;
+//   width: 100%;
+//   transform: translateY(-159px);
+//   background-color: white;
+// }
+
+.header-center {
+  height: 1px;
+  background: #DDD;
+  border-bottom: #FFF solid 1px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.content-groups {
+  height: 317px;
+}
+
+.footer {
+  height: 90px;
+}
