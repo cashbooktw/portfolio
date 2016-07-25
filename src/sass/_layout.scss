@@ -35,6 +35,21 @@
 .col-12 { width: 100%; margin: 0 }
 
 
+.header {
+  height: 92px;
+}
+.content {
+  width: 100%;
+}
+
+.viewPage {
+  padding-bottom: 60px;
+}
+
+.content-groups {
+  padding-bottom: 20px;
+}
+
 .vertical-align-middle-parent {
   position: relative;
 }
@@ -43,7 +58,14 @@
   top: 50%;
   transform: translateY(-50%);
 }
+// .horizontal-align-middle-parent {
+//   left: 50%;
+//   transform: translateX(-50%);
+// }
+
 .horizontal-align-middle-parent {
-  left: 50%;
-  transform: translateX(-50%);
+  display: table;
+}
+.horizontal-align-middle-child {
+  display: table-cell; vertical-align: middle;
 }

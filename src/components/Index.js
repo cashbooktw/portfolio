@@ -1,17 +1,16 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var Header = require('./Header');
-var Video = require('./Video');
-// var MyDivider = require('./MyDivider');
-// var WhiteSpace = require('./WhiteSpace');
+var Jumbotron = require('./Jumbotron');
 var HeaderCenter = require('./HeaderCenter');
+var List = require('./List');
+var ScrollTop = require('./ScrollTop');
 var Index = React.createClass({
 
   render: function() {
     var testStyle = {
       "backgroundColor": "blue"
     };
-              // <MyDivider marginVertical={20} />
     return (
       <div>
         <header className="header row vertical-align-middle-parent">
@@ -20,19 +19,24 @@ var Index = React.createClass({
             </div>
         </header>
         <div className="content">
-          <section>
-              <Video />
-              <div className="video--words horizontal-align-middle-parent">
-                <h2>Hi! I am Gary Yeh</h2>
-                <p>Front End Developer with passion for studying techonologies.</p>
-              </div>
+          <section className="viewPage">
+            <Jumbotron />
           </section>
-          <HeaderCenter />
-          <section className="content-groups row ">
-            <div className="col-12" style={testStyle}>
-            test
+          <div className="row">
+            <div className="col-12">
+              <HeaderCenter />
+            </div>
+          </div>
+          <section className="content-groups row vertical-align-middle-parent">
+            <div className="col-12 vertical-align-middle-child">
+              <List />
             </div>
           </section>
+          <div className="row horizontal-align-middle-parent">
+            <div className="col-12 horizontal-align-middle-child">
+              <ScrollTop />
+            </div>
+          </div>
         </div>
         <footer className="footer row" >
           <div className="col-12" style={testStyle}>

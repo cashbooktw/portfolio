@@ -5,8 +5,8 @@ var HeaderCenter = React.createClass({
 
   render: function() {
     return (
-      <div className="head-center">
-        <h3>Some of my latest work</h3>
+      <div className="header-center">
+        <span className="h4">Some of my latest work</span>
       </div>
     );
   }

@@ -2,27 +2,31 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-h1 {
-	font-size: 7rem;
-	line-height: 1.2em;
+h1, .h1 { font-size: 2em; line-height: 2.2em;}
+h2, .h2 { font-size: 1.5em; line-height: 1.65em;}
+h3, .h3 { font-size: 1.17em; line-height: 1.287em;}
+h4, .h4 { font-size: 1.12em; line-height: 1.231em;}
+h5, .h5 { font-size: .83em; line-height: .913em;}
+h6, .h6 { font-size: .75em; line-height: .825em;}
+
+.font__large {
+	font-size: 4em;
+	font-weight: 500;
+}
+.font__middle {
+	font-size: 2em;
+	font-weight: 400;
+}
+.font_small {
+	font-size: 1em;
+	font-weight: 300;
 }
 
-h2 {
-	font-size: 5rem;
-	line-height: 1.2em;
-  font-weight: 500;
-}
-
-h3 {
-	font-size: 1.8rem;
-	line-height: 1.4em;
-}
-
-h4 {
-	font-size: 1.5rem;
-	line-height: 1.4em;
-}
 
 p {
 	@extend h4;
+}
+
+.font__white {
+	color: #FFF;
 }

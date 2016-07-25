@@ -73,28 +73,62 @@ body {
 }
 
 /* line 5, ../../src/sass/_base.scss */
-h1 {
-  font-size: 7rem;
-  line-height: 1.2em;
+h1, .h1 {
+  font-size: 2em;
+  line-height: 2.2em;
+}
+
+/* line 6, ../../src/sass/_base.scss */
+h2, .h2 {
+  font-size: 1.5em;
+  line-height: 1.65em;
+}
+
+/* line 7, ../../src/sass/_base.scss */
+h3, .h3 {
+  font-size: 1.17em;
+  line-height: 1.287em;
+}
+
+/* line 8, ../../src/sass/_base.scss */
+h4, p, .h4 {
+  font-size: 1.12em;
+  line-height: 1.231em;
+}
+
+/* line 9, ../../src/sass/_base.scss */
+h5, .h5 {
+  font-size: .83em;
+  line-height: .913em;
 }
 
 /* line 10, ../../src/sass/_base.scss */
-h2 {
-  font-size: 5rem;
-  line-height: 1.2em;
+h6, .h6 {
+  font-size: .75em;
+  line-height: .825em;
+}
+
+/* line 12, ../../src/sass/_base.scss */
+.font__large {
+  font-size: 4em;
   font-weight: 500;
 }
 
 /* line 16, ../../src/sass/_base.scss */
-h3 {
-  font-size: 1.8rem;
-  line-height: 1.4em;
+.font__middle {
+  font-size: 2em;
+  font-weight: 400;
 }
 
-/* line 21, ../../src/sass/_base.scss */
-h4, p {
-  font-size: 1.5rem;
-  line-height: 1.4em;
+/* line 20, ../../src/sass/_base.scss */
+.font_small {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+/* line 30, ../../src/sass/_base.scss */
+.font__white {
+  color: #FFF;
 }
 
 /* 12-column responsive grid */
@@ -180,34 +214,57 @@ h4, p {
 }
 
 /* line 38, ../../src/sass/_layout.scss */
+.header {
+  height: 92px;
+}
+
+/* line 41, ../../src/sass/_layout.scss */
+.content {
+  width: 100%;
+}
+
+/* line 45, ../../src/sass/_layout.scss */
+.viewPage {
+  padding-bottom: 60px;
+}
+
+/* line 49, ../../src/sass/_layout.scss */
+.content-groups {
+  padding-bottom: 20px;
+}
+
+/* line 53, ../../src/sass/_layout.scss */
 .vertical-align-middle-parent {
   position: relative;
 }
 
-/* line 41, ../../src/sass/_layout.scss */
+/* line 56, ../../src/sass/_layout.scss */
 .vertical-align-middle-child {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-/* line 46, ../../src/sass/_layout.scss */
+/* line 66, ../../src/sass/_layout.scss */
 .horizontal-align-middle-parent {
-  left: 50%;
-  transform: translateX(-50%);
+  display: table;
 }
 
-/* line 1, ../../src/sass/_module.scss */
-.header {
-  height: 92px;
+/* line 69, ../../src/sass/_layout.scss */
+.horizontal-align-middle-child {
+  display: table-cell;
+  vertical-align: middle;
 }
 
-/* line 4, ../../src/sass/_module.scss */
-.content {
+/* line 7, ../../src/sass/_module.scss */
+.jumbotron img {
   width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
-/* line 12, ../../src/sass/_module.scss */
+/* line 14, ../../src/sass/_module.scss */
 video {
   min-width: 100%;
   min-height: 100%;
@@ -218,27 +275,43 @@ video {
   background-size: cover;
 }
 
-/* line 22, ../../src/sass/_module.scss */
+/* line 24, ../../src/sass/_module.scss */
 .video--words {
   position: absolute;
   top: 55%;
 }
 
-/* line 37, ../../src/sass/_module.scss */
+/* line 39, ../../src/sass/_module.scss */
 .header-center {
   height: 1px;
   background: #DDD;
   border-bottom: #FFF solid 1px;
   margin-bottom: 30px;
   position: relative;
+  vertical-align: bottom;
 }
 
-/* line 45, ../../src/sass/_module.scss */
+/* line 48, ../../src/sass/_module.scss */
+.header-center span {
+  background-color: #FFF;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  text-align: center;
+  display: block;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 1pxl;
+}
+
+/* line 62, ../../src/sass/_module.scss */
 .content-groups {
   height: 317px;
 }
 
-/* line 49, ../../src/sass/_module.scss */
+/* line 66, ../../src/sass/_module.scss */
 .footer {
   height: 90px;
 }
