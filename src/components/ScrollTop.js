@@ -5,6 +5,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import KeyArrowUp from 'material-ui/svg-icons/hardware/keyboard-arrow-up';
 var ScrollTop = React.createClass({
+  handleTouchTap: function (event){
+    event.preventDefault();
+    console.log("TAP!");
+  },
 
   render: function() {
     const styles = {
@@ -46,6 +50,7 @@ var ScrollTop = React.createClass({
           touch={true}
           style={styles.large}
           iconStyle={styles.largeIcon}
+          onTouchTap={this.handleTouchTap}
         >
         <KeyArrowUp />
         </IconButton>

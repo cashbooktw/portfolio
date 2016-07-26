@@ -32812,13 +32812,21 @@ var Header = React.createClass({
 
   render: function render() {
     var headerItems = this.props.items.map(function (item) {
-      return React.createElement(_FlatButton2.default, { key: item, label: item });
+      return React.createElement(_FlatButton2.default, { key: item.text, label: item.text, hoverColor: _colors.fullWhite });
     });
     var muiTheme = (0, _getMuiTheme2.default)({
       toolbar: {
-        backgroundColor: _colors.fullWhite
+        backgroundColor: this.props.color
       }
     });
+
+    var toolbarTitleStyle = {
+      color: _colors.fullWhite
+    };
+    // <ToolbarGroup >
+    //   <ToolbarTitle text={this.props.brand.image} />
+    // </ToolbarGroup>
+    //
     return React.createElement(
       'div',
       null,
@@ -32831,7 +32839,7 @@ var Header = React.createClass({
           React.createElement(
             _Toolbar.ToolbarGroup,
             null,
-            React.createElement(_Toolbar.ToolbarTitle, { text: 'Gary\'s Portfolio' })
+            React.createElement(_Toolbar.ToolbarTitle, { text: this.props.brandText, style: toolbarTitleStyle })
           ),
           React.createElement(
             _Toolbar.ToolbarGroup,
@@ -32848,6 +32856,73 @@ var Header = React.createClass({
 module.exports = Header;
 
 },{"material-ui/FlatButton":185,"material-ui/Toolbar":198,"material-ui/styles/MuiThemeProvider":206,"material-ui/styles/colors":208,"material-ui/styles/getMuiTheme":209,"react":381}],396:[function(require,module,exports){
+'use strict';
+
+var _Toolbar = require('material-ui/Toolbar');
+
+var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
+
+var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+var _getMuiTheme = require('material-ui/styles/getMuiTheme');
+
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+var _FlatButton = require('material-ui/FlatButton');
+
+var _FlatButton2 = _interopRequireDefault(_FlatButton);
+
+var _colors = require('material-ui/styles/colors');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+
+
+var Header = React.createClass({
+  displayName: 'Header',
+
+
+  render: function render() {
+    var headerItems = this.props.items.map(function (item) {
+      return React.createElement(_FlatButton2.default, { key: item.text, label: item.text });
+    });
+    var muiTheme = (0, _getMuiTheme2.default)({
+      toolbar: {
+        backgroundColor: this.props.color
+      }
+    });
+
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        _MuiThemeProvider2.default,
+        { muiTheme: muiTheme },
+        React.createElement(
+          _Toolbar.Toolbar,
+          null,
+          React.createElement(
+            'a',
+            { href: this.props.brand.link },
+            React.createElement('img', { src: this.props.brand.image, alt: this.props.brandText })
+          ),
+          React.createElement(
+            _Toolbar.ToolbarGroup,
+            null,
+            headerItems
+          )
+        )
+      )
+    );
+  }
+
+});
+
+module.exports = Header;
+
+},{"material-ui/FlatButton":185,"material-ui/Toolbar":198,"material-ui/styles/MuiThemeProvider":206,"material-ui/styles/colors":208,"material-ui/styles/getMuiTheme":209,"react":381}],397:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -32864,7 +32939,7 @@ var HeaderCenter = React.createClass({
       React.createElement(
         "span",
         { className: "h4" },
-        "Some of my latest work"
+        this.props.text
       )
     );
   }
@@ -32873,8 +32948,10 @@ var HeaderCenter = React.createClass({
 
 module.exports = HeaderCenter;
 
-},{"react":381}],397:[function(require,module,exports){
+},{"react":381}],398:[function(require,module,exports){
 'use strict';
+
+var _colors = require('material-ui/styles/colors');
 
 var React = require('react');
 var PropTypes = React.PropTypes;
@@ -32883,6 +32960,8 @@ var Jumbotron = require('./Jumbotron');
 var HeaderCenter = require('./HeaderCenter');
 var List = require('./List');
 var ScrollTop = require('./ScrollTop');
+var Footer = require('./Footer');
+
 var Index = React.createClass({
   displayName: 'Index',
 
@@ -32890,6 +32969,9 @@ var Index = React.createClass({
   render: function render() {
     var testStyle = {
       "backgroundColor": "blue"
+    };
+    var footerStyle = {
+      "backgroundColor": _colors.blue500
     };
     return React.createElement(
       'div',
@@ -32900,7 +32982,11 @@ var Index = React.createClass({
         React.createElement(
           'div',
           { className: 'col-12 vertical-align-middle-child' },
-          React.createElement(Header, { items: ["About Me", "Resume", "Portfolio", "Contact"] })
+          React.createElement(Header, {
+            items: [{ text: "About Me", link: "#" }, { text: "Resume", link: "#" }, { text: "Portfolio", link: "#" }, { text: "Contact", link: "#" }],
+            color: _colors.fullWhite,
+            brand: { image: "http://fakeimg.pl/62x62/", link: "#" }
+          })
         )
       ),
       React.createElement(
@@ -32909,7 +32995,11 @@ var Index = React.createClass({
         React.createElement(
           'section',
           { className: 'viewPage' },
-          React.createElement(Jumbotron, null)
+          React.createElement(Jumbotron, {
+            title: 'Hi! I am ',
+            colorTitle: 'Gary Yeh',
+            subTitle: 'Front End Developer with passion for studying techonologies.'
+          })
         ),
         React.createElement(
           'div',
@@ -32917,7 +33007,7 @@ var Index = React.createClass({
           React.createElement(
             'div',
             { className: 'col-12' },
-            React.createElement(HeaderCenter, null)
+            React.createElement(HeaderCenter, { text: 'Some of my latest work' })
           )
         ),
         React.createElement(
@@ -32941,11 +33031,19 @@ var Index = React.createClass({
       ),
       React.createElement(
         'footer',
-        { className: 'footer row' },
+        { className: 'footer flexMiddle', style: footerStyle },
         React.createElement(
           'div',
-          { className: 'col-12', style: testStyle },
-          'test'
+          { className: 'row ' },
+          React.createElement(
+            'div',
+            { className: 'col-12' },
+            React.createElement(Footer, {
+              items: [{ text: "About Me", link: "#" }, { text: "Resume", link: "#" }, { text: "Portfolio", link: "#" }, { text: "Contact", link: "#" }],
+              color: _colors.blue500,
+              brandText: '© 2016 cashbook'
+            })
+          )
         )
       )
     );
@@ -32955,7 +33053,7 @@ var Index = React.createClass({
 
 module.exports = Index;
 
-},{"./Header":395,"./HeaderCenter":396,"./Jumbotron":398,"./List":399,"./ScrollTop":401,"react":381}],398:[function(require,module,exports){
+},{"./Footer":395,"./Header":396,"./HeaderCenter":397,"./Jumbotron":399,"./List":400,"./ScrollTop":402,"material-ui/styles/colors":208,"react":381}],399:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -32969,7 +33067,6 @@ var Jumbotron = React.createClass({
     var imgStyle = {
       "width": "100%",
       "height": "600px",
-      // "backgroundImage": "url('./images/keyboard2.jpg')",
       "backgroundImage": "url('http://fakeimg.pl/1366x600/')",
       "backgroundSize": "cover"
     };
@@ -32985,13 +33082,14 @@ var Jumbotron = React.createClass({
         React.createElement(
           "span",
           { className: "font__large font__white" },
-          "Hi! I am Gary Yeh"
+          this.props.title,
+          this.props.colorTitle
         ),
         React.createElement("br", null),
         React.createElement(
           "span",
           { className: "h2 font__white" },
-          "Front End Developer with passion for studying techonologies."
+          this.props.subTitle
         )
       )
     );
@@ -33001,7 +33099,7 @@ var Jumbotron = React.createClass({
 
 module.exports = Jumbotron;
 
-},{"react":381}],399:[function(require,module,exports){
+},{"react":381}],400:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33029,7 +33127,7 @@ var List = React.createClass({
 
 module.exports = List;
 
-},{"./ListItem":400,"react":381}],400:[function(require,module,exports){
+},{"./ListItem":401,"react":381}],401:[function(require,module,exports){
 'use strict';
 
 var _Card = require('material-ui/Card');
@@ -33081,7 +33179,7 @@ var ListItem = React.createClass({
 
 module.exports = ListItem;
 
-},{"material-ui/Card":182,"material-ui/styles/MuiThemeProvider":206,"material-ui/styles/getMuiTheme":209,"react":381}],401:[function(require,module,exports){
+},{"material-ui/Card":182,"material-ui/styles/MuiThemeProvider":206,"material-ui/styles/getMuiTheme":209,"react":381}],402:[function(require,module,exports){
 'use strict';
 
 var _IconButton = require('material-ui/IconButton');
@@ -33108,6 +33206,10 @@ var PropTypes = React.PropTypes;
 var ScrollTop = React.createClass({
   displayName: 'ScrollTop',
 
+  handleTouchTap: function handleTouchTap(event) {
+    event.preventDefault();
+    console.log("TAP!");
+  },
 
   render: function render() {
     var styles = {
@@ -33151,7 +33253,8 @@ var ScrollTop = React.createClass({
           tooltipPosition: 'top-right',
           touch: true,
           style: styles.large,
-          iconStyle: styles.largeIcon
+          iconStyle: styles.largeIcon,
+          onTouchTap: this.handleTouchTap
         },
         React.createElement(_keyboardArrowUp2.default, null)
       )
@@ -33162,7 +33265,7 @@ var ScrollTop = React.createClass({
 
 module.exports = ScrollTop;
 
-},{"material-ui/IconButton":189,"material-ui/styles/MuiThemeProvider":206,"material-ui/styles/getMuiTheme":209,"material-ui/svg-icons/hardware/keyboard-arrow-up":215,"react":381}],402:[function(require,module,exports){
+},{"material-ui/IconButton":189,"material-ui/styles/MuiThemeProvider":206,"material-ui/styles/getMuiTheme":209,"material-ui/svg-icons/hardware/keyboard-arrow-up":215,"react":381}],403:[function(require,module,exports){
 'use strict';
 
 var _reactTapEventPlugin = require('react-tap-event-plugin');
@@ -33190,4 +33293,4 @@ var App = function App() {
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
-},{"./components/Index":397,"react":381,"react-dom":230,"react-tap-event-plugin":236}]},{},[402]);
+},{"./components/Index":398,"react":381,"react-dom":230,"react-tap-event-plugin":236}]},{},[403]);

@@ -10,15 +10,15 @@ var ListItem = React.createClass({
     return (
       <div>
         <MuiThemeProvider>
-          <Card>
+          <Card >
             <CardMedia
               overlay={<CardTitle
                 title="Overlay title"
                 subtitle="Overlay subtitle"
               />}
             >
-            <img src="http://fakeimg.pl/314x252/" />
-          </CardMedia>
+              <img src="http://fakeimg.pl/314x252/" />
+            </CardMedia>
           </Card>
         </MuiThemeProvider>
       </div>

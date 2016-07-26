@@ -10,7 +10,7 @@ var Header = React.createClass({
 
   render: function() {
     const headerItems = this.props.items.map((item) => {
-      return <FlatButton key={item.text} label={item.text} />;
+      return <FlatButton key={item.text} label={item.text} hoverColor={fullWhite}/>;
     });
     const muiTheme = getMuiTheme({
       toolbar: {
@@ -18,12 +18,21 @@ var Header = React.createClass({
       }
     });
 
+    var toolbarTitleStyle = {
+      color: fullWhite
+    };
+    // <ToolbarGroup >
+    //   <ToolbarTitle text={this.props.brand.image} />
+    // </ToolbarGroup>
+    //
     return (
       <div>
         <MuiThemeProvider muiTheme={muiTheme}>
           <Toolbar>
-            <a href={this.props.brand.link}><img src={this.props.brand.image} alt={this.props.brandText}/></a>
-            <ToolbarGroup >
+            <ToolbarGroup>
+              <ToolbarTitle text={this.props.brandText} style={toolbarTitleStyle}/>
+            </ToolbarGroup>
+            <ToolbarGroup>
               {headerItems}
             </ToolbarGroup>
           </Toolbar>

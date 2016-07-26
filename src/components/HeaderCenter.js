@@ -6,7 +6,7 @@ var HeaderCenter = React.createClass({
   render: function() {
     return (
       <div className="header-center">
-        <span className="h4">Some of my latest work</span>
+        <span className="h4">{this.props.text}</span>
       </div>
     );
   }
