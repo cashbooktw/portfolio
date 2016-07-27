@@ -7,9 +7,12 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 var ListItem = React.createClass({
 
   render: function() {
+    var listItemStyle = {
+      padding: 10
+    };
     return (
-      <div>
-        <MuiThemeProvider>
+<div style={listItemStyle}>
+        <MuiThemeProvider >
           <Card >
             <CardMedia
               overlay={<CardTitle
@@ -21,7 +24,7 @@ var ListItem = React.createClass({
             </CardMedia>
           </Card>
         </MuiThemeProvider>
-      </div>
+</div>
     );
   }
 

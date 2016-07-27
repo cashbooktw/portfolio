@@ -4,10 +4,13 @@ import IconButton from 'material-ui/IconButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import KeyArrowUp from 'material-ui/svg-icons/hardware/keyboard-arrow-up';
+import animateScroll from '../services/animationScroll';
 var ScrollTop = React.createClass({
   handleTouchTap: function (event){
     event.preventDefault();
     console.log("TAP!");
+
+animateScroll(document.body, 0, 1000);
   },
 
   render: function() {

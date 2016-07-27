@@ -268,7 +268,7 @@ h6, .h6 {
   align-items: center;
 }
 
-/* line 7, ../../src/sass/_module.scss */
+/* line 1, ../../src/sass/_module.scss */
 .jumbotron img {
   width: 100%;
   height: auto;
@@ -276,7 +276,7 @@ h6, .h6 {
   background-size: 100% auto;
 }
 
-/* line 14, ../../src/sass/_module.scss */
+/* line 8, ../../src/sass/_module.scss */
 video {
   min-width: 100%;
   min-height: 100%;
@@ -287,13 +287,13 @@ video {
   background-size: cover;
 }
 
-/* line 24, ../../src/sass/_module.scss */
+/* line 18, ../../src/sass/_module.scss */
 .video--words {
   position: absolute;
   top: 55%;
 }
 
-/* line 39, ../../src/sass/_module.scss */
+/* line 24, ../../src/sass/_module.scss */
 .header-center {
   height: 1px;
   background: #DDD;
@@ -303,7 +303,7 @@ video {
   vertical-align: bottom;
 }
 
-/* line 48, ../../src/sass/_module.scss */
+/* line 33, ../../src/sass/_module.scss */
 .header-center span {
   background-color: #FFF;
   position: absolute;
@@ -318,12 +318,7 @@ video {
   letter-spacing: 1pxl;
 }
 
-/* line 62, ../../src/sass/_module.scss */
-.content-groups {
-  height: 317px;
-}
-
-/* line 66, ../../src/sass/_module.scss */
+/* line 46, ../../src/sass/_module.scss */
 .footer {
   height: 90px;
 }

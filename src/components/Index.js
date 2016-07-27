@@ -8,6 +8,20 @@ var ScrollTop = require('./ScrollTop');
 var Footer = require('./Footer');
 import {fullWhite, blue500} from 'material-ui/styles/colors'
 var Index = React.createClass({
+  getInitialState: function() {
+    return {
+      false: true
+    };
+  },
+  componentWillMount: function() {
+    const mql = window.matchMedia("(min-width: 768px)");
+    mql.addListener(this.mediaQueryChanged);
+    this.setState({mql: mql, show: mql.matches});
+  },
+  mediaQueryChanged: function() {
+     this.setState({show: this.state.mql.matches});
+     console.log("show = " + this.state.show);
+  },
 
   render: function() {
     var testStyle = {
@@ -15,6 +29,9 @@ var Index = React.createClass({
     };
     var footerStyle = {
       "backgroundColor": blue500
+    };
+    var indexProps = {
+      show: this.state.show
     };
     return (
       <div>
@@ -28,6 +45,7 @@ var Index = React.createClass({
                   {text: "Contact", link: "#"}]}
                 color={fullWhite}
                 brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
+                {...indexProps}
                 />
             </div>
         </header>
@@ -44,8 +62,8 @@ var Index = React.createClass({
               <HeaderCenter text="Some of my latest work" />
             </div>
           </div>
-          <section className="content-groups row vertical-align-middle-parent">
-            <div className="col-12 vertical-align-middle-child">
+          <section className="content-groups row ">
+            <div className="col-12 ">
               <List />
             </div>
           </section>
