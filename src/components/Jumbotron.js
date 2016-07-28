@@ -1,8 +1,16 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 var Jumbotron = React.createClass({
-
+  getInitialState: function() {
+    return {
+      open: false
+    };
+  },
+  handleToggle: function() {
+    this.setState({open: !this.state.open});
+  },
   render: function() {
     var imgStyle = {
       "width": "100%",
@@ -14,6 +22,7 @@ var Jumbotron = React.createClass({
       "textAlign" : "center"
     };
     return (
+      <MuiThemeProvider>
       <div style={imgStyle} className="horizontal-align-middle-parent">
         <div style={textAlignCenter} className="horizontal-align-middle-child">
         <span className="font__large font__white">{this.props.title}{this.props.colorTitle}</span>
@@ -21,6 +30,7 @@ var Jumbotron = React.createClass({
         <span className="h2 font__white">{this.props.subTitle}</span>
         </div>
       </div>
+      </MuiThemeProvider>
     );
   }
 

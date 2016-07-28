@@ -6,11 +6,13 @@ var HeaderCenter = require('./HeaderCenter');
 var List = require('./List');
 var ScrollTop = require('./ScrollTop');
 var Footer = require('./Footer');
+var MyDrawer = require('./MyDrawer');
 import {fullWhite, blue500} from 'material-ui/styles/colors'
 var Index = React.createClass({
   getInitialState: function() {
     return {
-      false: true
+      show: false,
+      isDrawerOpen: false
     };
   },
   componentWillMount: function() {
@@ -22,7 +24,10 @@ var Index = React.createClass({
      this.setState({show: this.state.mql.matches});
      console.log("show = " + this.state.show);
   },
-
+  onHambugerBtnClick: function() {
+    this.setState({isDrawerOpen: true});
+    console.log("isDrawerOpen = " + this.state.isDrawerOpen);
+  },
   render: function() {
     var testStyle = {
       "backgroundColor": "blue"
@@ -31,24 +36,28 @@ var Index = React.createClass({
       "backgroundColor": blue500
     };
     var indexProps = {
-      show: this.state.show
+      show: this.state.show,
+      _onHambugerBtnClick: this.onHambugerBtnClick
     };
+    var pageLinkItems = [
+      {text: "About Me", link: "#"},
+      {text: "Resume", link: "#"},
+      {text: "Portfolio", link: "#"},
+      {text: "Contact", link: "#"}
+    ];
     return (
       <div>
         <header className="header row vertical-align-middle-parent">
             <div className="col-12 vertical-align-middle-child">
               <Header
-                items={[
-                  {text: "About Me", link: "#"},
-                  {text: "Resume", link: "#"},
-                  {text: "Portfolio", link: "#"},
-                  {text: "Contact", link: "#"}]}
+                items={pageLinkItems}
                 color={fullWhite}
                 brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
                 {...indexProps}
                 />
             </div>
         </header>
+        <MyDrawer isDrawerOpen={this.state.isDrawerOpen} items={pageLinkItems}/>
         <div className="content">
           <section className="viewPage">
             <Jumbotron
@@ -77,11 +86,7 @@ var Index = React.createClass({
           <div className="row ">
             <div className="col-12" >
               <Footer
-                items={[
-                  {text: "About Me", link: "#"},
-                  {text: "Resume", link: "#"},
-                  {text: "Portfolio", link: "#"},
-                  {text: "Contact", link: "#"}]}
+                items={pageLinkItems}
                 color={blue500}
                 brandText="&copy; 2016 cashbook"
               />
