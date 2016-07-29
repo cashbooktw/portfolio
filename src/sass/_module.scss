@@ -1,48 +1,28 @@
-.jumbotron img{
-  width: 100%;
-  height: auto;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-}
+// .jumbotron img{
+//   width: 100%;
+//   height: auto;
+//   background-repeat: no-repeat;
+//   background-size: 100% auto;
+// }
 
-video {
-  min-width: 100%;
-  min-height: 100%;
-  width: 100%;
-  height: auto;
-  z-index: -100;
-  background: url('../images/White-Keyboard.jpg') no-repeat;
-  background-size: cover;
-}
-
-.video--words {
-  position: absolute;
-  top: 55%;
-
-}
-
-.header-center {
-  height: 1px;
-  background: #DDD;
-  border-bottom: #FFF solid 1px;
-  margin-bottom: 30px;
-  position: relative;
-  vertical-align: bottom;
-}
-
-.header-center span {
-  background-color: #FFF;
-  position: absolute;
-  top: -10px;
-  left: 50%; transform: translateX(-50%);
-  width: 300px;
-  text-align: center;
-  display: block;
-  color: #666666;//#666666
-  text-transform: uppercase;
-  letter-spacing: 1pxl
-}
-
-.footer {
-  height: 90px;
-}
+// .header-center {
+//   height: 1px;
+//   background: #DDD;
+//   border-bottom: #FFF solid 1px;
+//   margin-bottom: 30px;
+//   position: relative;
+//   vertical-align: bottom;
+// }
+//
+// .header-center span {
+//   background-color: #FFF;
+//   position: absolute;
+//   top: -10px;
+//   left: 50%; transform: translateX(-50%);
+//   width: 300px;
+//   text-align: center;
+//   display: block;
+//   color: #666666;//#666666
+//   text-transform: uppercase;
+//   letter-spacing: 1px;
+// }

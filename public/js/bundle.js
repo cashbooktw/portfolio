@@ -37694,12 +37694,35 @@ var HeaderCenter = React.createClass({
 
 
   render: function render() {
+    var styles = {
+      headerCenter: {
+        height: "1px",
+        background: "#DDD",
+        borderBottom: "#FFF solid 1px",
+        marginBottom: "30px",
+        position: "relative",
+        verticalAlign: "bottom"
+      },
+      headerCenterSpan: {
+        backgroundColor: "#FFF",
+        position: "absolute",
+        top: "-10px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "300px",
+        textAlign: "center",
+        display: "block",
+        color: "#666666",
+        textTransform: "uppercase",
+        letterSpacing: "1px"
+      }
+    };
     return React.createElement(
       "div",
-      { className: "header-center" },
+      { style: styles.headerCenter },
       React.createElement(
         "span",
-        { className: "h4" },
+        { style: styles.headerCenterSpan, className: "h4" },
         this.props.text
       )
     );
@@ -37869,24 +37892,33 @@ var Jumbotron = React.createClass({
     this.setState({ open: !this.state.open });
   },
   render: function render() {
-    var imgStyle = {
-      "width": "100%",
-      "height": "600px",
-      "backgroundImage": "url('http://fakeimg.pl/1366x600/')",
-      "backgroundSize": "cover"
+    var styles = {
+      container: {
+        width: "100%",
+        height: "600px",
+        backgroundImage: "url('http://fakeimg.pl/1366x600/')",
+        backgroundSize: "cover",
+        textAlign: "center"
+      }
     };
-    var textAlignCenter = {
-      "textAlign": "center"
-    };
+    // var imgStyle = {
+    //   "width": "100%",
+    //   "height": "600px",
+    //   "backgroundImage": "url('http://fakeimg.pl/1366x600/')",
+    //   "backgroundSize": "cover"
+    // };
+    // var textAlignCenter = {
+    //   "textAlign" : "center"
+    // };
     return React.createElement(
       _MuiThemeProvider2.default,
       null,
       React.createElement(
         'div',
-        { style: imgStyle, className: 'horizontal-align-middle-parent' },
+        { style: styles.container, className: 'horizontal-align-middle-parent' },
         React.createElement(
           'div',
-          { style: textAlignCenter, className: 'horizontal-align-middle-child' },
+          { className: 'horizontal-align-middle-child' },
           React.createElement(
             'span',
             { className: 'font__large font__white' },

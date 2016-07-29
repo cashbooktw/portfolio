@@ -12,24 +12,33 @@ var Jumbotron = React.createClass({
     this.setState({open: !this.state.open});
   },
   render: function() {
-    var imgStyle = {
-      "width": "100%",
-      "height": "600px",
-      "backgroundImage": "url('http://fakeimg.pl/1366x600/')",
-      "backgroundSize": "cover"
+    let styles = {
+      container: {
+        width: "100%",
+        height: "600px",
+        backgroundImage: "url('http://fakeimg.pl/1366x600/')",
+        backgroundSize: "cover",
+        textAlign: "center"
+      }
     };
-    var textAlignCenter = {
-      "textAlign" : "center"
-    };
+    // var imgStyle = {
+    //   "width": "100%",
+    //   "height": "600px",
+    //   "backgroundImage": "url('http://fakeimg.pl/1366x600/')",
+    //   "backgroundSize": "cover"
+    // };
+    // var textAlignCenter = {
+    //   "textAlign" : "center"
+    // };
     return (
       <MuiThemeProvider>
-      <div style={imgStyle} className="horizontal-align-middle-parent">
-        <div style={textAlignCenter} className="horizontal-align-middle-child">
-        <span className="font__large font__white">{this.props.title}{this.props.colorTitle}</span>
-        <br />
-        <span className="h2 font__white">{this.props.subTitle}</span>
+        <div style={styles.container} className="horizontal-align-middle-parent">
+          <div className="horizontal-align-middle-child">
+          <span className="font__large font__white">{this.props.title}{this.props.colorTitle}</span>
+          <br />
+          <span className="h2 font__white">{this.props.subTitle}</span>
+          </div>
         </div>
-      </div>
       </MuiThemeProvider>
     );
   }
