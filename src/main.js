@@ -1,14 +1,13 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-import {Router, Route, hashHistory, Link, browserHistory, IndexRoute} from 'react-router';
-var NavLink = require('./components/NavLink');
+import {Router, Route, hashHistory, browserHistory, IndexRoute} from 'react-router';
 var Index = require('./components/Index');
 var About = require('./components/About');
 var Resume = require('./components/Resume');
 var Portfolio = require('./components/Portfolio');
 var Contact = require('./components/Contact');
 var App = require('./App');
-var test = require('./test');
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Needed for onTouchTap
@@ -16,17 +15,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 // const App = () => (
-//   <div>
-//     <div>Header Here</div>
-//     <ul role="nav">
-//      <li><NavLink to="/about">About</NavLink></li>
-//      <li><NavLink to="/resume">Resume</NavLink></li>
-//      <li><NavLink to="/portfolio">Portfolio</NavLink></li>
-//     </ul>
-//            {/* add this */}
-//            {this.props.children}
-//     <div>Footer Here</div>
-//   </div>
+
 // );
 
 

@@ -12,37 +12,29 @@ var MyDrawer = React.createClass({
       items: []
     };
   },
-  // handleToggle: function() {
-  //   return this.setState({isDrawerOpen: !this.state.isDrawerOpen});
-  // },
   handleClose: function() {
     this.props._onDrawerClose();
-    console.log("handleClose, isDrawerOpen = " + this.state.isDrawerOpen);
-    // return this.setState({isDrawerOpen: false});
   },
   componentWillReceiveProps: function(nextProps) {
     this.setState({isDrawerOpen: nextProps.isDrawerOpen})
   },
   render: function() {
-
     var headerItems = this.props.items.map((item) => {
-      // return <NavLink key={item.text} to={item.link}><MenuItem onTouchTap={this.handleClose}>{item.text}</MenuItem></NavLink>;
-        return <NavLink key={item.text} to={item.link} onTouchTap={this.handleClose}><MenuItem>{item.text}</MenuItem></NavLink>;
+      return <NavLink key={item.text} to={item.link} onTouchTap={this.handleClose}><MenuItem>{item.text}</MenuItem></NavLink>;
   });
     return (
-
       <MuiThemeProvider>
-      <div>
-        <Drawer
-          docked={false}
-          width={200}
-          open={this.state.isDrawerOpen}
-          onRequestChange={this.handleClose}
-        >
-        {headerItems}
-        </Drawer>
-      </div>
-           </MuiThemeProvider>
+        <div>
+          <Drawer
+            docked={false}
+            width={200}
+            open={this.state.isDrawerOpen}
+            onRequestChange={this.handleClose}
+            >
+            {headerItems}
+          </Drawer>
+        </div>
+      </MuiThemeProvider>
     );
   }
 

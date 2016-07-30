@@ -42802,11 +42802,10 @@ var _colors = require('material-ui/styles/colors');
 
 var React = require('react');
 var PropTypes = React.PropTypes;
-var NavLink = require('./components/NavLink');
 var Header = require('./components/Header');
 var MyDrawer = require('./components/MyDrawer');
-var Index = require('./components/Index');
 var Footer = require('./components/Footer');
+
 
 var App = React.createClass({
   displayName: 'App',
@@ -42887,7 +42886,7 @@ var App = React.createClass({
 
 module.exports = App;
 
-},{"./components/Footer":487,"./components/Header":488,"./components/Index":490,"./components/MyDrawer":494,"./components/NavLink":495,"material-ui/styles/colors":252,"react":469}],485:[function(require,module,exports){
+},{"./components/Footer":487,"./components/Header":488,"./components/MyDrawer":494,"material-ui/styles/colors":252,"react":469}],485:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -42979,10 +42978,6 @@ var Header = React.createClass({
       color: _colors.fullWhite
     };
 
-    // <ToolbarGroup >
-    //   <ToolbarTitle text={this.props.brand.image} />
-    // </ToolbarGroup>
-    //
     return React.createElement(
       'div',
       null,
@@ -43155,8 +43150,6 @@ module.exports = HeaderCenter;
 },{"react":469}],490:[function(require,module,exports){
 'use strict';
 
-var _colors = require('material-ui/styles/colors');
-
 var React = require('react');
 var PropTypes = React.PropTypes;
 var Header = require('./Header');
@@ -43164,65 +43157,11 @@ var Jumbotron = require('./Jumbotron');
 var HeaderCenter = require('./HeaderCenter');
 var List = require('./List');
 var ScrollTop = require('./ScrollTop');
-var Footer = require('./Footer');
-var MyDrawer = require('./MyDrawer');
 
 var Index = React.createClass({
   displayName: 'Index',
 
-  getInitialState: function getInitialState() {
-    return {
-      show: false,
-      isDrawerOpen: false
-    };
-  },
-  componentWillMount: function componentWillMount() {
-    var mql = window.matchMedia("(min-width: 768px)");
-    mql.addListener(this.mediaQueryChanged);
-    this.setState({ mql: mql, show: mql.matches });
-  },
-  mediaQueryChanged: function mediaQueryChanged() {
-    this.setState({ show: this.state.mql.matches });
-    console.log("show = " + this.state.show);
-  },
-  onHambugerBtnClick: function onHambugerBtnClick() {
-    this.setState({ isDrawerOpen: true });
-    console.log("isDrawerOpen = " + this.state.isDrawerOpen);
-  },
   render: function render() {
-    var testStyle = {
-      "backgroundColor": "blue"
-    };
-    var footerStyle = {
-      "backgroundColor": _colors.blue500
-    };
-    var indexProps = {
-      show: this.state.show,
-      _onHambugerBtnClick: this.onHambugerBtnClick
-    };
-    var pageLinkItems = [{ text: "About Me", link: "#" }, { text: "Resume", link: "#" }, { text: "Portfolio", link: "#" }, { text: "Contact", link: "#" }];
-    // <header className="header row vertical-align-middle-parent">
-    //     <div className="col-12 vertical-align-middle-child">
-    //       <Header
-    //         items={pageLinkItems}
-    //         color={fullWhite}
-    //         brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
-    //         {...indexProps}
-    //         />
-    //     </div>
-    // </header>
-    // <MyDrawer isDrawerOpen={this.state.isDrawerOpen} items={pageLinkItems}/>
-    // <footer className="footer flexMiddle" style={footerStyle}>
-    //   <div className="row ">
-    //     <div className="col-12" >
-    //       <Footer
-    //         items={pageLinkItems}
-    //         color={blue500}
-    //         brandText="&copy; 2016 cashbook"
-    //       />
-    //     </div>
-    //   </div>
-    // </footer>
     return React.createElement(
       'div',
       null,
@@ -43273,7 +43212,7 @@ var Index = React.createClass({
 
 module.exports = Index;
 
-},{"./Footer":487,"./Header":488,"./HeaderCenter":489,"./Jumbotron":491,"./List":492,"./MyDrawer":494,"./ScrollTop":498,"material-ui/styles/colors":252,"react":469}],491:[function(require,module,exports){
+},{"./Header":488,"./HeaderCenter":489,"./Jumbotron":491,"./List":492,"./ScrollTop":498,"react":469}],491:[function(require,module,exports){
 'use strict';
 
 var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
@@ -43466,13 +43405,8 @@ var MyDrawer = React.createClass({
       items: []
     };
   },
-  // handleToggle: function() {
-  //   return this.setState({isDrawerOpen: !this.state.isDrawerOpen});
-  // },
   handleClose: function handleClose() {
     this.props._onDrawerClose();
-    console.log("handleClose, isDrawerOpen = " + this.state.isDrawerOpen);
-    // return this.setState({isDrawerOpen: false});
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
     this.setState({ isDrawerOpen: nextProps.isDrawerOpen });
@@ -43481,7 +43415,6 @@ var MyDrawer = React.createClass({
     var _this = this;
 
     var headerItems = this.props.items.map(function (item) {
-      // return <NavLink key={item.text} to={item.link}><MenuItem onTouchTap={this.handleClose}>{item.text}</MenuItem></NavLink>;
       return React.createElement(
         NavLink,
         { key: item.text, to: item.link, onTouchTap: _this.handleClose },
@@ -43689,32 +43622,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var NavLink = require('./components/NavLink');
 var Index = require('./components/Index');
 var About = require('./components/About');
 var Resume = require('./components/Resume');
 var Portfolio = require('./components/Portfolio');
 var Contact = require('./components/Contact');
 var App = require('./App');
-var test = require('./test');
-
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 (0, _reactTapEventPlugin2.default)();
 
 // const App = () => (
-//   <div>
-//     <div>Header Here</div>
-//     <ul role="nav">
-//      <li><NavLink to="/about">About</NavLink></li>
-//      <li><NavLink to="/resume">Resume</NavLink></li>
-//      <li><NavLink to="/portfolio">Portfolio</NavLink></li>
-//     </ul>
-//            {/* add this */}
-//            {this.props.children}
-//     <div>Footer Here</div>
-//   </div>
+
 // );
 
 
@@ -43732,7 +43652,7 @@ ReactDOM.render(React.createElement(
   )
 ), document.getElementById('app'));
 
-},{"./App":484,"./components/About":485,"./components/Contact":486,"./components/Index":490,"./components/NavLink":495,"./components/Portfolio":496,"./components/Resume":497,"./test":501,"react":469,"react-dom":279,"react-router":310,"react-tap-event-plugin":324}],500:[function(require,module,exports){
+},{"./App":484,"./components/About":485,"./components/Contact":486,"./components/Index":490,"./components/Portfolio":496,"./components/Resume":497,"react":469,"react-dom":279,"react-router":310,"react-tap-event-plugin":324}],500:[function(require,module,exports){
 "use strict";
 
 var animateScroll = function animateScroll(element, target, duration) {
@@ -43808,56 +43728,4 @@ var animateScroll = function animateScroll(element, target, duration) {
 
 module.exports = animateScroll;
 
-},{}],501:[function(require,module,exports){
-'use strict';
-
-var _reactRouter = require('react-router');
-
-var React = require('react');
-var PropTypes = React.PropTypes;
-
-var NavLink = require('./components/NavLink');
-var test = React.createClass({
-  displayName: 'test',
-
-
-  render: function render() {
-    return React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'h1',
-        null,
-        'React Router Tutorial'
-      ),
-      React.createElement(
-        'ul',
-        { role: 'nav' },
-        React.createElement(
-          'li',
-          null,
-          React.createElement(
-            NavLink,
-            { to: '/about/reactjs/react-router' },
-            'About'
-          )
-        ),
-        React.createElement(
-          'li',
-          null,
-          React.createElement(
-            NavLink,
-            { to: '/resume' },
-            'Resume'
-          )
-        )
-      ),
-      this.props.children
-    );
-  }
-
-});
-
-module.exports = test;
-
-},{"./components/NavLink":495,"react":469,"react-router":310}]},{},[499]);
+},{}]},{},[499]);

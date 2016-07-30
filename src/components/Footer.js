@@ -23,10 +23,6 @@ var Header = React.createClass({
       color: fullWhite
     };
 
-    // <ToolbarGroup >
-    //   <ToolbarTitle text={this.props.brand.image} />
-    // </ToolbarGroup>
-    //
     return (
       <div>
         <MuiThemeProvider muiTheme={muiTheme}>

@@ -1,11 +1,10 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var NavLink = require('./components/NavLink');
 var Header = require('./components/Header');
 var MyDrawer = require('./components/MyDrawer');
-var Index = require('./components/Index');
 var Footer = require('./components/Footer');
 import {fullWhite, blue500} from 'material-ui/styles/colors'
+
 var App = React.createClass({
   getInitialState: function() {
     return {

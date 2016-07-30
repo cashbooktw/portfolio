@@ -5,68 +5,9 @@ var Jumbotron = require('./Jumbotron');
 var HeaderCenter = require('./HeaderCenter');
 var List = require('./List');
 var ScrollTop = require('./ScrollTop');
-var Footer = require('./Footer');
-var MyDrawer = require('./MyDrawer');
-import {fullWhite, blue500} from 'material-ui/styles/colors'
+
 var Index = React.createClass({
-  getInitialState: function() {
-    return {
-      show: false,
-      isDrawerOpen: false
-    };
-  },
-  componentWillMount: function() {
-    const mql = window.matchMedia("(min-width: 768px)");
-    mql.addListener(this.mediaQueryChanged);
-    this.setState({mql: mql, show: mql.matches});
-  },
-  mediaQueryChanged: function() {
-     this.setState({show: this.state.mql.matches});
-     console.log("show = " + this.state.show);
-  },
-  onHambugerBtnClick: function() {
-    this.setState({isDrawerOpen: true});
-    console.log("isDrawerOpen = " + this.state.isDrawerOpen);
-  },
   render: function() {
-    var testStyle = {
-      "backgroundColor": "blue"
-    };
-    var footerStyle = {
-      "backgroundColor": blue500
-    };
-    var indexProps = {
-      show: this.state.show,
-      _onHambugerBtnClick: this.onHambugerBtnClick
-    };
-    var pageLinkItems = [
-      {text: "About Me", link: "#"},
-      {text: "Resume", link: "#"},
-      {text: "Portfolio", link: "#"},
-      {text: "Contact", link: "#"}
-    ];
-    // <header className="header row vertical-align-middle-parent">
-    //     <div className="col-12 vertical-align-middle-child">
-    //       <Header
-    //         items={pageLinkItems}
-    //         color={fullWhite}
-    //         brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
-    //         {...indexProps}
-    //         />
-    //     </div>
-    // </header>
-    // <MyDrawer isDrawerOpen={this.state.isDrawerOpen} items={pageLinkItems}/>
-    // <footer className="footer flexMiddle" style={footerStyle}>
-    //   <div className="row ">
-    //     <div className="col-12" >
-    //       <Footer
-    //         items={pageLinkItems}
-    //         color={blue500}
-    //         brandText="&copy; 2016 cashbook"
-    //       />
-    //     </div>
-    //   </div>
-    // </footer>
     return (
       <div>
 
