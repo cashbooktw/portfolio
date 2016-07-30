@@ -11,7 +11,8 @@ var Header = React.createClass({
 
   render: function() {
     const headerItems = this.props.items.map((item) => {
-      return <NavLink key={item.text} to={item.link}><FlatButton label={item.text} hoverColor={fullWhite}/></NavLink>;
+       return <NavLink key={item.text} to={item.link} className="flexMiddle"><FlatButton label={item.text} hoverColor={fullWhite}/></NavLink>;
+// return <FlatButton label={item.text} hoverColor={fullWhite}/>;
     });
     const muiTheme = getMuiTheme({
       toolbar: {

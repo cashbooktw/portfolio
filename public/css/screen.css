@@ -131,6 +131,11 @@ h6, .h6 {
   color: #FFF;
 }
 
+/* line 33, ../../src/sass/_base.scss */
+a {
+  text-decoration: none;
+}
+
 /* 12-column responsive grid */
 /* line 7, ../../src/sass/_layout.scss */
 .row {

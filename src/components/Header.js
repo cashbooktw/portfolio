@@ -22,7 +22,7 @@ var Header = React.createClass({
     let headerItems = (<div></div>);
     if (this.state.show) {
         headerItems = this.props.items.map((item) => {
-        return <NavLink key={item.text} to={item.link}><FlatButton label={item.text} /></NavLink>;
+        return <NavLink key={item.text} to={item.link} className="flexMiddle"><FlatButton label={item.text} /></NavLink>;
       });
     } else {
       headerItems = (<RaisedButton

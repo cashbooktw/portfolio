@@ -42964,9 +42964,10 @@ var Header = React.createClass({
     var headerItems = this.props.items.map(function (item) {
       return React.createElement(
         NavLink,
-        { key: item.text, to: item.link },
+        { key: item.text, to: item.link, className: 'flexMiddle' },
         React.createElement(_FlatButton2.default, { label: item.text, hoverColor: _colors.fullWhite })
       );
+      // return <FlatButton label={item.text} hoverColor={fullWhite}/>;
     });
     var muiTheme = (0, _getMuiTheme2.default)({
       toolbar: {
@@ -43057,7 +43058,7 @@ var Header = React.createClass({
       headerItems = this.props.items.map(function (item) {
         return React.createElement(
           NavLink,
-          { key: item.text, to: item.link },
+          { key: item.text, to: item.link, className: 'flexMiddle' },
           React.createElement(_FlatButton2.default, { label: item.text })
         );
       });
@@ -43452,8 +43453,6 @@ module.exports = MyDrawer;
 },{"./NavLink":495,"material-ui/Drawer":209,"material-ui/MenuItem":221,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/getMuiTheme":253,"react":469}],495:[function(require,module,exports){
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _reactRouter = require('react-router');
 
 var React = require('react');
@@ -43465,7 +43464,7 @@ var NavLink = React.createClass({
 
 
   render: function render() {
-    return React.createElement(_reactRouter.Link, _extends({}, this.props, { activeStyle: { color: 'green' } }));
+    return React.createElement(_reactRouter.Link, this.props);
   }
 
 });
