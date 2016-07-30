@@ -45,6 +45,16 @@ var App = React.createClass({
     var footerStyle = {
       backgroundColor: blue500
     };
+    // <header className="header row vertical-align-middle-parent">
+    //   <div className="col-12 vertical-align-middle-child">
+    //     <Header
+    //       items={pageLinkItems}
+    //       color={fullWhite}
+    //       brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
+    //       {...indexProps}
+    //       />
+    //   </div>
+    // </header>
     return (
       <div>
         <header className="header row vertical-align-middle-parent">
@@ -52,7 +62,6 @@ var App = React.createClass({
             <Header
               items={pageLinkItems}
               color={fullWhite}
-              brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
               {...indexProps}
               />
           </div>

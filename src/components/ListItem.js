@@ -11,20 +11,20 @@ var ListItem = React.createClass({
       padding: 10
     };
     return (
-<div style={listItemStyle}>
+      <div style={listItemStyle}>
         <MuiThemeProvider >
           <Card >
             <CardMedia
               overlay={<CardTitle
                 title="Overlay title"
                 subtitle="Overlay subtitle"
-              />}
-            >
+                />}
+                >
               <img src="http://fakeimg.pl/314x252/" />
             </CardMedia>
           </Card>
         </MuiThemeProvider>
-</div>
+      </div>
     );
   }
 

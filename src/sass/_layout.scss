@@ -5,6 +5,7 @@
 /* 12-column responsive grid */
 
 .row {
+    @extend .cf;
     clear: both;
     max-width: 1040px;
     margin: 0 auto;
@@ -15,6 +16,7 @@
     margin: 0 3.84615384615% 0 0;
     list-style: none;
     position: relative;
+    display: block;
 }
 
 [class^="col-"]:last-child {
@@ -80,3 +82,23 @@
   justify-content: center;
   align-items: center;
 }
+
+
+// clearfix
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+// .cf {
+//     *zoom: 1;
+// }

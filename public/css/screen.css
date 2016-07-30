@@ -144,131 +144,152 @@ a {
   margin: 0 auto;
 }
 
-/* line 13, ../../src/sass/_layout.scss */
+/* line 14, ../../src/sass/_layout.scss */
 [class^="col-"] {
   float: left;
   margin: 0 3.84615384615% 0 0;
   list-style: none;
   position: relative;
+  display: block;
 }
 
-/* line 20, ../../src/sass/_layout.scss */
+/* line 22, ../../src/sass/_layout.scss */
 [class^="col-"]:last-child {
   margin: 0;
 }
 
-/* line 24, ../../src/sass/_layout.scss */
+/* line 26, ../../src/sass/_layout.scss */
 .col-1 {
   width: 4.80769%;
 }
 
-/* line 25, ../../src/sass/_layout.scss */
+/* line 27, ../../src/sass/_layout.scss */
 .col-2 {
   width: 13.46154%;
 }
 
-/* line 26, ../../src/sass/_layout.scss */
+/* line 28, ../../src/sass/_layout.scss */
 .col-3 {
   width: 22.11538%;
 }
 
-/* line 27, ../../src/sass/_layout.scss */
+/* line 29, ../../src/sass/_layout.scss */
 .col-4 {
   width: 30.76923%;
 }
 
-/* line 28, ../../src/sass/_layout.scss */
+/* line 30, ../../src/sass/_layout.scss */
 .col-5 {
   width: 39.42308%;
 }
 
-/* line 29, ../../src/sass/_layout.scss */
+/* line 31, ../../src/sass/_layout.scss */
 .col-6 {
   width: 48.07692%;
 }
 
-/* line 30, ../../src/sass/_layout.scss */
+/* line 32, ../../src/sass/_layout.scss */
 .col-7 {
   width: 56.73077%;
 }
 
-/* line 31, ../../src/sass/_layout.scss */
+/* line 33, ../../src/sass/_layout.scss */
 .col-8 {
   width: 65.38462%;
 }
 
-/* line 32, ../../src/sass/_layout.scss */
+/* line 34, ../../src/sass/_layout.scss */
 .col-9 {
   width: 74.03846%;
 }
 
-/* line 33, ../../src/sass/_layout.scss */
+/* line 35, ../../src/sass/_layout.scss */
 .col-10 {
   width: 82.69231%;
 }
 
-/* line 34, ../../src/sass/_layout.scss */
+/* line 36, ../../src/sass/_layout.scss */
 .col-11 {
   width: 91.34615%;
 }
 
-/* line 35, ../../src/sass/_layout.scss */
+/* line 37, ../../src/sass/_layout.scss */
 .col-12 {
   width: 100%;
   margin: 0;
 }
 
-/* line 38, ../../src/sass/_layout.scss */
+/* line 40, ../../src/sass/_layout.scss */
 .header {
   height: 92px;
 }
 
-/* line 42, ../../src/sass/_layout.scss */
+/* line 44, ../../src/sass/_layout.scss */
 .content {
   width: 100%;
 }
 
-/* line 46, ../../src/sass/_layout.scss */
+/* line 48, ../../src/sass/_layout.scss */
 .viewPage {
   margin-bottom: 60px;
 }
 
-/* line 50, ../../src/sass/_layout.scss */
+/* line 52, ../../src/sass/_layout.scss */
 .content-groups {
   margin-bottom: 20px;
 }
 
-/* line 54, ../../src/sass/_layout.scss */
+/* line 56, ../../src/sass/_layout.scss */
 .footer {
   height: 90px;
 }
 
-/* line 58, ../../src/sass/_layout.scss */
+/* line 60, ../../src/sass/_layout.scss */
 .vertical-align-middle-parent {
   position: relative;
 }
 
-/* line 61, ../../src/sass/_layout.scss */
+/* line 63, ../../src/sass/_layout.scss */
 .vertical-align-middle-child {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-/* line 71, ../../src/sass/_layout.scss */
+/* line 73, ../../src/sass/_layout.scss */
 .horizontal-align-middle-parent {
   display: table;
 }
 
-/* line 74, ../../src/sass/_layout.scss */
+/* line 76, ../../src/sass/_layout.scss */
 .horizontal-align-middle-child {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 78, ../../src/sass/_layout.scss */
+/* line 80, ../../src/sass/_layout.scss */
 .flexMiddle {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* line 88, ../../src/sass/_layout.scss */
+.cf:before, .row:before,
+.cf:after,
+.row:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+/* line 94, ../../src/sass/_layout.scss */
+.cf:after, .row:after {
+  clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */

@@ -24,7 +24,7 @@ var Index = React.createClass({
               <HeaderCenter text="Some of my latest work" />
             </div>
           </div>
-          <section className="content-groups row ">
+          <section className="content-groups row">
             <div className="col-12 ">
               <List />
             </div>
