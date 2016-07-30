@@ -4,6 +4,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+var NavLink = require('./NavLink');
 var MyDrawer = React.createClass({
   getInitialState: function() {
     return {
@@ -11,18 +12,22 @@ var MyDrawer = React.createClass({
       items: []
     };
   },
-  handleToggle: function() {
-    return this.setState({isDrawerOpen: !this.state.isDrawerOpen});
-  },
+  // handleToggle: function() {
+  //   return this.setState({isDrawerOpen: !this.state.isDrawerOpen});
+  // },
   handleClose: function() {
-    this.setState({isDrawerOpen: false});
+    this.props._onDrawerClose();
+    console.log("handleClose, isDrawerOpen = " + this.state.isDrawerOpen);
+    // return this.setState({isDrawerOpen: false});
   },
   componentWillReceiveProps: function(nextProps) {
     this.setState({isDrawerOpen: nextProps.isDrawerOpen})
   },
   render: function() {
+
     var headerItems = this.props.items.map((item) => {
-    return <MenuItem key={item.text} onTouchTap={this.handleClose}>{item.text}</MenuItem>;
+      // return <NavLink key={item.text} to={item.link}><MenuItem onTouchTap={this.handleClose}>{item.text}</MenuItem></NavLink>;
+        return <NavLink key={item.text} to={item.link} onTouchTap={this.handleClose}><MenuItem>{item.text}</MenuItem></NavLink>;
   });
     return (
 
@@ -32,7 +37,7 @@ var MyDrawer = React.createClass({
           docked={false}
           width={200}
           open={this.state.isDrawerOpen}
-          onRequestChange={(isDrawerOpen) => this.setState({isDrawerOpen})}
+          onRequestChange={this.handleClose}
         >
         {headerItems}
         </Drawer>

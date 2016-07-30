@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 import {fullWhite} from 'material-ui/styles/colors'
 import HamburgerButtonIcon from 'material-ui/svg-icons/navigation/menu';
 import RaisedButton from 'material-ui/RaisedButton';
-
+var NavLink = require('./NavLink');
 
 var Header = React.createClass({
   getInitialState: function() {
@@ -22,7 +22,7 @@ var Header = React.createClass({
     let headerItems = (<div></div>);
     if (this.state.show) {
         headerItems = this.props.items.map((item) => {
-        return <FlatButton key={item.text} label={item.text} />;
+        return <NavLink key={item.text} to={item.link}><FlatButton label={item.text} /></NavLink>;
       });
     } else {
       headerItems = (<RaisedButton
@@ -41,7 +41,7 @@ var Header = React.createClass({
       <div>
         <MuiThemeProvider muiTheme={muiTheme}>
           <Toolbar>
-            <a href={this.props.brand.link}><img src={this.props.brand.image} alt={this.props.brandText}/></a>
+            <img src={this.props.brand.image} alt={this.props.brandText}/>
             <ToolbarGroup >
               {headerItems}
             </ToolbarGroup>

@@ -5,12 +5,13 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import FlatButton from 'material-ui/FlatButton';
 import {fullWhite} from 'material-ui/styles/colors'
+var NavLink = require('./NavLink');
 
 var Header = React.createClass({
 
   render: function() {
     const headerItems = this.props.items.map((item) => {
-      return <FlatButton key={item.text} label={item.text} hoverColor={fullWhite}/>;
+      return <NavLink key={item.text} to={item.link}><FlatButton label={item.text} hoverColor={fullWhite}/></NavLink>;
     });
     const muiTheme = getMuiTheme({
       toolbar: {
@@ -21,6 +22,7 @@ var Header = React.createClass({
     var toolbarTitleStyle = {
       color: fullWhite
     };
+
     // <ToolbarGroup >
     //   <ToolbarTitle text={this.props.brand.image} />
     // </ToolbarGroup>

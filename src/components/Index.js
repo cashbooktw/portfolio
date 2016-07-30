@@ -45,19 +45,31 @@ var Index = React.createClass({
       {text: "Portfolio", link: "#"},
       {text: "Contact", link: "#"}
     ];
+    // <header className="header row vertical-align-middle-parent">
+    //     <div className="col-12 vertical-align-middle-child">
+    //       <Header
+    //         items={pageLinkItems}
+    //         color={fullWhite}
+    //         brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
+    //         {...indexProps}
+    //         />
+    //     </div>
+    // </header>
+    // <MyDrawer isDrawerOpen={this.state.isDrawerOpen} items={pageLinkItems}/>
+    // <footer className="footer flexMiddle" style={footerStyle}>
+    //   <div className="row ">
+    //     <div className="col-12" >
+    //       <Footer
+    //         items={pageLinkItems}
+    //         color={blue500}
+    //         brandText="&copy; 2016 cashbook"
+    //       />
+    //     </div>
+    //   </div>
+    // </footer>
     return (
       <div>
-        <header className="header row vertical-align-middle-parent">
-            <div className="col-12 vertical-align-middle-child">
-              <Header
-                items={pageLinkItems}
-                color={fullWhite}
-                brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
-                {...indexProps}
-                />
-            </div>
-        </header>
-        <MyDrawer isDrawerOpen={this.state.isDrawerOpen} items={pageLinkItems}/>
+
         <div className="content">
           <section className="viewPage">
             <Jumbotron
@@ -82,17 +94,6 @@ var Index = React.createClass({
             </div>
           </div>
         </div>
-        <footer className="footer flexMiddle" style={footerStyle}>
-          <div className="row ">
-            <div className="col-12" >
-              <Footer
-                items={pageLinkItems}
-                color={blue500}
-                brandText="&copy; 2016 cashbook"
-              />
-            </div>
-          </div>
-        </footer>
       </div>
     );
   }

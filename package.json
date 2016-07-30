@@ -21,5 +21,8 @@
     "reflux": "^0.4.1",
     "watchify": "^3.7.0",
     "whatwg-fetch": "^1.0.0"
+  },
+  "dependencies": {
+    "react-router": "^2.6.0"
   }
 }
