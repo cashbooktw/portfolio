@@ -43422,24 +43422,24 @@ var Article = React.createClass({
     if (this.props.title) {
       myArticle.push(React.createElement(
         "span",
-        { className: "font__large" },
+        { className: "font__large", key: this.props.title },
         this.props.title
       ));
-      myArticle.push(React.createElement("br", null));
+      myArticle.push(React.createElement("br", { key: this.props.title + "x" }));
     }
     if (this.props.subTitle) {
-      myArticle.push(React.createElement("br", null));
+      myArticle.push(React.createElement("br", { key: this.props.subTitle + "x" }));
       myArticle.push(React.createElement(
         "h2",
-        null,
+        { key: this.props.subTitle },
         this.props.subTitle
       ));
     }
     if (this.props.content) {
-      myArticle.push(React.createElement("br", null));
+      myArticle.push(React.createElement("br", { key: this.props.content + "x" }));
       myArticle.push(React.createElement(
         "h4",
-        null,
+        { key: this.props.content },
         this.props.content
       ));
     }
@@ -44141,7 +44141,7 @@ var ScrollTop = React.createClass({
 
 module.exports = ScrollTop;
 
-},{"../services/animationScroll":507,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],505:[function(require,module,exports){
+},{"../services/animationScroll":508,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],505:[function(require,module,exports){
 'use strict';
 
 var _colors = require('material-ui/styles/colors');
@@ -44149,7 +44149,8 @@ var _colors = require('material-ui/styles/colors');
 var React = require('react');
 var PropTypes = React.PropTypes;
 
-// var ScrollReveal = require('scrollreveal');
+var getPosition = require('../services/getPosition');
+var TimelineBox = require('./TimelineBox');
 
 var Timeline = React.createClass({
   displayName: 'Timeline',
@@ -44160,15 +44161,14 @@ var Timeline = React.createClass({
     };
   },
   onScroll: function onScroll() {
-    console.log("scrollY = " + window.scrollY);
-    if (scrollY >= 600) {
-      this.setState({ visibility: "visible" });
-    } else {
-      this.setState({ visibility: "hidden" });
-    }
+    console.log("scrollYYY = " + window.scrollY);
+    this.setState({ scrollY: window.scrollY });
   },
   componentDidMount: function componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
+  },
+  componentWillUnmount: function componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
   },
   render: function render() {
     var BlockStyle = {
@@ -44186,20 +44186,11 @@ var Timeline = React.createClass({
       padding: 10,
       visibility: this.state.visibility
     };
-
-    // <div style={BlockStyle} id="A3"/>
-    // <div style={BlockStyle} id="A4"/>
-    // <div style={BlockStyle} id="A5"/>
-    // <div style={BlockStyle} id="A6"/>
-    // <div style={BlockStyle} id="A7"/>
-    // <div style={BlockStyle} id="A8"/>
-    // <div style={BlockStyle} id="A9"/>
-    // <div style={BlockStyle} id="A0"/>
     return React.createElement(
       'div',
       null,
-      React.createElement('div', { style: BlockStyle }),
-      React.createElement('div', { style: BlockStyle2 })
+      React.createElement(TimelineBox, { myRef: 'A1', bgColor: _colors.indigo500, scrollY: this.state.scrollY }),
+      React.createElement(TimelineBox, { myRef: 'A2', bgColor: _colors.cyan500, scrollY: this.state.scrollY })
     );
   }
 
@@ -44207,7 +44198,48 @@ var Timeline = React.createClass({
 
 module.exports = Timeline;
 
-},{"material-ui/styles/colors":256,"react":474}],506:[function(require,module,exports){
+},{"../services/getPosition":509,"./TimelineBox":506,"material-ui/styles/colors":256,"react":474}],506:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var getPosition = require('../services/getPosition');
+var TimelineBox = React.createClass({
+  displayName: 'TimelineBox',
+
+  getInitialState: function getInitialState() {
+    return {
+      visibility: "hidden"
+    };
+  },
+  componentDidMount: function componentDidMount() {
+    var A1 = this.refs[this.props.myRef];
+    var positionA1 = getPosition(A1).y - 250;
+    this.setState({ position: positionA1 });
+  },
+  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+    console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
+    if (nextProps.scrollY >= this.state.position) {
+      this.setState({ visibility: "visible" });
+    }
+  },
+  render: function render() {
+    var BlockStyle = {
+      width: 1000,
+      height: 500,
+      margin: 10,
+      backgroundColor: this.props.bgColor,
+      padding: 10,
+      visibility: this.state.visibility
+    };
+    return React.createElement('div', { style: BlockStyle, ref: this.props.myRef });
+  }
+
+});
+
+module.exports = TimelineBox;
+
+},{"../services/getPosition":509,"react":474}],507:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -44227,8 +44259,6 @@ var Timeline = require('./components/Timeline');
 var Portfolio = require('./components/Portfolio');
 var Contact = require('./components/Contact');
 var App = require('./App');
-// var ScrollReveal = require('scrollreveal');
-
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -44238,14 +44268,6 @@ var App = require('./App');
 
 // );
 
-// window.sr = ScrollReveal();
-// sr.reveal('#A1');
-// sr.reveal('#A2');
-// sr.reveal('#A3');
-// sr.reveal('#A4');
-// sr.reveal('#A5');
-// sr.reveal('#A6');
-// sr.reveal('#A7');
 
 ReactDOM.render(React.createElement(
   _reactRouter.Router,
@@ -44261,7 +44283,7 @@ ReactDOM.render(React.createElement(
   )
 ), document.getElementById('app'));
 
-},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/Portfolio":503,"./components/Timeline":505,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],507:[function(require,module,exports){
+},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/Portfolio":503,"./components/Timeline":505,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],508:[function(require,module,exports){
 "use strict";
 
 var animateScroll = function animateScroll(element, target, duration) {
@@ -44337,4 +44359,35 @@ var animateScroll = function animateScroll(element, target, duration) {
 
 module.exports = animateScroll;
 
-},{}]},{},[506]);
+},{}],509:[function(require,module,exports){
+"use strict";
+
+var getPosition = function getPosition(el) {
+  var xPos = 0;
+  var yPos = 0;
+
+  while (el) {
+    if (el.tagName == "BODY") {
+      // deal with browser quirks with body/window/document and page scroll
+      var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+      var yScroll = el.scrollTop || document.documentElement.scrollTop;
+
+      xPos += el.offsetLeft - xScroll + el.clientLeft;
+      yPos += el.offsetTop - yScroll + el.clientTop;
+    } else {
+      // for all other non-BODY elements
+      xPos += el.offsetLeft - el.scrollLeft + el.clientLeft;
+      yPos += el.offsetTop - el.scrollTop + el.clientTop;
+    }
+
+    el = el.offsetParent;
+  }
+  return {
+    x: xPos,
+    y: yPos
+  };
+};
+
+module.exports = getPosition;
+
+},{}]},{},[507]);

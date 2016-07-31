@@ -10,7 +10,7 @@ var ScrollTop = React.createClass({
     event.preventDefault();
     console.log("TAP!");
 
-animateScroll(document.body, 0, 1000);
+    animateScroll(document.body, 0, 1000);
   },
 
   render: function() {

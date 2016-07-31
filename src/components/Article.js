@@ -6,16 +6,16 @@ var Article = React.createClass({
   render: function() {
     let myArticle = [];
     if (this.props.title) {
-      myArticle.push(<span className="font__large">{this.props.title}</span>)
-      myArticle.push(<br />);
+      myArticle.push(<span className="font__large" key={this.props.title}>{this.props.title}</span>)
+      myArticle.push(<br key={this.props.title + "x"} />);
     }
     if (this.props.subTitle) {
-      myArticle.push(<br />);
-      myArticle.push(<h2>{this.props.subTitle}</h2>);
+      myArticle.push(<br key={this.props.subTitle + "x"}/>);
+      myArticle.push(<h2 key={this.props.subTitle}>{this.props.subTitle}</h2>);
     }
     if (this.props.content) {
-      myArticle.push(<br />);
-      myArticle.push(<h4>{this.props.content}</h4>);
+      myArticle.push(<br key={this.props.content + "x"}/>);
+      myArticle.push(<h4 key={this.props.content}>{this.props.content}</h4>);
     }
     // <span className="font__large">about me</span>
     // <h2>I am a UX/UI Designer and Front End Developer from Sydney, Australia.</h2>

@@ -1,7 +1,8 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 import {red500,pink500,purple500,deepPurple500, indigo500, blue500, lightBlue500, cyan500} from 'material-ui/styles/colors'
-// var ScrollReveal = require('scrollreveal');
+var getPosition = require('../services/getPosition');
+var TimelineBox = require('./TimelineBox');
 
 var Timeline = React.createClass({
   getInitialState: function() {
@@ -10,15 +11,14 @@ var Timeline = React.createClass({
     };
   },
   onScroll: function() {
-    console.log("scrollY = " + window.scrollY);
-    if (scrollY >= 600) {
-      this.setState({visibility: "visible"});
-    } else {
-      this.setState({visibility: "hidden"});
-    }
+    console.log("scrollYYY = " + window.scrollY);
+    this.setState({scrollY: window.scrollY});
   },
   componentDidMount: function() {
     window.addEventListener("scroll", this.onScroll);
+  },
+  componentWillUnmount: function() {
+    window.removeEventListener("scroll",  this.onScroll);
   },
   render: function() {
     var BlockStyle = {
@@ -36,20 +36,10 @@ var Timeline = React.createClass({
       padding: 10,
       visibility: this.state.visibility
     };
-
-    // <div style={BlockStyle} id="A3"/>
-    // <div style={BlockStyle} id="A4"/>
-    // <div style={BlockStyle} id="A5"/>
-    // <div style={BlockStyle} id="A6"/>
-    // <div style={BlockStyle} id="A7"/>
-    // <div style={BlockStyle} id="A8"/>
-    // <div style={BlockStyle} id="A9"/>
-    // <div style={BlockStyle} id="A0"/>
     return (
       <div>
-        <div style={BlockStyle} />
-        <div style={BlockStyle2} />
-
+        <TimelineBox myRef="A1" bgColor={indigo500} scrollY={this.state.scrollY} />
+        <TimelineBox myRef="A2" bgColor={cyan500} scrollY={this.state.scrollY}/>
 
       </div>
     );
