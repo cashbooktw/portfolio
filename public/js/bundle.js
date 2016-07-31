@@ -43153,7 +43153,7 @@ var App = React.createClass({
       show: this.state.show,
       _onHambugerBtnClick: this.onHambugerBtnClick
     };
-    var pageLinkItems = [{ text: "About", link: "/about" }, { text: "Resume", link: "/resume" }, { text: "Portfolio", link: "/portfolio" }, { text: "Contact", link: "/contact" }];
+    var pageLinkItems = [{ text: "About", link: "/about" }, { text: "Timeline", link: "/timeline" }, { text: "Portfolio", link: "/portfolio" }, { text: "Contact", link: "/contact" }];
     var footerStyle = {
       backgroundColor: _colors.blue500
     };
@@ -43167,6 +43167,7 @@ var App = React.createClass({
     //       />
     //   </div>
     // </header>
+
     return React.createElement(
       'div',
       null,
@@ -43768,7 +43769,7 @@ var Index = React.createClass({
 
 module.exports = Index;
 
-},{"./Header":495,"./HeaderCenter":496,"./Jumbotron":498,"./List":499,"./ScrollTop":505,"react":474}],498:[function(require,module,exports){
+},{"./Header":495,"./HeaderCenter":496,"./Jumbotron":498,"./List":499,"./ScrollTop":504,"react":474}],498:[function(require,module,exports){
 'use strict';
 
 var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
@@ -44051,28 +44052,6 @@ module.exports = Portfolio;
 },{"react":474}],504:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var PropTypes = React.PropTypes;
-
-var Resume = React.createClass({
-  displayName: 'Resume',
-
-
-  render: function render() {
-    return React.createElement(
-      'div',
-      null,
-      'Resume'
-    );
-  }
-
-});
-
-module.exports = Resume;
-
-},{"react":474}],505:[function(require,module,exports){
-'use strict';
-
 var _IconButton = require('material-ui/IconButton');
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
@@ -44162,7 +44141,73 @@ var ScrollTop = React.createClass({
 
 module.exports = ScrollTop;
 
-},{"../services/animationScroll":507,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],506:[function(require,module,exports){
+},{"../services/animationScroll":507,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],505:[function(require,module,exports){
+'use strict';
+
+var _colors = require('material-ui/styles/colors');
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+
+// var ScrollReveal = require('scrollreveal');
+
+var Timeline = React.createClass({
+  displayName: 'Timeline',
+
+  getInitialState: function getInitialState() {
+    return {
+      visibility: "hidden"
+    };
+  },
+  onScroll: function onScroll() {
+    console.log("scrollY = " + window.scrollY);
+    if (scrollY >= 600) {
+      this.setState({ visibility: "visible" });
+    } else {
+      this.setState({ visibility: "hidden" });
+    }
+  },
+  componentDidMount: function componentDidMount() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  render: function render() {
+    var BlockStyle = {
+      width: 1000,
+      height: 500,
+      margin: 10,
+      backgroundColor: _colors.indigo500,
+      padding: 10
+    };
+    var BlockStyle2 = {
+      width: 1000,
+      height: 500,
+      margin: 10,
+      backgroundColor: _colors.cyan500,
+      padding: 10,
+      visibility: this.state.visibility
+    };
+
+    // <div style={BlockStyle} id="A3"/>
+    // <div style={BlockStyle} id="A4"/>
+    // <div style={BlockStyle} id="A5"/>
+    // <div style={BlockStyle} id="A6"/>
+    // <div style={BlockStyle} id="A7"/>
+    // <div style={BlockStyle} id="A8"/>
+    // <div style={BlockStyle} id="A9"/>
+    // <div style={BlockStyle} id="A0"/>
+    return React.createElement(
+      'div',
+      null,
+      React.createElement('div', { style: BlockStyle }),
+      React.createElement('div', { style: BlockStyle2 })
+    );
+  }
+
+});
+
+module.exports = Timeline;
+
+},{"material-ui/styles/colors":256,"react":474}],506:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -44178,10 +44223,12 @@ var ReactDOM = require('react-dom');
 
 var Index = require('./components/Index');
 var About = require('./components/About');
-var Resume = require('./components/Resume');
+var Timeline = require('./components/Timeline');
 var Portfolio = require('./components/Portfolio');
 var Contact = require('./components/Contact');
 var App = require('./App');
+// var ScrollReveal = require('scrollreveal');
+
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -44191,6 +44238,14 @@ var App = require('./App');
 
 // );
 
+// window.sr = ScrollReveal();
+// sr.reveal('#A1');
+// sr.reveal('#A2');
+// sr.reveal('#A3');
+// sr.reveal('#A4');
+// sr.reveal('#A5');
+// sr.reveal('#A6');
+// sr.reveal('#A7');
 
 ReactDOM.render(React.createElement(
   _reactRouter.Router,
@@ -44200,13 +44255,13 @@ ReactDOM.render(React.createElement(
     { path: '/', component: App },
     React.createElement(_reactRouter.IndexRoute, { component: Index }),
     React.createElement(_reactRouter.Route, { path: '/about', component: About }),
-    React.createElement(_reactRouter.Route, { path: '/resume', component: Resume }),
+    React.createElement(_reactRouter.Route, { path: '/timeline', component: Timeline }),
     React.createElement(_reactRouter.Route, { path: '/portfolio', component: Portfolio }),
     React.createElement(_reactRouter.Route, { path: '/contact', component: Contact })
   )
 ), document.getElementById('app'));
 
-},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/Portfolio":503,"./components/Resume":504,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],507:[function(require,module,exports){
+},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/Portfolio":503,"./components/Timeline":505,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],507:[function(require,module,exports){
 "use strict";
 
 var animateScroll = function animateScroll(element, target, duration) {

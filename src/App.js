@@ -5,6 +5,7 @@ var MyDrawer = require('./components/MyDrawer');
 var Footer = require('./components/Footer');
 import {fullWhite, blue500} from 'material-ui/styles/colors'
 
+
 var App = React.createClass({
   getInitialState: function() {
     return {
@@ -38,7 +39,7 @@ var App = React.createClass({
     };
     var pageLinkItems = [
       {text: "About", link: "/about"},
-      {text: "Resume", link: "/resume"},
+      {text: "Timeline", link: "/timeline"},
       {text: "Portfolio", link: "/portfolio"},
       {text: "Contact", link: "/contact"}
     ];
@@ -55,6 +56,7 @@ var App = React.createClass({
     //       />
     //   </div>
     // </header>
+
     return (
       <div>
         <header className="header row vertical-align-middle-parent">
