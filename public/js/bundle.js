@@ -44175,7 +44175,7 @@ var Timeline = React.createClass({
       width: 1000,
       height: 500,
       margin: 10,
-      backgroundColor: _colors.indigo500,
+      backgroundColor: _colors.purple500,
       padding: 10
     };
     var BlockStyle2 = {
@@ -44189,6 +44189,7 @@ var Timeline = React.createClass({
     return React.createElement(
       'div',
       null,
+      React.createElement('div', { style: BlockStyle, className: 'animated fadeInUp' }),
       React.createElement(TimelineBox, { myRef: 'A1', bgColor: _colors.indigo500, scrollY: this.state.scrollY }),
       React.createElement(TimelineBox, { myRef: 'A2', bgColor: _colors.cyan500, scrollY: this.state.scrollY })
     );
@@ -44209,7 +44210,8 @@ var TimelineBox = React.createClass({
 
   getInitialState: function getInitialState() {
     return {
-      visibility: "hidden"
+      visibility: "hidden",
+      myClass: ""
     };
   },
   componentDidMount: function componentDidMount() {
@@ -44220,7 +44222,7 @@ var TimelineBox = React.createClass({
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
     console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
     if (nextProps.scrollY >= this.state.position) {
-      this.setState({ visibility: "visible" });
+      this.setState({ visibility: "visible", myClass: "animated fadeInUp" });
     }
   },
   render: function render() {
@@ -44232,7 +44234,8 @@ var TimelineBox = React.createClass({
       padding: 10,
       visibility: this.state.visibility
     };
-    return React.createElement('div', { style: BlockStyle, ref: this.props.myRef });
+
+    return React.createElement('div', { style: BlockStyle, ref: this.props.myRef, className: this.state.myClass });
   }
 
 });

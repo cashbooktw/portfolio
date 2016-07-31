@@ -25,7 +25,7 @@ var Timeline = React.createClass({
       width: 1000,
       height: 500,
       margin: 10,
-      backgroundColor: indigo500,
+      backgroundColor: purple500,
       padding: 10
     };
     var BlockStyle2 = {
@@ -38,6 +38,7 @@ var Timeline = React.createClass({
     };
     return (
       <div>
+        <div style={BlockStyle} className="animated fadeInUp"></div>
         <TimelineBox myRef="A1" bgColor={indigo500} scrollY={this.state.scrollY} />
         <TimelineBox myRef="A2" bgColor={cyan500} scrollY={this.state.scrollY}/>
 

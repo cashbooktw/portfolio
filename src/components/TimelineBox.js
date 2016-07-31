@@ -4,7 +4,8 @@ var getPosition = require('../services/getPosition');
 var TimelineBox = React.createClass({
   getInitialState: function() {
     return {
-      visibility: "hidden"
+      visibility: "hidden",
+      myClass: ""
     };
   },
   componentDidMount: function() {
@@ -15,7 +16,7 @@ var TimelineBox = React.createClass({
   componentWillReceiveProps: function(nextProps) {
     console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
     if (nextProps.scrollY >= this.state.position) {
-        this.setState({visibility: "visible"})
+        this.setState({visibility: "visible", myClass: "animated fadeInUp"});
     }
 
   },
@@ -28,8 +29,9 @@ var TimelineBox = React.createClass({
       padding: 10,
       visibility: this.state.visibility
     };
+
     return (
-      <div style={BlockStyle} ref={this.props.myRef}>
+      <div style={BlockStyle} ref={this.props.myRef} className={this.state.myClass}>
 
       </div>
     );
