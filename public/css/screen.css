@@ -245,36 +245,42 @@ a {
 }
 
 /* line 60, ../../src/sass/_layout.scss */
+.timeline {
+  background-color: #9E9E9E;
+  padding: 10px;
+}
+
+/* line 65, ../../src/sass/_layout.scss */
 .vertical-align-middle-parent {
   position: relative;
 }
 
-/* line 63, ../../src/sass/_layout.scss */
+/* line 68, ../../src/sass/_layout.scss */
 .vertical-align-middle-child {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-/* line 73, ../../src/sass/_layout.scss */
+/* line 78, ../../src/sass/_layout.scss */
 .horizontal-align-middle-parent {
   display: table;
 }
 
-/* line 76, ../../src/sass/_layout.scss */
+/* line 81, ../../src/sass/_layout.scss */
 .horizontal-align-middle-child {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 80, ../../src/sass/_layout.scss */
+/* line 85, ../../src/sass/_layout.scss */
 .flexMiddle {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* line 88, ../../src/sass/_layout.scss */
+/* line 93, ../../src/sass/_layout.scss */
 .cf:before, .row:before,
 .cf:after,
 .row:after {
@@ -284,7 +290,7 @@ a {
   /* 2 */
 }
 
-/* line 94, ../../src/sass/_layout.scss */
+/* line 99, ../../src/sass/_layout.scss */
 .cf:after, .row:after {
   clear: both;
 }
@@ -293,3 +299,96 @@ a {
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
+/* Speech Bubble */
+/* line 2, ../../src/sass/_module.scss */
+.speechBubble, .speechBubble--left {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  text-align: left;
+  line-height: 24px;
+  background: linear-gradient(90deg, #ffffff 85%, #f44336 0%) repeat-y;
+  border: 0;
+  border-radius: 0 30px 30px;
+  box-shadow: 2px 2px 4px #212121;
+  padding: 5px 40px 5px 5px;
+  margin: 0 auto;
+}
+/* line 22, ../../src/sass/_module.scss */
+.speechBubble:after, .speechBubble--left:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -30px;
+  top: 0px;
+  border: 15px solid;
+  border-color: #fff #fff transparent transparent;
+}
+
+/* line 45, ../../src/sass/_module.scss */
+.speechBubble--left {
+  background: linear-gradient(-90deg, #ffffff 85%, #f44336 0%) repeat-y;
+  border-radius: 30px 0 30px 30px;
+  box-shadow: -2px 2px 4px #212121;
+  padding: 5px 5px 5px 40px;
+}
+/* line 51, ../../src/sass/_module.scss */
+.speechBubble--left:after {
+  left: 245px;
+  border-color: #fff transparent transparent #fff;
+}
+
+/* line 58, ../../src/sass/_module.scss */
+.TimelineBox__Right {
+  background: linear-gradient(0deg, #212121 75%, rgba(0, 0, 0, 0) 0%) repeat-y;
+  background-size: 4px 16px;
+  background-position: 0px 0px;
+  position: relative;
+}
+
+/* line 68, ../../src/sass/_module.scss */
+.TimelineBox__Left, .TimelineBox__Right {
+  width: 400px;
+  height: 200px;
+}
+
+/* line 77, ../../src/sass/_module.scss */
+.TimelineBox__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 61px;
+}
+
+/* line 84, ../../src/sass/_module.scss */
+.TimelineBox__wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+/* line 93, ../../src/sass/_module.scss */
+.circle {
+  content: '';
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #F44336;
+  position: absolute;
+  left: -11px;
+  top: -13px;
+}
+
+/* line 104, ../../src/sass/_module.scss */
+.circle__title {
+  height: 48px;
+  width: 200px;
+  text-align: center;
+  font-size: 36px;
+  position: absolute;
+  top: -48px;
+  left: -98px;
+}

@@ -1,28 +1,112 @@
-// .jumbotron img{
-//   width: 100%;
-//   height: auto;
-//   background-repeat: no-repeat;
-//   background-size: 100% auto;
+/* Speech Bubble */
+.speechBubble {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  text-align: left;
+  line-height: 24px;
+  background: linear-gradient(90deg, #fff 85%, #F44336 0) repeat-y;
+  border: 0;
+  // -webkit-border-radius: 30px;
+  // -moz-border-radius: 30px;
+  border-radius: 0 30px 30px;
+  // -webkit-box-shadow: 2px 2px 4px #212121;
+  // -moz-box-shadow: 2px 2px 4px #212121;
+  box-shadow: 2px 2px 4px #212121;
+  padding: 5px 40px 5px 5px;
+  // padding-right: 40px;
+  // padding-left: 5px;
+  // padding-top: 5px;
+  // padding-bottom: 5px;
+  margin: 0 auto;
+  &:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -30px;
+    top: 0px;
+    border: 15px solid;
+    border-color: #fff #fff transparent transparent ;
+  }
+}
+
+// .speechBubble:after {
+//   content: ' ';
+//   position: absolute;
+//   width: 0;
+//   height: 0;
+//   left: -30px;
+//   top: 0px;
+//   border: 15px solid;
+//   border-color: #fff #fff transparent transparent ;
 // }
 
-// .header-center {
-//   height: 1px;
-//   background: #DDD;
-//   border-bottom: #FFF solid 1px;
-//   margin-bottom: 30px;
-//   position: relative;
-//   vertical-align: bottom;
-// }
-//
-// .header-center span {
-//   background-color: #FFF;
-//   position: absolute;
-//   top: -10px;
-//   left: 50%; transform: translateX(-50%);
-//   width: 300px;
-//   text-align: center;
-//   display: block;
-//   color: #666666;//#666666
-//   text-transform: uppercase;
-//   letter-spacing: 1px;
-// }
+.speechBubble--left {
+  @extend .speechBubble;
+  background: linear-gradient(-90deg, #fff 85%, #F44336 0) repeat-y;
+  border-radius: 30px 0 30px 30px;
+  box-shadow: -2px 2px 4px #212121;
+  padding: 5px 5px 5px 40px;
+  &:after {
+    @extend .speechBubble:after;
+    left: 245px;
+    border-color: #fff transparent transparent #fff ;
+  }
+}
+
+.TimelineBox__Right {
+  // width: 400px;
+  // height: 200px;
+  @extend .TimelineBox__Left;
+  background: linear-gradient(0deg, #212121 75%, transparent 0) repeat-y;
+  background-size: 4px 16px ;
+  background-position: 0px 0px;
+  position: relative;
+}
+
+.TimelineBox__Left {
+  width: 400px;
+  height: 200px;
+  // background: linear-gradient(0deg, #212121 75%, transparent 0) repeat-y;
+  // background-size: 4px 16px ;
+  // background-position: 0px 0px;
+  // position: relative;
+}
+
+.TimelineBox__container {
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  padding-top: 61px;
+}
+
+.TimelineBox__wrapper {
+  width: 100%;
+  display: flex;
+  // background-color: #9E9E9E;
+  align-items: center;
+  flex-direction:column;
+  margin: 0;
+}
+
+.circle {
+  content: '';
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #F44336;
+  position: absolute;
+  left: -11px;
+  top: -13px;
+}
+
+.circle__title {
+  height: 48px;
+  width: 200px;
+  text-align: center;
+  font-size: 36px;
+  position: absolute;
+  top: -48px;
+  left: -98px;
+}

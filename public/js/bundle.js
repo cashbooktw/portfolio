@@ -44141,7 +44141,34 @@ var ScrollTop = React.createClass({
 
 module.exports = ScrollTop;
 
-},{"../services/animationScroll":508,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],505:[function(require,module,exports){
+},{"../services/animationScroll":511,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],505:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+
+var SpeechBubble = React.createClass({
+  displayName: 'SpeechBubble',
+
+
+  render: function render() {
+    var speechBubblePosition = this.props.speechBubblePosition;
+    var styles = {
+      display: this.props.display,
+      background: this.props.backgroundStyle
+    };
+    return React.createElement(
+      'p',
+      { className: speechBubblePosition, style: styles },
+      this.props.content
+    );
+  }
+
+});
+
+module.exports = SpeechBubble;
+
+},{"react":474}],506:[function(require,module,exports){
 'use strict';
 
 var _colors = require('material-ui/styles/colors');
@@ -44178,20 +44205,34 @@ var Timeline = React.createClass({
       backgroundColor: _colors.purple500,
       padding: 10
     };
-    var BlockStyle2 = {
-      width: 1000,
-      height: 500,
-      margin: 10,
-      backgroundColor: _colors.cyan500,
-      padding: 10,
-      visibility: this.state.visibility
-    };
+    // var BlockStyle2 = {
+    //   width: 1000,
+    //   height: 500,
+    //   margin: 10,
+    //   backgroundColor: cyan500,
+    //   padding: 10,
+    //   visibility: this.state.visibility
+    // };
     return React.createElement(
       'div',
-      null,
+      { className: 'timeline' },
       React.createElement('div', { style: BlockStyle, className: 'animated fadeInUp' }),
-      React.createElement(TimelineBox, { myRef: 'A1', bgColor: _colors.indigo500, scrollY: this.state.scrollY }),
-      React.createElement(TimelineBox, { myRef: 'A2', bgColor: _colors.cyan500, scrollY: this.state.scrollY })
+      React.createElement(TimelineBox, {
+        myRef: 'A1',
+        visualColor: _colors.indigo500,
+        scrollY: this.state.scrollY,
+        year: '2016',
+        side: 'left',
+        content: 'This is the 2016 content'
+      }),
+      React.createElement(TimelineBox, {
+        myRef: 'A2',
+        visualColor: _colors.cyan500,
+        scrollY: this.state.scrollY,
+        year: '2015',
+        side: 'right',
+        content: 'This is the 2015 content'
+      })
     );
   }
 
@@ -44199,12 +44240,15 @@ var Timeline = React.createClass({
 
 module.exports = Timeline;
 
-},{"../services/getPosition":509,"./TimelineBox":506,"material-ui/styles/colors":256,"react":474}],506:[function(require,module,exports){
+},{"../services/getPosition":512,"./TimelineBox":507,"material-ui/styles/colors":256,"react":474}],507:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var PropTypes = React.PropTypes;
 var getPosition = require('../services/getPosition');
+var SpeechBubble = require('./SpeechBubble');
+var TimelineBoxRight = require('./TimelineBoxRight');
+var TimelineBoxLeft = require('./TimelineBoxLeft');
 var TimelineBox = React.createClass({
   displayName: 'TimelineBox',
 
@@ -44215,9 +44259,9 @@ var TimelineBox = React.createClass({
     };
   },
   componentDidMount: function componentDidMount() {
-    var A1 = this.refs[this.props.myRef];
-    var positionA1 = getPosition(A1).y - 250;
-    this.setState({ position: positionA1 });
+    var myRef = this.refs[this.props.myRef];
+    var positionMyRef = getPosition(myRef).y - 300;
+    this.setState({ position: positionMyRef });
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
     console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
@@ -44227,22 +44271,103 @@ var TimelineBox = React.createClass({
   },
   render: function render() {
     var BlockStyle = {
-      width: 1000,
-      height: 500,
-      margin: 10,
-      backgroundColor: this.props.bgColor,
-      padding: 10,
       visibility: this.state.visibility
     };
+    var _props = this.props;
+    var year = _props.year;
+    var side = _props.side;
+    var content = _props.content;
+    var visualColor = _props.visualColor;
+    //   let switchBoxSide = (side === "right") ? <div><TimelineBoxRight year={year} content={content} visualColor={visualColor} /> <TimelineBoxLeft visualColor={visualColor} /><div/> : <div><TimelineBoxRight year={year} visualColor={visualColor} /> <TimelineBoxLeft content={content} visualColor={visualColor} /><div/>;
+    // let TBR = (side === "right") ? <TimelineBoxRight year={year} content={content} visualColor={visualColor} />
 
-    return React.createElement('div', { style: BlockStyle, ref: this.props.myRef, className: this.state.myClass });
+    return React.createElement(
+      'div',
+      { style: BlockStyle, ref: this.props.myRef, className: this.state.myClass },
+      React.createElement(
+        'div',
+        { className: 'TimelineBox__wrapper' },
+        React.createElement(
+          'div',
+          { className: 'TimelineBox__container' },
+          React.createElement(TimelineBoxLeft, { side: side, visualColor: visualColor, content: content }),
+          React.createElement(TimelineBoxRight, { side: side, visualColor: visualColor, content: content, year: year })
+        )
+      )
+    );
   }
 
 });
 
 module.exports = TimelineBox;
 
-},{"../services/getPosition":509,"react":474}],507:[function(require,module,exports){
+},{"../services/getPosition":512,"./SpeechBubble":505,"./TimelineBoxLeft":508,"./TimelineBoxRight":509,"react":474}],508:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var SpeechBubble = require('./SpeechBubble');
+var TimelineBoxRight = React.createClass({
+  displayName: 'TimelineBoxRight',
+
+
+  render: function render() {
+    var display = "block";
+    if (this.props.side === "left") {
+      display = "block";
+    } else {
+      display = "none";
+    }
+    var backgroundStyle = "linear-gradient(-90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    return React.createElement(
+      'div',
+      { className: 'TimelineBox__Left' },
+      React.createElement(SpeechBubble, { speechBubblePosition: 'speechBubble--left', content: this.props.content, display: display, visualColor: this.props.visualColor, backgroundStyle: backgroundStyle })
+    );
+  }
+});
+
+module.exports = TimelineBoxRight;
+
+},{"./SpeechBubble":505,"react":474}],509:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var SpeechBubble = require('./SpeechBubble');
+var TimelineBoxRight = React.createClass({
+  displayName: 'TimelineBoxRight',
+
+
+  render: function render() {
+    var display = "block";
+    if (this.props.side === "right") {
+      display = "block";
+    } else {
+      display = "none";
+    }
+    var circleStyle = {
+      backgroundColor: this.props.visualColor
+    };
+    var backgroundStyle = "linear-gradient(90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+
+    return React.createElement(
+      'div',
+      { className: 'TimelineBox__Right' },
+      React.createElement(
+        'div',
+        { className: 'circle__title' },
+        this.props.year
+      ),
+      React.createElement('div', { className: 'circle', style: circleStyle }),
+      React.createElement(SpeechBubble, { speechBubblePosition: 'speechBubble', content: this.props.content, display: display, visualColor: this.props.visualColor, backgroundStyle: backgroundStyle })
+    );
+  }
+});
+
+module.exports = TimelineBoxRight;
+
+},{"./SpeechBubble":505,"react":474}],510:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -44286,7 +44411,7 @@ ReactDOM.render(React.createElement(
   )
 ), document.getElementById('app'));
 
-},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/Portfolio":503,"./components/Timeline":505,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],508:[function(require,module,exports){
+},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/Portfolio":503,"./components/Timeline":506,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],511:[function(require,module,exports){
 "use strict";
 
 var animateScroll = function animateScroll(element, target, duration) {
@@ -44362,7 +44487,7 @@ var animateScroll = function animateScroll(element, target, duration) {
 
 module.exports = animateScroll;
 
-},{}],509:[function(require,module,exports){
+},{}],512:[function(require,module,exports){
 "use strict";
 
 var getPosition = function getPosition(el) {
@@ -44393,4 +44518,4 @@ var getPosition = function getPosition(el) {
 
 module.exports = getPosition;
 
-},{}]},{},[507]);
+},{}]},{},[510]);

@@ -28,20 +28,34 @@ var Timeline = React.createClass({
       backgroundColor: purple500,
       padding: 10
     };
-    var BlockStyle2 = {
-      width: 1000,
-      height: 500,
-      margin: 10,
-      backgroundColor: cyan500,
-      padding: 10,
-      visibility: this.state.visibility
-    };
+    // var BlockStyle2 = {
+    //   width: 1000,
+    //   height: 500,
+    //   margin: 10,
+    //   backgroundColor: cyan500,
+    //   padding: 10,
+    //   visibility: this.state.visibility
+    // };
     return (
-      <div>
+      <div className="timeline">
         <div style={BlockStyle} className="animated fadeInUp"></div>
-        <TimelineBox myRef="A1" bgColor={indigo500} scrollY={this.state.scrollY} />
-        <TimelineBox myRef="A2" bgColor={cyan500} scrollY={this.state.scrollY}/>
+        <TimelineBox
+          myRef="A1"
+          visualColor={indigo500}
+          scrollY={this.state.scrollY}
+          year="2016"
+          side="left"
+          content="This is the 2016 content"
+          />
 
+          <TimelineBox
+            myRef="A2"
+            visualColor={cyan500}
+            scrollY={this.state.scrollY}
+            year="2015"
+            side="right"
+            content="This is the 2015 content"
+            />
       </div>
     );
   }
