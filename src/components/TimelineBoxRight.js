@@ -14,7 +14,7 @@ var TimelineBoxRight = React.createClass({
       backgroundColor: this.props.visualColor
     };
     let backgroundStyle = "linear-gradient(90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
-
+                          
     return (
       <div className="TimelineBox__Right">
         <div className="circle__title">{this.props.year}</div>

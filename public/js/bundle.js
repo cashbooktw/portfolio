@@ -44178,7 +44178,7 @@ var PropTypes = React.PropTypes;
 
 var getPosition = require('../services/getPosition');
 var TimelineBox = require('./TimelineBox');
-
+var Article = require('./Article');
 var Timeline = React.createClass({
   displayName: 'Timeline',
 
@@ -44205,6 +44205,11 @@ var Timeline = React.createClass({
       backgroundColor: _colors.purple500,
       padding: 10
     };
+    var styles = {
+      sectionStyle: {
+        padding: "3em 5%"
+      }
+    };
     // var BlockStyle2 = {
     //   width: 1000,
     //   height: 500,
@@ -44213,25 +44218,51 @@ var Timeline = React.createClass({
     //   padding: 10,
     //   visibility: this.state.visibility
     // };
+    // <div style={BlockStyle} className="animated fadeInUp"></div>
     return React.createElement(
       'div',
       { className: 'timeline' },
-      React.createElement('div', { style: BlockStyle, className: 'animated fadeInUp' }),
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(
+          'div',
+          { className: 'col-12' },
+          React.createElement(
+            'div',
+            { className: 'bigBubble' },
+            React.createElement(Article, {
+              title: 'What I did this year',
+              subTitle: 'Substitute Military Service in Taiwan Changhua District Court.'
+            }),
+            React.createElement(Article, { subTitle: 'self-learning Front End technonogies.' }),
+            React.createElement(Article, { subTitle: 'participated in Soft & Share online meetups' }),
+            React.createElement(Article, { subTitle: 'reading and programming' })
+          ),
+          React.createElement('div', { className: 'bigBubble--after' }),
+          React.createElement(TimelineBox, {
+            myRef: 'A0',
+            visualColor: _colors.purple500,
+            scrollY: 1000,
+            year: '2016'
+          })
+        )
+      ),
       React.createElement(TimelineBox, {
         myRef: 'A1',
         visualColor: _colors.indigo500,
         scrollY: this.state.scrollY,
-        year: '2016',
+        year: '2015',
         side: 'left',
-        content: 'This is the 2016 content'
+        content: 'This is the 2015 content'
       }),
       React.createElement(TimelineBox, {
         myRef: 'A2',
         visualColor: _colors.cyan500,
         scrollY: this.state.scrollY,
-        year: '2015',
+        year: '2014',
         side: 'right',
-        content: 'This is the 2015 content'
+        content: 'This is the 0214 content'
       })
     );
   }
@@ -44240,7 +44271,7 @@ var Timeline = React.createClass({
 
 module.exports = Timeline;
 
-},{"../services/getPosition":512,"./TimelineBox":507,"material-ui/styles/colors":256,"react":474}],507:[function(require,module,exports){
+},{"../services/getPosition":512,"./Article":492,"./TimelineBox":507,"material-ui/styles/colors":256,"react":474}],507:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44262,6 +44293,9 @@ var TimelineBox = React.createClass({
     var myRef = this.refs[this.props.myRef];
     var positionMyRef = getPosition(myRef).y - 300;
     this.setState({ position: positionMyRef });
+    if (this.props.scrollY >= positionMyRef) {
+      this.setState({ visibility: "visible", myClass: "animated fadeInUp" });
+    }
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
     console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
@@ -44278,8 +44312,6 @@ var TimelineBox = React.createClass({
     var side = _props.side;
     var content = _props.content;
     var visualColor = _props.visualColor;
-    //   let switchBoxSide = (side === "right") ? <div><TimelineBoxRight year={year} content={content} visualColor={visualColor} /> <TimelineBoxLeft visualColor={visualColor} /><div/> : <div><TimelineBoxRight year={year} visualColor={visualColor} /> <TimelineBoxLeft content={content} visualColor={visualColor} /><div/>;
-    // let TBR = (side === "right") ? <TimelineBoxRight year={year} content={content} visualColor={visualColor} />
 
     return React.createElement(
       'div',

@@ -15,22 +15,21 @@ var TimelineBox = React.createClass({
     let myRef = this.refs[this.props.myRef];
     let positionMyRef = getPosition(myRef).y - 300;
     this.setState({position: positionMyRef});
+    if (this.props.scrollY >= positionMyRef) {
+      this.setState({visibility: "visible", myClass: "animated fadeInUp"});
+    }
   },
   componentWillReceiveProps: function(nextProps) {
     console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
     if (nextProps.scrollY >= this.state.position) {
         this.setState({visibility: "visible", myClass: "animated fadeInUp"});
     }
-
   },
   render: function() {
     var BlockStyle = {
       visibility: this.state.visibility
     };
     let {year, side, content, visualColor} = this.props;
-  //   let switchBoxSide = (side === "right") ? <div><TimelineBoxRight year={year} content={content} visualColor={visualColor} /> <TimelineBoxLeft visualColor={visualColor} /><div/> : <div><TimelineBoxRight year={year} visualColor={visualColor} /> <TimelineBoxLeft content={content} visualColor={visualColor} /><div/>;
-  // let TBR = (side === "right") ? <TimelineBoxRight year={year} content={content} visualColor={visualColor} />
-
     return (
       <div style={BlockStyle} ref={this.props.myRef} className={this.state.myClass}>
         <div className="TimelineBox__wrapper">

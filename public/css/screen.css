@@ -246,7 +246,7 @@ a {
 
 /* line 60, ../../src/sass/_layout.scss */
 .timeline {
-  background-color: #9E9E9E;
+  background-color: #E0E0E0;
   padding: 10px;
 }
 
@@ -314,7 +314,7 @@ a {
   padding: 5px 40px 5px 5px;
   margin: 0 auto;
 }
-/* line 22, ../../src/sass/_module.scss */
+/* line 14, ../../src/sass/_module.scss */
 .speechBubble:after, .speechBubble--left:after {
   content: ' ';
   position: absolute;
@@ -326,20 +326,20 @@ a {
   border-color: #fff #fff transparent transparent;
 }
 
-/* line 45, ../../src/sass/_module.scss */
+/* line 37, ../../src/sass/_module.scss */
 .speechBubble--left {
   background: linear-gradient(-90deg, #ffffff 85%, #f44336 0%) repeat-y;
   border-radius: 30px 0 30px 30px;
   box-shadow: -2px 2px 4px #212121;
   padding: 5px 5px 5px 40px;
 }
-/* line 51, ../../src/sass/_module.scss */
+/* line 43, ../../src/sass/_module.scss */
 .speechBubble--left:after {
   left: 245px;
   border-color: #fff transparent transparent #fff;
 }
 
-/* line 58, ../../src/sass/_module.scss */
+/* line 50, ../../src/sass/_module.scss */
 .TimelineBox__Right {
   background: linear-gradient(0deg, #212121 75%, rgba(0, 0, 0, 0) 0%) repeat-y;
   background-size: 4px 16px;
@@ -347,13 +347,13 @@ a {
   position: relative;
 }
 
-/* line 68, ../../src/sass/_module.scss */
+/* line 60, ../../src/sass/_module.scss */
 .TimelineBox__Left, .TimelineBox__Right {
   width: 400px;
   height: 200px;
 }
 
-/* line 77, ../../src/sass/_module.scss */
+/* line 69, ../../src/sass/_module.scss */
 .TimelineBox__container {
   width: 100%;
   display: flex;
@@ -361,7 +361,7 @@ a {
   padding-top: 61px;
 }
 
-/* line 84, ../../src/sass/_module.scss */
+/* line 76, ../../src/sass/_module.scss */
 .TimelineBox__wrapper {
   width: 100%;
   display: flex;
@@ -370,7 +370,7 @@ a {
   margin: 0;
 }
 
-/* line 93, ../../src/sass/_module.scss */
+/* line 85, ../../src/sass/_module.scss */
 .circle {
   content: '';
   width: 26px;
@@ -382,7 +382,7 @@ a {
   top: -13px;
 }
 
-/* line 104, ../../src/sass/_module.scss */
+/* line 96, ../../src/sass/_module.scss */
 .circle__title {
   height: 48px;
   width: 200px;
@@ -391,4 +391,26 @@ a {
   position: absolute;
   top: -48px;
   left: -98px;
+}
+
+/* line 106, ../../src/sass/_module.scss */
+.bigBubble {
+  background: linear-gradient(90deg, #ffffff 85%, #f44336 0%) repeat-y;
+  border: 0;
+  border-radius: 30px 30px;
+  padding: 20px 80px 20px 20px;
+  margin: 0 auto;
+}
+
+/* line 115, ../../src/sass/_module.scss */
+.bigBubble--after {
+  content: ' ';
+  width: 0;
+  height: 0;
+  left: 0px;
+  top: 0px;
+  border-style: solid;
+  border-width: 45px 30px 0 30px;
+  border-color: #fff transparent transparent transparent;
+  margin: 0 auto;
 }
