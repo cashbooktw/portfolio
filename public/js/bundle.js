@@ -43209,7 +43209,7 @@ var App = React.createClass({
 
 module.exports = App;
 
-},{"./components/Footer":494,"./components/Header":495,"./components/MyDrawer":501,"material-ui/styles/colors":256,"react":474}],490:[function(require,module,exports){
+},{"./components/Footer":494,"./components/Header":495,"./components/MyDrawer":503,"material-ui/styles/colors":256,"react":474}],490:[function(require,module,exports){
 'use strict';
 
 var _colors = require('material-ui/styles/colors');
@@ -43555,7 +43555,7 @@ var Header = React.createClass({
 
 module.exports = Header;
 
-},{"./NavLink":502,"material-ui/FlatButton":214,"material-ui/Toolbar":242,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/colors":256,"material-ui/styles/getMuiTheme":257,"react":474}],495:[function(require,module,exports){
+},{"./NavLink":504,"material-ui/FlatButton":214,"material-ui/Toolbar":242,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/colors":256,"material-ui/styles/getMuiTheme":257,"react":474}],495:[function(require,module,exports){
 'use strict';
 
 var _Toolbar = require('material-ui/Toolbar');
@@ -43655,7 +43655,7 @@ var Header = React.createClass({
 
 module.exports = Header;
 
-},{"./NavLink":502,"material-ui/FlatButton":214,"material-ui/RaisedButton":233,"material-ui/Toolbar":242,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/colors":256,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/navigation/menu":268,"react":474}],496:[function(require,module,exports){
+},{"./NavLink":504,"material-ui/FlatButton":214,"material-ui/RaisedButton":233,"material-ui/Toolbar":242,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/colors":256,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/navigation/menu":268,"react":474}],496:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -43769,7 +43769,7 @@ var Index = React.createClass({
 
 module.exports = Index;
 
-},{"./Header":495,"./HeaderCenter":496,"./Jumbotron":498,"./List":499,"./ScrollTop":504,"react":474}],498:[function(require,module,exports){
+},{"./Header":495,"./HeaderCenter":496,"./Jumbotron":498,"./List":500,"./ScrollTop":507,"react":474}],498:[function(require,module,exports){
 'use strict';
 
 var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
@@ -43850,7 +43850,30 @@ module.exports = Jumbotron;
 
 var React = require('react');
 var PropTypes = React.PropTypes;
+
+var KaohsiungMRT = React.createClass({
+  displayName: 'KaohsiungMRT',
+
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      null,
+      'KaohsiungMRT'
+    );
+  }
+
+});
+
+module.exports = KaohsiungMRT;
+
+},{"react":474}],500:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
 var ListItem = require('./ListItem');
+var NavLink = require('./NavLink');
 var List = React.createClass({
   displayName: 'List',
 
@@ -43863,9 +43886,21 @@ var List = React.createClass({
     return React.createElement(
       'div',
       { style: listStyle },
-      React.createElement(ListItem, null),
-      React.createElement(ListItem, null),
-      React.createElement(ListItem, null)
+      React.createElement(
+        NavLink,
+        { to: '/portfolio/pokemon-index' },
+        React.createElement(ListItem, null)
+      ),
+      React.createElement(
+        NavLink,
+        { to: '/portfolio/kaohsiung-MRT' },
+        React.createElement(ListItem, null)
+      ),
+      React.createElement(
+        NavLink,
+        { to: '/portfolio/multiplayer-game' },
+        React.createElement(ListItem, null)
+      )
     );
   }
 
@@ -43873,7 +43908,7 @@ var List = React.createClass({
 
 module.exports = List;
 
-},{"./ListItem":500,"react":474}],500:[function(require,module,exports){
+},{"./ListItem":501,"./NavLink":504,"react":474}],501:[function(require,module,exports){
 'use strict';
 
 var _Card = require('material-ui/Card');
@@ -43928,7 +43963,29 @@ var ListItem = React.createClass({
 
 module.exports = ListItem;
 
-},{"material-ui/Card":207,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"react":474}],501:[function(require,module,exports){
+},{"material-ui/Card":207,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"react":474}],502:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+
+var MultiplayerGame = React.createClass({
+  displayName: 'MultiplayerGame',
+
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      null,
+      'MultiplayerGame'
+    );
+  }
+
+});
+
+module.exports = MultiplayerGame;
+
+},{"react":474}],503:[function(require,module,exports){
 'use strict';
 
 var _Drawer = require('material-ui/Drawer');
@@ -44006,7 +44063,7 @@ var MyDrawer = React.createClass({
 
 module.exports = MyDrawer;
 
-},{"./NavLink":502,"material-ui/Drawer":211,"material-ui/MenuItem":225,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"react":474}],502:[function(require,module,exports){
+},{"./NavLink":504,"material-ui/Drawer":211,"material-ui/MenuItem":225,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"react":474}],504:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -44027,12 +44084,37 @@ var NavLink = React.createClass({
 
 module.exports = NavLink;
 
-},{"react":474,"react-router":315}],503:[function(require,module,exports){
+},{"react":474,"react-router":315}],505:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var PropTypes = React.PropTypes;
 
+var PokemonIndex = React.createClass({
+  displayName: 'PokemonIndex',
+
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      null,
+      'PokemonIndex'
+    );
+  }
+
+});
+
+module.exports = PokemonIndex;
+
+},{"react":474}],506:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var NavLink = require('./NavLink');
+var HeaderCenter = require('./HeaderCenter');
+var List = require('./List');
+var ScrollTop = require('./ScrollTop');
 var Portfolio = React.createClass({
   displayName: 'Portfolio',
 
@@ -44041,7 +44123,66 @@ var Portfolio = React.createClass({
     return React.createElement(
       'div',
       null,
-      'portfolio'
+      'portfolio',
+      this.props.children,
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(
+          'div',
+          { className: 'col-12' },
+          React.createElement(HeaderCenter, { text: 'My Portfolios' })
+        )
+      ),
+      React.createElement(
+        'section',
+        { className: 'content-groups row' },
+        React.createElement(
+          'div',
+          { className: 'col-12 ' },
+          React.createElement(List, null)
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'row horizontal-align-middle-parent' },
+        React.createElement(
+          'div',
+          { className: 'col-12 horizontal-align-middle-child' },
+          React.createElement(ScrollTop, null)
+        )
+      ),
+      React.createElement(
+        'ul',
+        null,
+        React.createElement(
+          'li',
+          null,
+          React.createElement(
+            NavLink,
+            { to: '/portfolio/pokemon-index' },
+            'PokemonIndex'
+          )
+        ),
+        React.createElement(
+          'li',
+          null,
+          React.createElement(
+            NavLink,
+            { to: '/portfolio/kaohsiung-MRT' },
+            'KaohsiungMRT'
+          )
+        ),
+        React.createElement(
+          'li',
+          null,
+          React.createElement(
+            NavLink,
+            { to: '/portfolio/multiplayer-game' },
+            'MultiplayerGame'
+          )
+        )
+      )
     );
   }
 
@@ -44049,7 +44190,7 @@ var Portfolio = React.createClass({
 
 module.exports = Portfolio;
 
-},{"react":474}],504:[function(require,module,exports){
+},{"./HeaderCenter":496,"./List":500,"./NavLink":504,"./ScrollTop":507,"react":474}],507:[function(require,module,exports){
 'use strict';
 
 var _IconButton = require('material-ui/IconButton');
@@ -44141,7 +44282,7 @@ var ScrollTop = React.createClass({
 
 module.exports = ScrollTop;
 
-},{"../services/animationScroll":511,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],505:[function(require,module,exports){
+},{"../services/animationScroll":514,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],508:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44168,7 +44309,7 @@ var SpeechBubble = React.createClass({
 
 module.exports = SpeechBubble;
 
-},{"react":474}],506:[function(require,module,exports){
+},{"react":474}],509:[function(require,module,exports){
 'use strict';
 
 var _colors = require('material-ui/styles/colors');
@@ -44271,7 +44412,7 @@ var Timeline = React.createClass({
 
 module.exports = Timeline;
 
-},{"../services/getPosition":512,"./Article":492,"./TimelineBox":507,"material-ui/styles/colors":256,"react":474}],507:[function(require,module,exports){
+},{"../services/getPosition":515,"./Article":492,"./TimelineBox":510,"material-ui/styles/colors":256,"react":474}],510:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44333,7 +44474,7 @@ var TimelineBox = React.createClass({
 
 module.exports = TimelineBox;
 
-},{"../services/getPosition":512,"./SpeechBubble":505,"./TimelineBoxLeft":508,"./TimelineBoxRight":509,"react":474}],508:[function(require,module,exports){
+},{"../services/getPosition":515,"./SpeechBubble":508,"./TimelineBoxLeft":511,"./TimelineBoxRight":512,"react":474}],511:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44361,7 +44502,7 @@ var TimelineBoxRight = React.createClass({
 
 module.exports = TimelineBoxRight;
 
-},{"./SpeechBubble":505,"react":474}],509:[function(require,module,exports){
+},{"./SpeechBubble":508,"react":474}],512:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44399,7 +44540,7 @@ var TimelineBoxRight = React.createClass({
 
 module.exports = TimelineBoxRight;
 
-},{"./SpeechBubble":505,"react":474}],510:[function(require,module,exports){
+},{"./SpeechBubble":508,"react":474}],513:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -44419,6 +44560,9 @@ var Timeline = require('./components/Timeline');
 var Portfolio = require('./components/Portfolio');
 var Contact = require('./components/Contact');
 var App = require('./App');
+var PokemonIndex = require('./components/PokemonIndex');
+var KaohsiungMRT = require('./components/KaohsiungMRT');
+var MultiplayerGame = require('./components/MultiplayerGame');
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -44427,23 +44571,31 @@ var App = require('./App');
 // const App = () => (
 
 // );
-
+function onRouteChange() {
+  window.scrollTo(0, 0);
+}
 
 ReactDOM.render(React.createElement(
   _reactRouter.Router,
-  { history: _reactRouter.hashHistory },
+  { onUpdate: onRouteChange, history: _reactRouter.hashHistory },
   React.createElement(
     _reactRouter.Route,
     { path: '/', component: App },
     React.createElement(_reactRouter.IndexRoute, { component: Index }),
     React.createElement(_reactRouter.Route, { path: '/about', component: About }),
     React.createElement(_reactRouter.Route, { path: '/timeline', component: Timeline }),
-    React.createElement(_reactRouter.Route, { path: '/portfolio', component: Portfolio }),
+    React.createElement(
+      _reactRouter.Route,
+      { path: '/portfolio', component: Portfolio },
+      React.createElement(_reactRouter.Route, { path: '/portfolio/pokemon-index', component: PokemonIndex }),
+      React.createElement(_reactRouter.Route, { path: '/portfolio/kaohsiung-MRT', component: KaohsiungMRT }),
+      React.createElement(_reactRouter.Route, { path: '/portfolio/multiplayer-game', component: MultiplayerGame })
+    ),
     React.createElement(_reactRouter.Route, { path: '/contact', component: Contact })
   )
 ), document.getElementById('app'));
 
-},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/Portfolio":503,"./components/Timeline":506,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],511:[function(require,module,exports){
+},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/KaohsiungMRT":499,"./components/MultiplayerGame":502,"./components/PokemonIndex":505,"./components/Portfolio":506,"./components/Timeline":509,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],514:[function(require,module,exports){
 "use strict";
 
 var animateScroll = function animateScroll(element, target, duration) {
@@ -44519,7 +44671,7 @@ var animateScroll = function animateScroll(element, target, duration) {
 
 module.exports = animateScroll;
 
-},{}],512:[function(require,module,exports){
+},{}],515:[function(require,module,exports){
 "use strict";
 
 var getPosition = function getPosition(el) {
@@ -44550,4 +44702,4 @@ var getPosition = function getPosition(el) {
 
 module.exports = getPosition;
 
-},{}]},{},[510]);
+},{}]},{},[513]);

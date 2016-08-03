@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var ListItem = require('./ListItem');
+const NavLink = require('./NavLink');
 var List = React.createClass({
 
   render: function() {
@@ -10,9 +11,9 @@ var List = React.createClass({
     };
     return (
       <div style={listStyle}>
-        <ListItem />
-        <ListItem />
-        <ListItem />
+        <NavLink to="/portfolio/pokemon-index"><ListItem /></NavLink>
+        <NavLink to="/portfolio/kaohsiung-MRT"><ListItem /></NavLink>
+        <NavLink to="/portfolio/multiplayer-game"><ListItem /></NavLink>
       </div>
     );
   }

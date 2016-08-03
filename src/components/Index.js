@@ -19,6 +19,7 @@ var Index = React.createClass({
               subTitle="Front End Developer with passion for studying techonologies."
             />
           </section>
+
           <div className="row">
             <div className="col-12">
               <HeaderCenter text="Some of my latest work" />
@@ -35,6 +36,7 @@ var Index = React.createClass({
             </div>
           </div>
         </div>
+
       </div>
     );
   }
