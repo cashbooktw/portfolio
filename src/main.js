@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-import {Router, Route, hashHistory, browserHistory, IndexRoute} from 'react-router';
+import {Router, Route, hashHistory, browserHistory, IndexRoute, RouterContext} from 'react-router';
 var Index = require('./components/Index');
 var About = require('./components/About');
 var Timeline = require('./components/Timeline');
@@ -20,13 +20,14 @@ injectTapEventPlugin();
 // const App = () => (
 
 // );
-function onRouteChange() {
-    window.scrollTo(0, 0);
-}
+// var onRouteChange = function () {
+//     window.scrollTo(0, 0);
+//     console.log("Router.isActive = " + this.context.router.isActive({pathname: "/timeline"}));
+// }.bind(this);
 
-
+//  onUpdate={onRouteChange}
 ReactDOM.render((
-  <Router onUpdate={onRouteChange} history={hashHistory}>
+  <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Index}/>
         {/* make them children of `App` */}

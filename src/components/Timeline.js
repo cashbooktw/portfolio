@@ -7,18 +7,20 @@ var Article = require('./Article');
 var Timeline = React.createClass({
   getInitialState: function() {
     return {
-      visibility: "hidden"
     };
-  },
-  onScroll: function() {
-    console.log("scrollYYY = " + window.scrollY);
-    this.setState({scrollY: window.scrollY});
   },
   componentDidMount: function() {
     window.addEventListener("scroll", this.onScroll);
   },
   componentWillUnmount: function() {
     window.removeEventListener("scroll",  this.onScroll);
+  },
+  onScroll: function() {
+    console.log("scrollYYY = " + window.scrollY);
+    this.setState({scrollY: window.scrollY});
+  },
+  contextTypes: {
+   router: React.PropTypes.object
   },
   render: function() {
     var BlockStyle = {
@@ -33,17 +35,8 @@ var Timeline = React.createClass({
         padding: "3em 5%"
       }
     }
-    // var BlockStyle2 = {
-    //   width: 1000,
-    //   height: 500,
-    //   margin: 10,
-    //   backgroundColor: cyan500,
-    //   padding: 10,
-    //   visibility: this.state.visibility
-    // };
-    // <div style={BlockStyle} className="animated fadeInUp"></div>
     return (
-      <div className="timeline">
+      <div className="timeline" ref="timeline">
         <div className="row">
           <div className="col-12">
             <div className="bigBubble">
@@ -86,5 +79,4 @@ var Timeline = React.createClass({
   }
 
 });
-
 module.exports = Timeline;

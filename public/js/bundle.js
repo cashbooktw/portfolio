@@ -44324,19 +44324,20 @@ var Timeline = React.createClass({
   displayName: 'Timeline',
 
   getInitialState: function getInitialState() {
-    return {
-      visibility: "hidden"
-    };
-  },
-  onScroll: function onScroll() {
-    console.log("scrollYYY = " + window.scrollY);
-    this.setState({ scrollY: window.scrollY });
+    return {};
   },
   componentDidMount: function componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
   },
   componentWillUnmount: function componentWillUnmount() {
     window.removeEventListener("scroll", this.onScroll);
+  },
+  onScroll: function onScroll() {
+    console.log("scrollYYY = " + window.scrollY);
+    this.setState({ scrollY: window.scrollY });
+  },
+  contextTypes: {
+    router: React.PropTypes.object
   },
   render: function render() {
     var BlockStyle = {
@@ -44351,18 +44352,9 @@ var Timeline = React.createClass({
         padding: "3em 5%"
       }
     };
-    // var BlockStyle2 = {
-    //   width: 1000,
-    //   height: 500,
-    //   margin: 10,
-    //   backgroundColor: cyan500,
-    //   padding: 10,
-    //   visibility: this.state.visibility
-    // };
-    // <div style={BlockStyle} className="animated fadeInUp"></div>
     return React.createElement(
       'div',
-      { className: 'timeline' },
+      { className: 'timeline', ref: 'timeline' },
       React.createElement(
         'div',
         { className: 'row' },
@@ -44409,7 +44401,6 @@ var Timeline = React.createClass({
   }
 
 });
-
 module.exports = Timeline;
 
 },{"../services/getPosition":515,"./Article":492,"./TimelineBox":510,"material-ui/styles/colors":256,"react":474}],510:[function(require,module,exports){
@@ -44440,9 +44431,12 @@ var TimelineBox = React.createClass({
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
     console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
-    if (nextProps.scrollY >= this.state.position) {
+    if (nextProps.scrollY >= this.state.position && this.context.router.isActive({ pathname: "/timeline" })) {
       this.setState({ visibility: "visible", myClass: "animated fadeInUp" });
     }
+  },
+  contextTypes: {
+    router: React.PropTypes.object
   },
   render: function render() {
     var BlockStyle = {
@@ -44571,13 +44565,15 @@ var MultiplayerGame = require('./components/MultiplayerGame');
 // const App = () => (
 
 // );
-function onRouteChange() {
-  window.scrollTo(0, 0);
-}
+// var onRouteChange = function () {
+//     window.scrollTo(0, 0);
+//     console.log("Router.isActive = " + this.context.router.isActive({pathname: "/timeline"}));
+// }.bind(this);
 
+//  onUpdate={onRouteChange}
 ReactDOM.render(React.createElement(
   _reactRouter.Router,
-  { onUpdate: onRouteChange, history: _reactRouter.hashHistory },
+  { history: _reactRouter.hashHistory },
   React.createElement(
     _reactRouter.Route,
     { path: '/', component: App },

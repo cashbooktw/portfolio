@@ -21,9 +21,12 @@ var TimelineBox = React.createClass({
   },
   componentWillReceiveProps: function(nextProps) {
     console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
-    if (nextProps.scrollY >= this.state.position) {
+    if ((nextProps.scrollY >= this.state.position) && this.context.router.isActive({pathname: "/timeline"})) {
         this.setState({visibility: "visible", myClass: "animated fadeInUp"});
     }
+  },
+  contextTypes: {
+   router: React.PropTypes.object
   },
   render: function() {
     var BlockStyle = {
