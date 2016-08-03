@@ -25,10 +25,10 @@ var About = React.createClass({
     return (
       <div>
         <section style={styles.sectionStyle} className="row viewPage">
-          <div className="col-7">
+          <div className="col-7 animated fadeInUp">
             <img src="http://fakeimg.pl/590x440/"></img>
           </div>
-          <div className="col-5">
+          <div className="col-5 animated fadeInUp">
             <Article
               title="about me"
               subTitle="A Front End Developer from Changhua, Taiwan."

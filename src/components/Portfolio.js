@@ -9,15 +9,12 @@ var Portfolio = React.createClass({
   render: function() {
     return (
       <div>
-        portfolio
         {this.props.children}
-
         <div className="row">
           <div className="col-12">
             <HeaderCenter text="My Portfolios" />
           </div>
         </div>
-
         <section className="content-groups row">
           <div className="col-12 ">
             <List />
@@ -28,14 +25,6 @@ var Portfolio = React.createClass({
             <ScrollTop />
           </div>
         </div>
-
-
-        <ul>
-          <li><NavLink to="/portfolio/pokemon-index">PokemonIndex</NavLink></li>
-          <li><NavLink to="/portfolio/kaohsiung-MRT">KaohsiungMRT</NavLink></li>
-          <li><NavLink to="/portfolio/multiplayer-game">MultiplayerGame</NavLink></li>
-        </ul>
-
       </div>
     );
   }

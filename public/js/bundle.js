@@ -43248,12 +43248,12 @@ var About = React.createClass({
         { style: styles.sectionStyle, className: 'row viewPage' },
         React.createElement(
           'div',
-          { className: 'col-7' },
+          { className: 'col-7 animated fadeInUp' },
           React.createElement('img', { src: 'http://fakeimg.pl/590x440/' })
         ),
         React.createElement(
           'div',
-          { className: 'col-5' },
+          { className: 'col-5 animated fadeInUp' },
           React.createElement(Article, {
             title: 'about me',
             subTitle: 'A Front End Developer from Changhua, Taiwan.',
@@ -44123,7 +44123,6 @@ var Portfolio = React.createClass({
     return React.createElement(
       'div',
       null,
-      'portfolio',
       this.props.children,
       React.createElement(
         'div',
@@ -44150,37 +44149,6 @@ var Portfolio = React.createClass({
           'div',
           { className: 'col-12 horizontal-align-middle-child' },
           React.createElement(ScrollTop, null)
-        )
-      ),
-      React.createElement(
-        'ul',
-        null,
-        React.createElement(
-          'li',
-          null,
-          React.createElement(
-            NavLink,
-            { to: '/portfolio/pokemon-index' },
-            'PokemonIndex'
-          )
-        ),
-        React.createElement(
-          'li',
-          null,
-          React.createElement(
-            NavLink,
-            { to: '/portfolio/kaohsiung-MRT' },
-            'KaohsiungMRT'
-          )
-        ),
-        React.createElement(
-          'li',
-          null,
-          React.createElement(
-            NavLink,
-            { to: '/portfolio/multiplayer-game' },
-            'MultiplayerGame'
-          )
         )
       )
     );
