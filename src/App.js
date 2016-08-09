@@ -72,6 +72,7 @@ var App = React.createClass({
                 items={pageLinkItems}
                 color={blue500}
                 brandText="&copy; 2016 cashbook"
+                show={this.state.show}
                 />
             </div>
           </div>
@@ -81,7 +82,7 @@ var App = React.createClass({
   }
 
 });
-
+// items={pageLinkItems}
 App.childContextTypes = {
   show  : React.PropTypes.bool
 };

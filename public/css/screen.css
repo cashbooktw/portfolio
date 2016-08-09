@@ -75,13 +75,20 @@ body {
 /* line 26, ../../src/sass/_base.scss */
 h1, .h1 {
   font-size: 2em;
-  line-height: 2.2em;
+  line-height: 1em;
+}
+@media (max-width: 767px) {
+  /* line 26, ../../src/sass/_base.scss */
+  h1, .h1 {
+    font-size: 1.5em;
+    line-height: 1.65em;
+  }
 }
 
 /* line 27, ../../src/sass/_base.scss */
 h2, .h2 {
   font-size: 1.5em;
-  line-height: 1.65em;
+  line-height: 1em;
 }
 @media (max-width: 767px) {
   /* line 27, ../../src/sass/_base.scss */
@@ -95,6 +102,13 @@ h2, .h2 {
 h3, .h3 {
   font-size: 1.17em;
   line-height: 1.287em;
+}
+@media (max-width: 767px) {
+  /* line 28, ../../src/sass/_base.scss */
+  h3, .h3 {
+    font-size: 1.12em;
+    line-height: 1.231em;
+  }
 }
 
 /* line 29, ../../src/sass/_base.scss */

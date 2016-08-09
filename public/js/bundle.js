@@ -43190,7 +43190,8 @@ var App = React.createClass({
             React.createElement(Footer, {
               items: pageLinkItems,
               color: _colors.blue500,
-              brandText: '© 2016 cashbook'
+              brandText: '© 2016 cashbook',
+              show: this.state.show
             })
           )
         )
@@ -43199,7 +43200,7 @@ var App = React.createClass({
   }
 
 });
-
+// items={pageLinkItems}
 App.childContextTypes = {
   show: React.PropTypes.bool
 };
@@ -43430,7 +43431,7 @@ var Article = React.createClass({
     if (this.props.subTitle) {
       myArticle.push(React.createElement("br", { key: this.props.subTitle + "x" }));
       myArticle.push(React.createElement(
-        "h2",
+        "h1",
         { key: this.props.subTitle },
         this.props.subTitle
       ));
@@ -43438,7 +43439,7 @@ var Article = React.createClass({
     if (this.props.content) {
       myArticle.push(React.createElement("br", { key: this.props.content + "x" }));
       myArticle.push(React.createElement(
-        "h4",
+        "h3",
         { key: this.props.content },
         this.props.content
       ));
@@ -43502,17 +43503,23 @@ var PropTypes = React.PropTypes;
 
 var NavLink = require('./NavLink');
 
-var Header = React.createClass({
-  displayName: 'Header',
+var Footer = React.createClass({
+  displayName: 'Footer',
 
 
   render: function render() {
     //dynamic page navlink items
+    var styles = {};
+    if (this.props.show) {
+      styles = { display: "block" };
+    } else {
+      styles = { display: "none" };
+    }
     var headerItems = this.props.items.map(function (item) {
       return React.createElement(
         NavLink,
         { key: item.text, to: item.link, className: 'flexMiddle' },
-        React.createElement(_FlatButton2.default, { label: item.text, hoverColor: _colors.fullWhite })
+        React.createElement(_FlatButton2.default, { label: item.text, hoverColor: _colors.fullWhite, style: styles })
       );
     });
     var muiTheme = (0, _getMuiTheme2.default)({
@@ -43551,7 +43558,7 @@ var Header = React.createClass({
 
 });
 
-module.exports = Header;
+module.exports = Footer;
 
 },{"./NavLink":504,"material-ui/FlatButton":214,"material-ui/Toolbar":242,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/colors":256,"material-ui/styles/getMuiTheme":257,"react":474}],495:[function(require,module,exports){
 'use strict';
