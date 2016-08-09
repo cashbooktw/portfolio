@@ -3,7 +3,9 @@ var PropTypes = React.PropTypes;
 
 //Article contains three differnt font-size, title, subTitle, and content
 var Article = React.createClass({
-
+  // contextTypes: {
+  //  show: React.PropTypes.bool
+  // },
   render: function() {
     let myArticle = [];
     if (this.props.title) {

@@ -43142,11 +43142,14 @@ var App = React.createClass({
   },
   onHambugerBtnClick: function onHambugerBtnClick() {
     this.setState({ isDrawerOpen: true });
-    console.log("onHambugerBtnClick, isDrawerOpen = " + this.state.isDrawerOpen);
+    // console.log("onHambugerBtnClick, isDrawerOpen = " + this.state.isDrawerOpen);
   },
   onDrawerClose: function onDrawerClose() {
     this.setState({ isDrawerOpen: false });
-    console.log("onDrawerClose, isDrawerOpen = " + this.state.isDrawerOpen);
+    // console.log("onDrawerClose, isDrawerOpen = " + this.state.isDrawerOpen);
+  },
+  getChildContext: function getChildContext() {
+    return { show: this.state.show };
   },
   render: function render() {
     var indexProps = {
@@ -43157,16 +43160,6 @@ var App = React.createClass({
     var footerStyle = {
       backgroundColor: _colors.blue500
     };
-    // <header className="header row vertical-align-middle-parent">
-    //   <div className="col-12 vertical-align-middle-child">
-    //     <Header
-    //       items={pageLinkItems}
-    //       color={fullWhite}
-    //       brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
-    //       {...indexProps}
-    //       />
-    //   </div>
-    // </header>
 
     return React.createElement(
       'div',
@@ -43206,6 +43199,10 @@ var App = React.createClass({
   }
 
 });
+
+App.childContextTypes = {
+  show: React.PropTypes.bool
+};
 
 module.exports = App;
 
@@ -43417,7 +43414,9 @@ var PropTypes = React.PropTypes;
 var Article = React.createClass({
   displayName: "Article",
 
-
+  // contextTypes: {
+  //  show: React.PropTypes.bool
+  // },
   render: function render() {
     var myArticle = [];
     if (this.props.title) {
@@ -44297,18 +44296,19 @@ var Timeline = React.createClass({
   },
   onScroll: function onScroll() {
     this.setState({ scrollY: window.scrollY });
+    console.log("show = " + this.context.show);
   },
-  // contextTypes: {
-  //  router: React.PropTypes.object
-  // },
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
   render: function render() {
-    var BlockStyle = {
-      width: 1000,
-      height: 500,
-      margin: 10,
-      backgroundColor: _colors.purple500,
-      padding: 10
-    };
+    // var BlockStyle = {
+    //   width: 1000,
+    //   height: 500,
+    //   margin: 10,
+    //   backgroundColor: purple500,
+    //   padding: 10
+    // };
     var styles = {
       sectionStyle: {
         padding: "3em 5%"
@@ -44348,7 +44348,7 @@ var Timeline = React.createClass({
         visualColor: _colors.indigo500,
         scrollY: this.state.scrollY,
         year: '2015',
-        side: 'left',
+        side: this.context.show ? "left" : "right",
         content: 'This is the 2015 content'
       }),
       React.createElement(TimelineBox, {
@@ -44399,7 +44399,8 @@ var TimelineBox = React.createClass({
     }
   },
   contextTypes: {
-    router: React.PropTypes.object
+    router: React.PropTypes.object,
+    show: React.PropTypes.bool
   },
   render: function render() {
     var BlockStyle = {
@@ -44410,7 +44411,20 @@ var TimelineBox = React.createClass({
     var side = _props.side;
     var content = _props.content;
     var visualColor = _props.visualColor;
+    // <TimelineBoxLeft side={side} visualColor={visualColor} content={content}/>
 
+    var showBox = this.context.show ? React.createElement(
+      'div',
+      null,
+      React.createElement(TimelineBoxLeft, { side: side, visualColor: visualColor, content: content }),
+      React.createElement(TimelineBoxRight, { side: side, visualColor: visualColor, content: content, year: year })
+    ) : React.createElement(
+      'div',
+      null,
+      React.createElement(TimelineBoxRight, { side: side, visualColor: visualColor, content: content, year: year })
+    );
+    // <TimelineBoxLeft side={side} visualColor={visualColor} content={content}/>
+    // <TimelineBoxRight side={side} visualColor={visualColor} content={content} year={year} />
     return React.createElement(
       'div',
       { style: BlockStyle, ref: this.props.myRef, className: this.state.myClass },
@@ -44440,7 +44454,9 @@ var SpeechBubble = require('./SpeechBubble');
 var TimelineBoxRight = React.createClass({
   displayName: 'TimelineBoxRight',
 
-
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
   render: function render() {
     var display = "block";
     if (this.props.side === "left") {
@@ -44449,9 +44465,15 @@ var TimelineBoxRight = React.createClass({
       display = "none";
     }
     var backgroundStyle = "linear-gradient(-90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    var styles = {};
+    if (this.context.show) {
+      styles = { display: "block" };
+    } else {
+      styles = { display: "none" };
+    }
     return React.createElement(
       'div',
-      { className: 'TimelineBox__Left' },
+      { className: 'TimelineBox__Left', style: styles },
       React.createElement(SpeechBubble, { speechBubblePosition: 'speechBubble--left', content: this.props.content, display: display, visualColor: this.props.visualColor, backgroundStyle: backgroundStyle })
     );
   }
@@ -44468,7 +44490,9 @@ var SpeechBubble = require('./SpeechBubble');
 var TimelineBoxRight = React.createClass({
   displayName: 'TimelineBoxRight',
 
-
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
   render: function render() {
     var display = "block";
     if (this.props.side === "right") {
@@ -44480,6 +44504,10 @@ var TimelineBoxRight = React.createClass({
       backgroundColor: this.props.visualColor
     };
     var backgroundStyle = "linear-gradient(90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    // let timelineBoxRightMargin = (this.context.show)?0:20;
+    // var test = {
+    //   marginLeft: timelineBoxRightMargin
+    // };
 
     return React.createElement(
       'div',

@@ -26,11 +26,14 @@ var App = React.createClass({
   },
   onHambugerBtnClick: function() {
     this.setState({isDrawerOpen: true});
-    console.log("onHambugerBtnClick, isDrawerOpen = " + this.state.isDrawerOpen);
+    // console.log("onHambugerBtnClick, isDrawerOpen = " + this.state.isDrawerOpen);
   },
   onDrawerClose: function() {
     this.setState({isDrawerOpen: false});
-    console.log("onDrawerClose, isDrawerOpen = " + this.state.isDrawerOpen);
+    // console.log("onDrawerClose, isDrawerOpen = " + this.state.isDrawerOpen);
+  },
+  getChildContext: function() {
+    return {show: this.state.show};
   },
   render: function() {
     var indexProps = {
@@ -46,16 +49,6 @@ var App = React.createClass({
     var footerStyle = {
       backgroundColor: blue500
     };
-    // <header className="header row vertical-align-middle-parent">
-    //   <div className="col-12 vertical-align-middle-child">
-    //     <Header
-    //       items={pageLinkItems}
-    //       color={fullWhite}
-    //       brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
-    //       {...indexProps}
-    //       />
-    //   </div>
-    // </header>
 
     return (
       <div>
@@ -88,5 +81,9 @@ var App = React.createClass({
   }
 
 });
+
+App.childContextTypes = {
+  show  : React.PropTypes.bool
+};
 
 module.exports = App;

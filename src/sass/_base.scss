@@ -1,21 +1,50 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin phone {
+  @media (max-width: #{$tablet-width - 1px})  {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
 body {
 	font-family: 'Roboto', sans-serif;
 }
 
 h1, .h1 { font-size: 2em; line-height: 2.2em;}
-h2, .h2 { font-size: 1.5em; line-height: 1.65em;}
+h2, .h2 { font-size: 1.5em; line-height: 1.65em; @include phone{font-size: 1.17em; line-height: 1.287em;}}
 h3, .h3 { font-size: 1.17em; line-height: 1.287em;}
-h4, .h4 { font-size: 1.12em; line-height: 1.231em;}
+h4, .h4 { font-size: 1.12em; line-height: 1.231em; @include phone{font-size: .83em; line-height: .913em;}}
 h5, .h5 { font-size: .83em; line-height: .913em;}
 h6, .h6 { font-size: .75em; line-height: .825em;}
 
 .font__large {
 	font-size: 4em;
 	font-weight: 500;
+	@include phone {
+		font-size: 2em;
+		font-weight: 400;
+	}
 }
 .font__middle {
 	font-size: 2em;
 	font-weight: 400;
+	@include phone {
+		font-size: 1em;
+		font-weight: 300;
+	}
 }
 .font_small {
 	font-size: 1em;

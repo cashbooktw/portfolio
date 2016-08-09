@@ -27,13 +27,25 @@ var TimelineBox = React.createClass({
     }
   },
   contextTypes: {
-   router: React.PropTypes.object
+   router: React.PropTypes.object,
+   show: React.PropTypes.bool
   },
   render: function() {
     var BlockStyle = {
       visibility: this.state.visibility
     };
     let {year, side, content, visualColor} = this.props;
+                // <TimelineBoxLeft side={side} visualColor={visualColor} content={content}/>
+    let showBox = (this.context.show)?(<div>
+        <TimelineBoxLeft side={side} visualColor={visualColor} content={content}/>
+        <TimelineBoxRight side={side} visualColor={visualColor} content={content} year={year} />
+      </div>
+    ):(<div>
+      <TimelineBoxRight side={side} visualColor={visualColor} content={content} year={year} />
+    </div>
+  );
+  // <TimelineBoxLeft side={side} visualColor={visualColor} content={content}/>
+  // <TimelineBoxRight side={side} visualColor={visualColor} content={content} year={year} />
     return (
       <div style={BlockStyle} ref={this.props.myRef} className={this.state.myClass}>
         <div className="TimelineBox__wrapper">

@@ -67,71 +67,99 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 1, ../../src/sass/_base.scss */
+/* line 22, ../../src/sass/_base.scss */
 body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* line 5, ../../src/sass/_base.scss */
+/* line 26, ../../src/sass/_base.scss */
 h1, .h1 {
   font-size: 2em;
   line-height: 2.2em;
 }
 
-/* line 6, ../../src/sass/_base.scss */
+/* line 27, ../../src/sass/_base.scss */
 h2, .h2 {
   font-size: 1.5em;
   line-height: 1.65em;
 }
+@media (max-width: 767px) {
+  /* line 27, ../../src/sass/_base.scss */
+  h2, .h2 {
+    font-size: 1.17em;
+    line-height: 1.287em;
+  }
+}
 
-/* line 7, ../../src/sass/_base.scss */
+/* line 28, ../../src/sass/_base.scss */
 h3, .h3 {
   font-size: 1.17em;
   line-height: 1.287em;
 }
 
-/* line 8, ../../src/sass/_base.scss */
+/* line 29, ../../src/sass/_base.scss */
 h4, p, .h4 {
   font-size: 1.12em;
   line-height: 1.231em;
 }
+@media (max-width: 767px) {
+  /* line 29, ../../src/sass/_base.scss */
+  h4, p, .h4 {
+    font-size: .83em;
+    line-height: .913em;
+  }
+}
 
-/* line 9, ../../src/sass/_base.scss */
+/* line 30, ../../src/sass/_base.scss */
 h5, .h5 {
   font-size: .83em;
   line-height: .913em;
 }
 
-/* line 10, ../../src/sass/_base.scss */
+/* line 31, ../../src/sass/_base.scss */
 h6, .h6 {
   font-size: .75em;
   line-height: .825em;
 }
 
-/* line 12, ../../src/sass/_base.scss */
+/* line 33, ../../src/sass/_base.scss */
 .font__large {
   font-size: 4em;
   font-weight: 500;
 }
+@media (max-width: 767px) {
+  /* line 33, ../../src/sass/_base.scss */
+  .font__large {
+    font-size: 2em;
+    font-weight: 400;
+  }
+}
 
-/* line 16, ../../src/sass/_base.scss */
+/* line 41, ../../src/sass/_base.scss */
 .font__middle {
   font-size: 2em;
   font-weight: 400;
 }
+@media (max-width: 767px) {
+  /* line 41, ../../src/sass/_base.scss */
+  .font__middle {
+    font-size: 1em;
+    font-weight: 300;
+  }
+}
 
-/* line 20, ../../src/sass/_base.scss */
+/* line 49, ../../src/sass/_base.scss */
 .font_small {
   font-size: 1em;
   font-weight: 300;
 }
 
-/* line 30, ../../src/sass/_base.scss */
+/* line 59, ../../src/sass/_base.scss */
 .font__white {
   color: #FFF;
 }
 
-/* line 33, ../../src/sass/_base.scss */
+/* line 62, ../../src/sass/_base.scss */
 a {
   text-decoration: none;
 }
@@ -247,7 +275,7 @@ a {
 /* line 60, ../../src/sass/_layout.scss */
 .timeline {
   background-color: #E0E0E0;
-  padding: 10px;
+  padding: 20px;
 }
 
 /* line 65, ../../src/sass/_layout.scss */
@@ -300,7 +328,7 @@ a {
  * Include this rule to trigger hasLayout and contain floats.
  */
 /* Speech Bubble */
-/* line 2, ../../src/sass/_module.scss */
+/* line 24, ../../src/sass/_module.scss */
 .speechBubble, .speechBubble--left {
   position: relative;
   width: 200px;
@@ -314,7 +342,7 @@ a {
   padding: 5px 40px 5px 5px;
   margin: 0 auto;
 }
-/* line 14, ../../src/sass/_module.scss */
+/* line 36, ../../src/sass/_module.scss */
 .speechBubble:after, .speechBubble--left:after {
   content: ' ';
   position: absolute;
@@ -325,21 +353,28 @@ a {
   border: 15px solid;
   border-color: #fff #fff transparent transparent;
 }
+@media (max-width: 767px) {
+  /* line 24, ../../src/sass/_module.scss */
+  .speechBubble, .speechBubble--left {
+    margin-left: 70px;
+    width: 150px;
+  }
+}
 
-/* line 37, ../../src/sass/_module.scss */
+/* line 63, ../../src/sass/_module.scss */
 .speechBubble--left {
   background: linear-gradient(-90deg, #ffffff 85%, #f44336 0%) repeat-y;
   border-radius: 30px 0 30px 30px;
   box-shadow: -2px 2px 4px #212121;
   padding: 5px 5px 5px 40px;
 }
-/* line 43, ../../src/sass/_module.scss */
+/* line 70, ../../src/sass/_module.scss */
 .speechBubble--left:after {
   left: 245px;
   border-color: #fff transparent transparent #fff;
 }
 
-/* line 50, ../../src/sass/_module.scss */
+/* line 77, ../../src/sass/_module.scss */
 .TimelineBox__Right {
   background: linear-gradient(0deg, #212121 75%, rgba(0, 0, 0, 0) 0%) repeat-y;
   background-size: 4px 16px;
@@ -347,13 +382,13 @@ a {
   position: relative;
 }
 
-/* line 60, ../../src/sass/_module.scss */
+/* line 87, ../../src/sass/_module.scss */
 .TimelineBox__Left, .TimelineBox__Right {
   width: 400px;
   height: 200px;
 }
 
-/* line 69, ../../src/sass/_module.scss */
+/* line 96, ../../src/sass/_module.scss */
 .TimelineBox__container {
   width: 100%;
   display: flex;
@@ -361,7 +396,7 @@ a {
   padding-top: 61px;
 }
 
-/* line 76, ../../src/sass/_module.scss */
+/* line 103, ../../src/sass/_module.scss */
 .TimelineBox__wrapper {
   width: 100%;
   display: flex;
@@ -370,7 +405,7 @@ a {
   margin: 0;
 }
 
-/* line 85, ../../src/sass/_module.scss */
+/* line 112, ../../src/sass/_module.scss */
 .circle {
   content: '';
   width: 26px;
@@ -382,7 +417,7 @@ a {
   top: -13px;
 }
 
-/* line 96, ../../src/sass/_module.scss */
+/* line 123, ../../src/sass/_module.scss */
 .circle__title {
   height: 48px;
   width: 200px;
@@ -392,8 +427,14 @@ a {
   top: -48px;
   left: -98px;
 }
+@media (max-width: 767px) {
+  /* line 123, ../../src/sass/_module.scss */
+  .circle__title {
+    left: -68px;
+  }
+}
 
-/* line 106, ../../src/sass/_module.scss */
+/* line 138, ../../src/sass/_module.scss */
 .bigBubble {
   background: linear-gradient(90deg, #ffffff 85%, #f44336 0%) repeat-y;
   border: 0;
@@ -402,7 +443,7 @@ a {
   margin: 0 auto;
 }
 
-/* line 115, ../../src/sass/_module.scss */
+/* line 147, ../../src/sass/_module.scss */
 .bigBubble--after {
   content: ' ';
   width: 0;

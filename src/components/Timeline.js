@@ -17,18 +17,19 @@ var Timeline = React.createClass({
   },
   onScroll: function() {
     this.setState({scrollY: window.scrollY});
+    console.log("show = " + this.context.show);
   },
-  // contextTypes: {
-  //  router: React.PropTypes.object
-  // },
+  contextTypes: {
+   show: React.PropTypes.bool
+  },
   render: function() {
-    var BlockStyle = {
-      width: 1000,
-      height: 500,
-      margin: 10,
-      backgroundColor: purple500,
-      padding: 10
-    };
+    // var BlockStyle = {
+    //   width: 1000,
+    //   height: 500,
+    //   margin: 10,
+    //   backgroundColor: purple500,
+    //   padding: 10
+    // };
     let styles = {
       sectionStyle: {
         padding: "3em 5%"
@@ -61,7 +62,7 @@ var Timeline = React.createClass({
           visualColor={indigo500}
           scrollY={this.state.scrollY}
           year="2015"
-          side="left"
+          side={(this.context.show)?"left":"right"}
           content="This is the 2015 content"
           />
 
