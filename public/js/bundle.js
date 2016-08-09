@@ -43220,9 +43220,11 @@ var Article = require('./Article');
 var AboutList = require('./AboutList');
 
 
+/*
+This is the about page.
+*/
 var About = React.createClass({
   displayName: 'About',
-
 
   render: function render() {
     var styles = {
@@ -43354,6 +43356,7 @@ var AboutList = React.createClass({
       }
     };
     var aboutListItems = [];
+    //the dynamic items of skills
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
     var _iteratorError = undefined;
@@ -43364,9 +43367,6 @@ var AboutList = React.createClass({
 
         aboutListItems.push(React.createElement(_List.ListItem, { key: value, primaryText: value, disabled: true, style: styles.listItemStyle }));
       }
-      // <ListItem primaryText="Inbox" />
-      // <ListItem primaryText="Inbox" />
-      // <ListItem primaryText="Inbox" />
     } catch (err) {
       _didIteratorError = true;
       _iteratorError = err;
@@ -43413,6 +43413,7 @@ module.exports = AboutList;
 var React = require('react');
 var PropTypes = React.PropTypes;
 
+//Article contains three differnt font-size, title, subTitle, and content
 var Article = React.createClass({
   displayName: "Article",
 
@@ -43443,9 +43444,6 @@ var Article = React.createClass({
         this.props.content
       ));
     }
-    // <span className="font__large">about me</span>
-    // <h2>I am a UX/UI Designer and Front End Developer from Sydney, Australia.</h2>
-    // <h4>I enjoy turning complex problems into simple, beautiful and intuitive interface designs. When I'm not coding or pushing pixels, you'll find me in the gym or on the court shooting hoops.</h4>
     return React.createElement(
       "div",
       null,
@@ -43510,6 +43508,7 @@ var Header = React.createClass({
 
 
   render: function render() {
+    //dynamic page navlink items
     var headerItems = this.props.items.map(function (item) {
       return React.createElement(
         NavLink,
@@ -43594,15 +43593,17 @@ var Header = React.createClass({
 
   getInitialState: function getInitialState() {
     return {
-      show: true
+      show: true //false to display HamburgerButton
     };
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+    //if media query screen size change, receive new props from App.js
     this.setState({ show: nextProps.show });
   },
   render: function render() {
-    var headerItems = React.createElement('div', null);
+    var headerItems = React.createElement('div', null); //initial headerItems
     if (this.state.show) {
+      //true to wide header
       headerItems = this.props.items.map(function (item) {
         return React.createElement(
           NavLink,
@@ -43611,6 +43612,7 @@ var Header = React.createClass({
         );
       });
     } else {
+      // false to HamburgerButton
       headerItems = React.createElement(_RaisedButton2.default, {
         icon: React.createElement(_menu2.default, null),
         onTouchTap: this.props._onHambugerBtnClick
@@ -43661,6 +43663,7 @@ module.exports = Header;
 var React = require('react');
 var PropTypes = React.PropTypes;
 
+// Gives to thin grey line and title in the center
 var HeaderCenter = React.createClass({
   displayName: "HeaderCenter",
 
@@ -43714,6 +43717,10 @@ var Jumbotron = require('./Jumbotron');
 var HeaderCenter = require('./HeaderCenter');
 var List = require('./List');
 var ScrollTop = require('./ScrollTop');
+/*
+This is the index page (home page)
+header and footer are defined in App.js
+*/
 
 var Index = React.createClass({
   displayName: 'Index',
@@ -43806,15 +43813,6 @@ var Jumbotron = React.createClass({
         textAlign: "center"
       }
     };
-    // var imgStyle = {
-    //   "width": "100%",
-    //   "height": "600px",
-    //   "backgroundImage": "url('http://fakeimg.pl/1366x600/')",
-    //   "backgroundSize": "cover"
-    // };
-    // var textAlignCenter = {
-    //   "textAlign" : "center"
-    // };
     return React.createElement(
       _MuiThemeProvider2.default,
       null,
@@ -43850,10 +43848,9 @@ module.exports = Jumbotron;
 
 var React = require('react');
 var PropTypes = React.PropTypes;
-
+// one of the profolios
 var KaohsiungMRT = React.createClass({
   displayName: 'KaohsiungMRT',
-
 
   render: function render() {
     return React.createElement(
@@ -43968,7 +43965,7 @@ module.exports = ListItem;
 
 var React = require('react');
 var PropTypes = React.PropTypes;
-
+// one of the profolios
 var MultiplayerGame = React.createClass({
   displayName: 'MultiplayerGame',
 
@@ -44010,6 +44007,7 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 
 var NavLink = require('./NavLink');
+// the drawer is to display hamburge button header items
 var MyDrawer = React.createClass({
   displayName: 'MyDrawer',
 
@@ -44089,7 +44087,7 @@ module.exports = NavLink;
 
 var React = require('react');
 var PropTypes = React.PropTypes;
-
+// one of the profolios
 var PokemonIndex = React.createClass({
   displayName: 'PokemonIndex',
 
@@ -44191,8 +44189,6 @@ var ScrollTop = React.createClass({
 
   handleTouchTap: function handleTouchTap(event) {
     event.preventDefault();
-    console.log("TAP!");
-
     (0, _animationScroll2.default)(document.body, 0, 1000);
   },
 
@@ -44226,8 +44222,7 @@ var ScrollTop = React.createClass({
         padding: 30
       }
     };
-    // style={styles.medium}
-    // iconStyle={styles.mediumIcon}
+
     return React.createElement(
       _MuiThemeProvider2.default,
       null,
@@ -44261,7 +44256,7 @@ var SpeechBubble = React.createClass({
 
 
   render: function render() {
-    var speechBubblePosition = this.props.speechBubblePosition;
+    var speechBubblePosition = this.props.speechBubblePosition; //get props from TimelineBox
     var styles = {
       display: this.props.display,
       background: this.props.backgroundStyle
@@ -44301,12 +44296,11 @@ var Timeline = React.createClass({
     window.removeEventListener("scroll", this.onScroll);
   },
   onScroll: function onScroll() {
-    console.log("scrollYYY = " + window.scrollY);
     this.setState({ scrollY: window.scrollY });
   },
-  contextTypes: {
-    router: React.PropTypes.object
-  },
+  // contextTypes: {
+  //  router: React.PropTypes.object
+  // },
   render: function render() {
     var BlockStyle = {
       width: 1000,
@@ -44380,6 +44374,7 @@ var getPosition = require('../services/getPosition');
 var SpeechBubble = require('./SpeechBubble');
 var TimelineBoxRight = require('./TimelineBoxRight');
 var TimelineBoxLeft = require('./TimelineBoxLeft');
+
 var TimelineBox = React.createClass({
   displayName: 'TimelineBox',
 
@@ -44391,14 +44386,14 @@ var TimelineBox = React.createClass({
   },
   componentDidMount: function componentDidMount() {
     var myRef = this.refs[this.props.myRef];
-    var positionMyRef = getPosition(myRef).y - 300;
+    var positionMyRef = getPosition(myRef).y - 300; // the position is on the block center, so it's a magic number
     this.setState({ position: positionMyRef });
     if (this.props.scrollY >= positionMyRef) {
       this.setState({ visibility: "visible", myClass: "animated fadeInUp" });
     }
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-    console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
+    //only when user switch to "/timeline", the timeline can be seen and animate
     if (nextProps.scrollY >= this.state.position && this.context.router.isActive({ pathname: "/timeline" })) {
       this.setState({ visibility: "visible", myClass: "animated fadeInUp" });
     }

@@ -4,8 +4,10 @@ var Article = require('./Article');
 var AboutList = require('./AboutList');
 import {fullWhite, green500} from 'material-ui/styles/colors';
 
+/*
+This is the about page.
+*/
 var About = React.createClass({
-
   render: function() {
     let styles = {
       sectionStyle: {

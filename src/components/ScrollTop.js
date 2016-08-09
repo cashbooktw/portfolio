@@ -8,8 +8,6 @@ import animateScroll from '../services/animationScroll';
 var ScrollTop = React.createClass({
   handleTouchTap: function (event){
     event.preventDefault();
-    console.log("TAP!");
-
     animateScroll(document.body, 0, 1000);
   },
 
@@ -43,8 +41,8 @@ var ScrollTop = React.createClass({
         padding: 30,
       },
     };
-              // style={styles.medium}
-                        // iconStyle={styles.mediumIcon}
+
+    
     return (
       <MuiThemeProvider>
         <IconButton

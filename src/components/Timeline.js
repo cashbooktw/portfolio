@@ -16,12 +16,11 @@ var Timeline = React.createClass({
     window.removeEventListener("scroll",  this.onScroll);
   },
   onScroll: function() {
-    console.log("scrollYYY = " + window.scrollY);
     this.setState({scrollY: window.scrollY});
   },
-  contextTypes: {
-   router: React.PropTypes.object
-  },
+  // contextTypes: {
+  //  router: React.PropTypes.object
+  // },
   render: function() {
     var BlockStyle = {
       width: 1000,

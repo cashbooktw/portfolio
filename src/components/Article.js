@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 
+//Article contains three differnt font-size, title, subTitle, and content
 var Article = React.createClass({
 
   render: function() {
@@ -17,9 +18,6 @@ var Article = React.createClass({
       myArticle.push(<br key={this.props.content + "x"}/>);
       myArticle.push(<h4 key={this.props.content}>{this.props.content}</h4>);
     }
-    // <span className="font__large">about me</span>
-    // <h2>I am a UX/UI Designer and Front End Developer from Sydney, Australia.</h2>
-    // <h4>I enjoy turning complex problems into simple, beautiful and intuitive interface designs. When I'm not coding or pushing pixels, you'll find me in the gym or on the court shooting hoops.</h4>
     return (
       <div>
         {myArticle}

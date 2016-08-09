@@ -10,6 +10,7 @@ var NavLink = require('./NavLink');
 var Header = React.createClass({
 
   render: function() {
+    //dynamic page navlink items
     const headerItems = this.props.items.map((item) => {
        return <NavLink key={item.text} to={item.link} className="flexMiddle"><FlatButton label={item.text} hoverColor={fullWhite}/></NavLink>;
 

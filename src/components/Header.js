@@ -12,19 +12,20 @@ var NavLink = require('./NavLink');
 var Header = React.createClass({
   getInitialState: function() {
     return {
-      show: true
+      show: true //false to display HamburgerButton
     };
   },
   componentWillReceiveProps: function(nextProps) {
+    //if media query screen size change, receive new props from App.js
     this.setState({show: nextProps.show})
   },
   render: function() {
-    let headerItems = (<div></div>);
-    if (this.state.show) {
+    let headerItems = (<div></div>); //initial headerItems
+    if (this.state.show) { //true to wide header
         headerItems = this.props.items.map((item) => {
         return <NavLink key={item.text} to={item.link} className="flexMiddle"><FlatButton label={item.text} /></NavLink>;
       });
-    } else {
+    } else { // false to HamburgerButton
       headerItems = (<RaisedButton
                       icon={<HamburgerButtonIcon />}
                       onTouchTap={this.props._onHambugerBtnClick}

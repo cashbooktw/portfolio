@@ -20,12 +20,10 @@ var AboutList = React.createClass({
       }
     };
     var aboutListItems = [];
+    //the dynamic items of skills
     for (let value of this.props.items) {
       aboutListItems.push(<ListItem key={value} primaryText={value} disabled={true} style={styles.listItemStyle}/>);
     }
-    // <ListItem primaryText="Inbox" />
-    // <ListItem primaryText="Inbox" />
-    // <ListItem primaryText="Inbox" />
     return (
 
         <MuiThemeProvider>

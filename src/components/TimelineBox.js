@@ -4,6 +4,7 @@ var getPosition = require('../services/getPosition');
 var SpeechBubble = require('./SpeechBubble');
 var TimelineBoxRight = require('./TimelineBoxRight');
 var TimelineBoxLeft = require('./TimelineBoxLeft');
+
 var TimelineBox = React.createClass({
   getInitialState: function() {
     return {
@@ -13,14 +14,14 @@ var TimelineBox = React.createClass({
   },
   componentDidMount: function() {
     let myRef = this.refs[this.props.myRef];
-    let positionMyRef = getPosition(myRef).y - 300;
+    let positionMyRef = getPosition(myRef).y - 300;// the position is on the block center, so it's a magic number
     this.setState({position: positionMyRef});
     if (this.props.scrollY >= positionMyRef) {
       this.setState({visibility: "visible", myClass: "animated fadeInUp"});
     }
   },
   componentWillReceiveProps: function(nextProps) {
-    console.log("nextProps.scrollY = " + nextProps.scrollY + " this.state.position = " + this.state.position);
+    //only when user switch to "/timeline", the timeline can be seen and animate
     if ((nextProps.scrollY >= this.state.position) && this.context.router.isActive({pathname: "/timeline"})) {
         this.setState({visibility: "visible", myClass: "animated fadeInUp"});
     }

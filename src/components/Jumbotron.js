@@ -21,15 +21,6 @@ var Jumbotron = React.createClass({
         textAlign: "center"
       }
     };
-    // var imgStyle = {
-    //   "width": "100%",
-    //   "height": "600px",
-    //   "backgroundImage": "url('http://fakeimg.pl/1366x600/')",
-    //   "backgroundSize": "cover"
-    // };
-    // var textAlignCenter = {
-    //   "textAlign" : "center"
-    // };
     return (
       <MuiThemeProvider>
         <div style={styles.container} className="horizontal-align-middle-parent">

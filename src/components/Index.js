@@ -5,6 +5,10 @@ var Jumbotron = require('./Jumbotron');
 var HeaderCenter = require('./HeaderCenter');
 var List = require('./List');
 var ScrollTop = require('./ScrollTop');
+/*
+This is the index page (home page)
+header and footer are defined in App.js
+*/
 
 var Index = React.createClass({
   render: function() {

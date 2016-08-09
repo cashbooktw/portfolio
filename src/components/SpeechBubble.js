@@ -4,7 +4,7 @@ var PropTypes = React.PropTypes;
 var SpeechBubble = React.createClass({
 
   render: function() {
-    let speechBubblePosition = this.props.speechBubblePosition;
+    let speechBubblePosition = this.props.speechBubblePosition; //get props from TimelineBox
     let styles = {
       display: this.props.display,
       background: this.props.backgroundStyle
