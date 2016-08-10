@@ -31,6 +31,7 @@ var MyDrawer = React.createClass({
             width={200}
             open={this.state.isDrawerOpen}
             onRequestChange={this.handleClose}
+            openSecondary={true}
             >
             {headerItems}
           </Drawer>

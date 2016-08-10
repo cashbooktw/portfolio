@@ -166,3 +166,11 @@ $desktop-width: 1024px;
   background-repeat: no-repeat;
   text-align: center;
 }
+
+.aboutImg {
+  max-width: 590px;
+}
+.aboutImg img {
+  max-width: 100%;
+  height: auto;
+}

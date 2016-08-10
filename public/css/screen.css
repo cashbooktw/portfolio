@@ -139,29 +139,31 @@ h6, .h6 {
 
 /* line 51, ../../src/sass/_base.scss */
 .font__middle {
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: 4rem;
+  line-height: 4.8rem;
+  font-weight: 500;
 }
 @media (max-width: 767px) {
   /* line 51, ../../src/sass/_base.scss */
   .font__middle {
-    font-size: 1rem;
-    font-weight: 300;
+    font-size: 2rem;
+    line-height: 2.4rem;
+    font-weight: 400;
   }
 }
 
-/* line 59, ../../src/sass/_base.scss */
+/* line 61, ../../src/sass/_base.scss */
 .font_small {
   font-size: 1rem;
   font-weight: 300;
 }
 
-/* line 69, ../../src/sass/_base.scss */
+/* line 71, ../../src/sass/_base.scss */
 .font__white {
   color: #FFF;
 }
 
-/* line 72, ../../src/sass/_base.scss */
+/* line 74, ../../src/sass/_base.scss */
 a {
   text-decoration: none;
 }
@@ -467,4 +469,15 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
+}
+
+/* line 170, ../../src/sass/_module.scss */
+.aboutImg {
+  max-width: 590px;
+}
+
+/* line 173, ../../src/sass/_module.scss */
+.aboutImg img {
+  max-width: 100%;
+  height: auto;
 }

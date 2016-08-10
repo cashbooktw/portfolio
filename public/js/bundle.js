@@ -43224,6 +43224,9 @@ This is the about page.
 var About = React.createClass({
   displayName: 'About',
 
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
   render: function render() {
     var styles = {
       sectionStyle: {
@@ -43240,6 +43243,18 @@ var About = React.createClass({
         paddingTop: 10
       }
     };
+    var aboutImgClass = "";
+    var aboutArticleClass = "";
+    if (this.context.show) {
+      // this.refs.aboutImg.classList.add("col-7");
+      aboutImgClass = "col-7";
+      aboutArticleClass = "col-5";
+    } else {
+      // this.refs.aboutImg.classList.remove("col-7");
+      // this.refs.aboutImg.classList.add("col-12");
+      aboutImgClass = "col-12";
+      aboutArticleClass = "col-12";
+    }
     return React.createElement(
       'div',
       null,
@@ -43248,12 +43263,12 @@ var About = React.createClass({
         { style: styles.sectionStyle, className: 'row viewPage' },
         React.createElement(
           'div',
-          { className: 'col-7 animated fadeInUp' },
+          { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
           React.createElement('img', { src: 'http://fakeimg.pl/590x440/' })
         ),
         React.createElement(
           'div',
-          { className: 'col-5 animated fadeInUp' },
+          { className: aboutArticleClass + " animated fadeInUp" },
           React.createElement(Article, {
             title: 'about me',
             subTitle: 'A Front End Developer from Changhua, Taiwan.',
@@ -43423,7 +43438,7 @@ var Article = React.createClass({
     if (this.props.title) {
       myArticle.push(React.createElement(
         "span",
-        { className: "font__large", key: this.props.title },
+        { className: "font__middle", key: this.props.title },
         this.props.title
       ));
       myArticle.push(React.createElement("br", { key: this.props.title + "x" }));
@@ -44055,7 +44070,8 @@ var MyDrawer = React.createClass({
             docked: false,
             width: 200,
             open: this.state.isDrawerOpen,
-            onRequestChange: this.handleClose
+            onRequestChange: this.handleClose,
+            openSecondary: true
           },
           headerItems
         )

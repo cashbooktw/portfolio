@@ -9,7 +9,7 @@ var Article = React.createClass({
   render: function() {
     let myArticle = [];
     if (this.props.title) {
-      myArticle.push(<span className="font__large" key={this.props.title}>{this.props.title}</span>)
+      myArticle.push(<span className="font__middle" key={this.props.title}>{this.props.title}</span>)
       myArticle.push(<br key={this.props.title + "x"} />);
     }
     if (this.props.subTitle) {

@@ -8,6 +8,9 @@ import {fullWhite, green500} from 'material-ui/styles/colors';
 This is the about page.
 */
 var About = React.createClass({
+  contextTypes: {
+   show: React.PropTypes.bool
+  },
   render: function() {
     let styles = {
       sectionStyle: {
@@ -24,13 +27,25 @@ var About = React.createClass({
         paddingTop: 10
       }
     };
+    let aboutImgClass = "";
+    let aboutArticleClass = "";
+    if (this.context.show) {
+      // this.refs.aboutImg.classList.add("col-7");
+      aboutImgClass = "col-7";
+      aboutArticleClass = "col-5";
+    } else {
+      // this.refs.aboutImg.classList.remove("col-7");
+      // this.refs.aboutImg.classList.add("col-12");
+      aboutImgClass = "col-12";
+      aboutArticleClass = "col-12";
+    }
     return (
       <div>
         <section style={styles.sectionStyle} className="row viewPage">
-          <div className="col-7 animated fadeInUp">
+          <div id="aboutImg" className={aboutImgClass + " animated fadeInUp aboutImg"}>
             <img src="http://fakeimg.pl/590x440/"></img>
           </div>
-          <div className="col-5 animated fadeInUp">
+          <div className={aboutArticleClass + " animated fadeInUp"}>
             <Article
               title="about me"
               subTitle="A Front End Developer from Changhua, Taiwan."
