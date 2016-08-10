@@ -21,6 +21,7 @@ $desktop-width: 1024px;
 
 body {
 	font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
 
 // h1, .h1 { font-size: 2em; line-height: 1em; @include phone{font-size: 1.5em; line-height: 1.65em;}}
@@ -37,12 +38,15 @@ h5, .h5 { font-size: .88rem; line-height: 1rem;}
 h6, .h6 { font-size: .75rem; line-height: .9rem;}
 
 .font__large {
-	font-size: 4rem;
-	font-weight: 500;
-	@include phone {
-		font-size: 2rem;
-		font-weight: 400;
-	}
+	// font-size: 4rem;
+	// font-weight: 500;
+	// @include phone {
+	// 	font-size: 2rem;
+	// 	font-weight: 400;
+	// }
+  font-size: 10vw;
+  line-height: 12vw;
+  font-weight: 500;
 }
 .font__middle {
 	font-size: 2rem;

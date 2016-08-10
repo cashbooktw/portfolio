@@ -156,3 +156,13 @@ $desktop-width: 1024px;
     border-color: #fff transparent transparent transparent ;
     margin: 0 auto;
 }
+
+.jumbotron {
+  width: 100vw;
+  height: 43.92vw;
+  background-image: url('http://fakeimg.pl/1366x600/');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}

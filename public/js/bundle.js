@@ -43810,21 +43810,21 @@ var Jumbotron = React.createClass({
     this.setState({ open: !this.state.open });
   },
   render: function render() {
-    var styles = {
-      container: {
-        width: "100%",
-        height: "600px",
-        backgroundImage: "url('http://fakeimg.pl/1366x600/')",
-        backgroundSize: "cover",
-        textAlign: "center"
-      }
-    };
+    // let styles = {
+    //   container: {
+    //     width: "100%",
+    //     height: "600px",
+    //     backgroundImage: "url('http://fakeimg.pl/1366x600/')",
+    //     backgroundSize: "cover",
+    //     textAlign: "center"
+    //   }
+    // };
     return React.createElement(
       _MuiThemeProvider2.default,
       null,
       React.createElement(
         'div',
-        { style: styles.container, className: 'horizontal-align-middle-parent' },
+        { className: 'horizontal-align-middle-parent jumbotron' },
         React.createElement(
           'div',
           { className: 'horizontal-align-middle-child' },

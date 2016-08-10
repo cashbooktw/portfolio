@@ -70,103 +70,98 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 22, ../../src/sass/_base.scss */
 body {
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
-/* line 32, ../../src/sass/_base.scss */
+/* line 33, ../../src/sass/_base.scss */
 h1, .h1 {
   font-size: 2rem;
   line-height: 2.4rem;
 }
 @media (max-width: 767px) {
-  /* line 32, ../../src/sass/_base.scss */
+  /* line 33, ../../src/sass/_base.scss */
   h1, .h1 {
     font-size: 1.75rem;
     line-height: 2.1rem;
   }
 }
 
-/* line 33, ../../src/sass/_base.scss */
+/* line 34, ../../src/sass/_base.scss */
 h2, .h2 {
   font-size: 1.75rem;
   line-height: 2.1rem;
 }
 @media (max-width: 767px) {
-  /* line 33, ../../src/sass/_base.scss */
+  /* line 34, ../../src/sass/_base.scss */
   h2, .h2 {
     font-size: 1.5rem;
     line-height: 1.8rem;
   }
 }
 
-/* line 34, ../../src/sass/_base.scss */
+/* line 35, ../../src/sass/_base.scss */
 h3, .h3 {
   font-size: 1.5rem;
   line-height: 1.8rem;
 }
 @media (max-width: 767px) {
-  /* line 34, ../../src/sass/_base.scss */
+  /* line 35, ../../src/sass/_base.scss */
   h3, .h3 {
     font-size: 1rem;
     line-height: 1.2rem;
   }
 }
 
-/* line 35, ../../src/sass/_base.scss */
+/* line 36, ../../src/sass/_base.scss */
 h4, p, .h4 {
   font-size: 1rem;
   line-height: 1.2rem;
 }
 
-/* line 36, ../../src/sass/_base.scss */
+/* line 37, ../../src/sass/_base.scss */
 h5, .h5 {
   font-size: .88rem;
   line-height: 1rem;
 }
 
-/* line 37, ../../src/sass/_base.scss */
+/* line 38, ../../src/sass/_base.scss */
 h6, .h6 {
   font-size: .75rem;
   line-height: .9rem;
 }
 
-/* line 39, ../../src/sass/_base.scss */
+/* line 40, ../../src/sass/_base.scss */
 .font__large {
-  font-size: 4rem;
+  font-size: 10vw;
+  line-height: 12vw;
   font-weight: 500;
 }
-@media (max-width: 767px) {
-  /* line 39, ../../src/sass/_base.scss */
-  .font__large {
-    font-size: 2rem;
-    font-weight: 400;
-  }
-}
 
-/* line 47, ../../src/sass/_base.scss */
+/* line 51, ../../src/sass/_base.scss */
 .font__middle {
   font-size: 2rem;
   font-weight: 400;
 }
 @media (max-width: 767px) {
-  /* line 47, ../../src/sass/_base.scss */
+  /* line 51, ../../src/sass/_base.scss */
   .font__middle {
     font-size: 1rem;
     font-weight: 300;
   }
 }
 
-/* line 55, ../../src/sass/_base.scss */
+/* line 59, ../../src/sass/_base.scss */
 .font_small {
   font-size: 1rem;
   font-weight: 300;
 }
 
-/* line 65, ../../src/sass/_base.scss */
+/* line 69, ../../src/sass/_base.scss */
 .font__white {
   color: #FFF;
 }
 
-/* line 68, ../../src/sass/_base.scss */
+/* line 72, ../../src/sass/_base.scss */
 a {
   text-decoration: none;
 }
@@ -461,4 +456,15 @@ a {
   border-width: 45px 30px 0 30px;
   border-color: #fff transparent transparent transparent;
   margin: 0 auto;
+}
+
+/* line 160, ../../src/sass/_module.scss */
+.jumbotron {
+  width: 100vw;
+  height: 43.92vw;
+  background-image: url("http://fakeimg.pl/1366x600/");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
 }
