@@ -43892,6 +43892,9 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var ListItem = require('./ListItem');
 var NavLink = require('./NavLink');
+/*
+  Portfolio list
+*/
 var List = React.createClass({
   displayName: 'List',
 
@@ -43899,7 +43902,8 @@ var List = React.createClass({
   render: function render() {
     var listStyle = {
       display: "flex",
-      justifyContent: "space-around"
+      justifyContent: "space-around",
+      flexWrap: "wrap"
     };
     return React.createElement(
       'div',

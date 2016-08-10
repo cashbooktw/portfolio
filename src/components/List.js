@@ -2,12 +2,16 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var ListItem = require('./ListItem');
 const NavLink = require('./NavLink');
+/*
+  Portfolio list
+*/
 var List = React.createClass({
 
   render: function() {
     var listStyle = {
       display: "flex",
-      justifyContent: "space-around"
+      justifyContent: "space-around",
+      flexWrap: "wrap"
     };
     return (
       <div style={listStyle}>
