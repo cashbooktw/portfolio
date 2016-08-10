@@ -14,7 +14,7 @@ var Article = React.createClass({
     }
     if (this.props.subTitle) {
       myArticle.push(<br key={this.props.subTitle + "x"}/>);
-      myArticle.push(<h1 key={this.props.subTitle}>{this.props.subTitle}</h1>);
+      myArticle.push(<h2 key={this.props.subTitle}>{this.props.subTitle}</h2>);
     }
     if (this.props.content) {
       myArticle.push(<br key={this.props.content + "x"}/>);

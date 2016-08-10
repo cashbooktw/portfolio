@@ -72,108 +72,101 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* line 26, ../../src/sass/_base.scss */
+/* line 32, ../../src/sass/_base.scss */
 h1, .h1 {
-  font-size: 2em;
-  line-height: 1em;
+  font-size: 2rem;
+  line-height: 2.4rem;
 }
 @media (max-width: 767px) {
-  /* line 26, ../../src/sass/_base.scss */
+  /* line 32, ../../src/sass/_base.scss */
   h1, .h1 {
-    font-size: 1.5em;
-    line-height: 1.65em;
+    font-size: 1.75rem;
+    line-height: 2.1rem;
   }
-}
-
-/* line 27, ../../src/sass/_base.scss */
-h2, .h2 {
-  font-size: 1.5em;
-  line-height: 1em;
-}
-@media (max-width: 767px) {
-  /* line 27, ../../src/sass/_base.scss */
-  h2, .h2 {
-    font-size: 1.17em;
-    line-height: 1.287em;
-  }
-}
-
-/* line 28, ../../src/sass/_base.scss */
-h3, .h3 {
-  font-size: 1.17em;
-  line-height: 1.287em;
-}
-@media (max-width: 767px) {
-  /* line 28, ../../src/sass/_base.scss */
-  h3, .h3 {
-    font-size: 1.12em;
-    line-height: 1.231em;
-  }
-}
-
-/* line 29, ../../src/sass/_base.scss */
-h4, p, .h4 {
-  font-size: 1.12em;
-  line-height: 1.231em;
-}
-@media (max-width: 767px) {
-  /* line 29, ../../src/sass/_base.scss */
-  h4, p, .h4 {
-    font-size: .83em;
-    line-height: .913em;
-  }
-}
-
-/* line 30, ../../src/sass/_base.scss */
-h5, .h5 {
-  font-size: .83em;
-  line-height: .913em;
-}
-
-/* line 31, ../../src/sass/_base.scss */
-h6, .h6 {
-  font-size: .75em;
-  line-height: .825em;
 }
 
 /* line 33, ../../src/sass/_base.scss */
-.font__large {
-  font-size: 4em;
-  font-weight: 500;
+h2, .h2 {
+  font-size: 1.75rem;
+  line-height: 2.1rem;
 }
 @media (max-width: 767px) {
   /* line 33, ../../src/sass/_base.scss */
+  h2, .h2 {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+  }
+}
+
+/* line 34, ../../src/sass/_base.scss */
+h3, .h3 {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+@media (max-width: 767px) {
+  /* line 34, ../../src/sass/_base.scss */
+  h3, .h3 {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+}
+
+/* line 35, ../../src/sass/_base.scss */
+h4, p, .h4 {
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+/* line 36, ../../src/sass/_base.scss */
+h5, .h5 {
+  font-size: .88rem;
+  line-height: 1rem;
+}
+
+/* line 37, ../../src/sass/_base.scss */
+h6, .h6 {
+  font-size: .75rem;
+  line-height: .9rem;
+}
+
+/* line 39, ../../src/sass/_base.scss */
+.font__large {
+  font-size: 4rem;
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  /* line 39, ../../src/sass/_base.scss */
   .font__large {
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: 400;
   }
 }
 
-/* line 41, ../../src/sass/_base.scss */
+/* line 47, ../../src/sass/_base.scss */
 .font__middle {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 400;
 }
 @media (max-width: 767px) {
-  /* line 41, ../../src/sass/_base.scss */
+  /* line 47, ../../src/sass/_base.scss */
   .font__middle {
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 300;
   }
 }
 
-/* line 49, ../../src/sass/_base.scss */
+/* line 55, ../../src/sass/_base.scss */
 .font_small {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 300;
 }
 
-/* line 59, ../../src/sass/_base.scss */
+/* line 65, ../../src/sass/_base.scss */
 .font__white {
   color: #FFF;
 }
 
-/* line 62, ../../src/sass/_base.scss */
+/* line 68, ../../src/sass/_base.scss */
 a {
   text-decoration: none;
 }

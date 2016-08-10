@@ -43431,7 +43431,7 @@ var Article = React.createClass({
     if (this.props.subTitle) {
       myArticle.push(React.createElement("br", { key: this.props.subTitle + "x" }));
       myArticle.push(React.createElement(
-        "h1",
+        "h2",
         { key: this.props.subTitle },
         this.props.subTitle
       ));
