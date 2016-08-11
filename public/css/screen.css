@@ -464,7 +464,7 @@ a {
 .jumbotron {
   width: 100vw;
   height: 43.92vw;
-  background-image: url("http://fakeimg.pl/1366x600/");
+  background-image: url("../images/keyboard_1366x600.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

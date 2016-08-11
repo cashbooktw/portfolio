@@ -21,11 +21,14 @@ var Jumbotron = React.createClass({
     //     textAlign: "center"
     //   }
     // };
+    let colorTitleStyle = {
+      color: "#2196F3"
+    };
     return (
       <MuiThemeProvider>
         <div className="horizontal-align-middle-parent jumbotron">
           <div className="horizontal-align-middle-child">
-          <span className="font__large font__white">{this.props.title}{this.props.colorTitle}</span>
+          <span className="font__large font__white">{this.props.title}<span style={colorTitleStyle}>{this.props.colorTitle}</span></span>
           <br />
           <span className="h2 font__white">{this.props.subTitle}</span>
           </div>

@@ -16,11 +16,11 @@ var ListItem = React.createClass({
           <Card >
             <CardMedia
               overlay={<CardTitle
-                title="Overlay title"
-                subtitle="Overlay subtitle"
+                title={this.props.title}
+                subtitle={this.props.subTitle}
                 />}
                 >
-              <img src="http://fakeimg.pl/314x252/" />
+              <img src={this.props.imgSrc} />
             </CardMedia>
           </Card>
         </MuiThemeProvider>

@@ -43834,6 +43834,9 @@ var Jumbotron = React.createClass({
     //     textAlign: "center"
     //   }
     // };
+    var colorTitleStyle = {
+      color: "#2196F3"
+    };
     return React.createElement(
       _MuiThemeProvider2.default,
       null,
@@ -43847,7 +43850,11 @@ var Jumbotron = React.createClass({
             'span',
             { className: 'font__large font__white' },
             this.props.title,
-            this.props.colorTitle
+            React.createElement(
+              'span',
+              { style: colorTitleStyle },
+              this.props.colorTitle
+            )
           ),
           React.createElement('br', null),
           React.createElement(
@@ -43911,17 +43918,29 @@ var List = React.createClass({
       React.createElement(
         NavLink,
         { to: '/portfolio/pokemon-index' },
-        React.createElement(ListItem, null)
+        React.createElement(ListItem, {
+          imgSrc: './images/pokedex_314x252.png',
+          title: 'Pokédex',
+          subTitle: 'Visualize the data from pokéapi.'
+        })
       ),
       React.createElement(
         NavLink,
         { to: '/portfolio/kaohsiung-MRT' },
-        React.createElement(ListItem, null)
+        React.createElement(ListItem, {
+          imgSrc: './images/KHMRT_314x252.png',
+          title: 'Kaohsiung MRT',
+          subTitle: 'Represent the immediate MRT information'
+        })
       ),
       React.createElement(
         NavLink,
         { to: '/portfolio/multiplayer-game' },
-        React.createElement(ListItem, null)
+        React.createElement(ListItem, {
+          imgSrc: './images/multiplayer_game_314x252.png',
+          title: 'Multiplayer Game',
+          subTitle: 'Implemented by WebSocket and three.js'
+        })
       )
     );
   }
@@ -43970,11 +43989,11 @@ var ListItem = React.createClass({
             _Card.CardMedia,
             {
               overlay: React.createElement(_Card.CardTitle, {
-                title: 'Overlay title',
-                subtitle: 'Overlay subtitle'
+                title: this.props.title,
+                subtitle: this.props.subTitle
               })
             },
-            React.createElement('img', { src: 'http://fakeimg.pl/314x252/' })
+            React.createElement('img', { src: this.props.imgSrc })
           )
         )
       )
