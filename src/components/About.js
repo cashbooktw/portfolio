@@ -43,7 +43,7 @@ var About = React.createClass({
       <div>
         <section style={styles.sectionStyle} className="row viewPage">
           <div id="aboutImg" className={aboutImgClass + " animated fadeInUp aboutImg"}>
-            <img src="http://fakeimg.pl/590x440/"></img>
+            <img src="./images/about_590x440.jpg"></img>
           </div>
           <div className={aboutArticleClass + " animated fadeInUp"}>
             <Article
@@ -66,19 +66,19 @@ var About = React.createClass({
                 <AboutList
                   title={"HTML"}
                   items={["HTML5", "Semantic HTML", "PSD to HTML", "Markdown"]}
-                  avatarSrc="http://fakeimg.pl/36x36/"/>
+                  avatarSrc="./images/HTML5_Badge_64.png"/>
                 <AboutList
                   title={"CSS"}
                   items={["CSS3", "Responsive Web Design", "SCSS", "Compass", "SMACSS"]}
-                  avatarSrc="http://fakeimg.pl/36x36/"/>
+                  avatarSrc="./images/css3-icon_36x36.png"/>
                 <AboutList
                   title={"JavaScript"}
                   items={["JavaScript ES6", "React", "Bootstrap 3", "Node.js", "Material-UI"]}
-                  avatarSrc="http://fakeimg.pl/36x36/"/>
+                  avatarSrc="./images/JS_36x36.png"/>
                 <AboutList
                   title={"Development Tool"}
                   items={["Atom", "Git", "Gulp", "Chrome Developer Tools", "Photoshop"]}
-                  avatarSrc="http://fakeimg.pl/36x36/"/>
+                  avatarSrc="./images/tools.png"/>
             </div>
           </div>
         </section>

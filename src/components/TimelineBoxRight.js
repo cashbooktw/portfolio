@@ -15,7 +15,8 @@ var TimelineBoxRight = React.createClass({
     let circleStyle = {
       backgroundColor: this.props.visualColor
     };
-    let backgroundStyle = "linear-gradient(90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    // let backgroundStyle = "linear-gradient(90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    let backgroundStyle = "linear-gradient(-90deg, " + this.props.visualColor + " 35px, #fff 0) repeat-y";
     // let timelineBoxRightMargin = (this.context.show)?0:20;
     // var test = {
     //   marginLeft: timelineBoxRightMargin

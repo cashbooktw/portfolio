@@ -43264,7 +43264,7 @@ var About = React.createClass({
         React.createElement(
           'div',
           { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
-          React.createElement('img', { src: 'http://fakeimg.pl/590x440/' })
+          React.createElement('img', { src: './images/about_590x440.jpg' })
         ),
         React.createElement(
           'div',
@@ -43297,19 +43297,19 @@ var About = React.createClass({
             React.createElement(AboutList, {
               title: "HTML",
               items: ["HTML5", "Semantic HTML", "PSD to HTML", "Markdown"],
-              avatarSrc: 'http://fakeimg.pl/36x36/' }),
+              avatarSrc: './images/HTML5_Badge_64.png' }),
             React.createElement(AboutList, {
               title: "CSS",
               items: ["CSS3", "Responsive Web Design", "SCSS", "Compass", "SMACSS"],
-              avatarSrc: 'http://fakeimg.pl/36x36/' }),
+              avatarSrc: './images/css3-icon_36x36.png' }),
             React.createElement(AboutList, {
               title: "JavaScript",
               items: ["JavaScript ES6", "React", "Bootstrap 3", "Node.js", "Material-UI"],
-              avatarSrc: 'http://fakeimg.pl/36x36/' }),
+              avatarSrc: './images/JS_36x36.png' }),
             React.createElement(AboutList, {
               title: "Development Tool",
               items: ["Atom", "Git", "Gulp", "Chrome Developer Tools", "Photoshop"],
-              avatarSrc: 'http://fakeimg.pl/36x36/' })
+              avatarSrc: './images/tools.png' })
           )
         )
       )
@@ -44262,9 +44262,8 @@ var ScrollTop = React.createClass({
         padding: 12
       },
       large: {
-        width: 120,
-        height: 120,
-        padding: 30
+        width: 60,
+        height: 60
       }
     };
 
@@ -44274,8 +44273,6 @@ var ScrollTop = React.createClass({
       React.createElement(
         _IconButton2.default,
         {
-          tooltip: 'Scroll to Top',
-          tooltipPosition: 'top-right',
           touch: true,
           style: styles.large,
           iconStyle: styles.largeIcon,
@@ -44380,10 +44377,9 @@ var Timeline = React.createClass({
             React.createElement(Article, { subTitle: 'participated in Soft & Share online meetups' }),
             React.createElement(Article, { subTitle: 'reading and programming' })
           ),
-          React.createElement('div', { className: 'bigBubble--after' }),
           React.createElement(TimelineBox, {
             myRef: 'A0',
-            visualColor: _colors.purple500,
+            visualColor: _colors.red500,
             scrollY: 1000,
             year: '2016'
           })
@@ -44391,19 +44387,35 @@ var Timeline = React.createClass({
       ),
       React.createElement(TimelineBox, {
         myRef: 'A1',
-        visualColor: _colors.indigo500,
+        visualColor: _colors.pink500,
         scrollY: this.state.scrollY,
         year: '2015',
         side: this.context.show ? "left" : "right",
-        content: 'This is the 2015 content'
+        content: 'Graduated from National Cheng Kung University and received Master of Science in Engineering Science.'
       }),
       React.createElement(TimelineBox, {
         myRef: 'A2',
-        visualColor: _colors.cyan500,
+        visualColor: _colors.purple500,
         scrollY: this.state.scrollY,
         year: '2014',
         side: 'right',
-        content: 'This is the 0214 content'
+        content: 'TECO Green Tech Contest Main Contest Entry Award upon\r \'Appliance Energy Management System Based on Cloud Appliance Recognition Computing\'.'
+      }),
+      React.createElement(TimelineBox, {
+        myRef: 'A1',
+        visualColor: _colors.deepPurple500,
+        scrollY: this.state.scrollY,
+        year: '2013',
+        side: this.context.show ? "left" : "right",
+        content: 'Received bachelor degree of Science in Engineering Science, National Cheng Kung University.\r Won second place in Network Communication Software and Innovative Application Contest held by Ministry of Education'
+      }),
+      React.createElement(TimelineBox, {
+        myRef: 'A2',
+        visualColor: _colors.indigo500,
+        scrollY: this.state.scrollY,
+        year: '2012',
+        side: 'right',
+        content: 'Project: Sitting Posture Detection System'
       })
     );
   }
@@ -44510,7 +44522,8 @@ var TimelineBoxRight = React.createClass({
     } else {
       display = "none";
     }
-    var backgroundStyle = "linear-gradient(-90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    // let backgroundStyle = "linear-gradient(-90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    var backgroundStyle = "linear-gradient(90deg, " + this.props.visualColor + " 35px, #fff 0) repeat-y";
     var styles = {};
     if (this.context.show) {
       styles = { display: "block" };
@@ -44549,7 +44562,8 @@ var TimelineBoxRight = React.createClass({
     var circleStyle = {
       backgroundColor: this.props.visualColor
     };
-    var backgroundStyle = "linear-gradient(90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    // let backgroundStyle = "linear-gradient(90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    var backgroundStyle = "linear-gradient(-90deg, " + this.props.visualColor + " 35px, #fff 0) repeat-y";
     // let timelineBoxRightMargin = (this.context.show)?0:20;
     // var test = {
     //   marginLeft: timelineBoxRightMargin

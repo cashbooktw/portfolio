@@ -12,7 +12,8 @@ var TimelineBoxRight = React.createClass({
     } else {
       display = "none";
     }
-    let backgroundStyle = "linear-gradient(-90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    // let backgroundStyle = "linear-gradient(-90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    let backgroundStyle = "linear-gradient(90deg, " + this.props.visualColor + " 35px, #fff 0) repeat-y";
     let styles = {};
     if (this.context.show) {
       styles = {display: "block"};

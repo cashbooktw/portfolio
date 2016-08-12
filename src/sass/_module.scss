@@ -23,16 +23,16 @@ $desktop-width: 1024px;
 /* Speech Bubble */
 .speechBubble {
   position: relative;
-  width: 200px;
-  height: 100px;
+  width: 300px;
+  min-height: 100px;
   text-align: left;
   line-height: 24px;
   background: linear-gradient(90deg, #fff 85%, #F44336 0) repeat-y;
   border: 0;
   border-radius: 0 30px 30px;
   box-shadow: 2px 2px 4px #212121;
-  padding: 5px 40px 5px 5px;
-  margin: 0 auto;
+  padding: 10px 40px 10px 10px;
+  margin-left: 55px;
   &:after {
     content: ' ';
     position: absolute;
@@ -65,11 +65,12 @@ $desktop-width: 1024px;
   background: linear-gradient(-90deg, #fff 85%, #F44336 0) repeat-y;
   border-radius: 30px 0 30px 30px;
   box-shadow: -2px 2px 4px #212121;
-  padding: 5px 5px 5px 40px;
-  // margin-right: 15px;
+  padding: 10px 10px 10px 40px;
+  margin-right: 55px;
+  margin-left: 0px;
   &:after {
     @extend .speechBubble:after;
-    left: 245px;
+    left: 345px;
     border-color: #fff transparent transparent #fff ;
   }
 }
@@ -137,10 +138,10 @@ $desktop-width: 1024px;
 
 .bigBubble {
   // position: relative;
-  background: linear-gradient(90deg, #fff 85%, #F44336 0) repeat-y;
+  background: linear-gradient(0deg, #fff 85%, #F44336 0) repeat-y;
   border: 0;
   border-radius: 30px 30px;
-  padding: 20px 80px 20px 20px;
+  padding: 60px 20px 20px 20px;
   margin: 0 auto;
 }
 

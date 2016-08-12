@@ -81,28 +81,28 @@ h1, .h1 {
 @media (max-width: 767px) {
   /* line 33, ../../src/sass/_base.scss */
   h1, .h1 {
-    font-size: 1.75rem;
-    line-height: 2.1rem;
+    font-size: 1.67rem;
+    line-height: 2rem;
   }
 }
 
 /* line 34, ../../src/sass/_base.scss */
 h2, .h2 {
-  font-size: 1.75rem;
-  line-height: 2.1rem;
+  font-size: 1.67rem;
+  line-height: 2rem;
 }
 @media (max-width: 767px) {
   /* line 34, ../../src/sass/_base.scss */
   h2, .h2 {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
+    font-size: 1.33rem;
+    line-height: 1.6rem;
   }
 }
 
 /* line 35, ../../src/sass/_base.scss */
 h3, .h3 {
-  font-size: 1.5rem;
-  line-height: 1.8rem;
+  font-size: 1.33rem;
+  line-height: 1.6rem;
 }
 @media (max-width: 767px) {
   /* line 35, ../../src/sass/_base.scss */
@@ -335,16 +335,16 @@ a {
 /* line 24, ../../src/sass/_module.scss */
 .speechBubble, .speechBubble--left {
   position: relative;
-  width: 200px;
-  height: 100px;
+  width: 300px;
+  min-height: 100px;
   text-align: left;
   line-height: 24px;
   background: linear-gradient(90deg, #ffffff 85%, #f44336 0%) repeat-y;
   border: 0;
   border-radius: 0 30px 30px;
   box-shadow: 2px 2px 4px #212121;
-  padding: 5px 40px 5px 5px;
-  margin: 0 auto;
+  padding: 10px 40px 10px 10px;
+  margin-left: 55px;
 }
 /* line 36, ../../src/sass/_module.scss */
 .speechBubble:after, .speechBubble--left:after {
@@ -370,15 +370,17 @@ a {
   background: linear-gradient(-90deg, #ffffff 85%, #f44336 0%) repeat-y;
   border-radius: 30px 0 30px 30px;
   box-shadow: -2px 2px 4px #212121;
-  padding: 5px 5px 5px 40px;
+  padding: 10px 10px 10px 40px;
+  margin-right: 55px;
+  margin-left: 0px;
 }
-/* line 70, ../../src/sass/_module.scss */
+/* line 71, ../../src/sass/_module.scss */
 .speechBubble--left:after {
-  left: 245px;
+  left: 345px;
   border-color: #fff transparent transparent #fff;
 }
 
-/* line 77, ../../src/sass/_module.scss */
+/* line 78, ../../src/sass/_module.scss */
 .TimelineBox__Right {
   background: linear-gradient(0deg, #212121 75%, rgba(0, 0, 0, 0) 0%) repeat-y;
   background-size: 4px 16px;
@@ -386,13 +388,13 @@ a {
   position: relative;
 }
 
-/* line 87, ../../src/sass/_module.scss */
+/* line 88, ../../src/sass/_module.scss */
 .TimelineBox__Left, .TimelineBox__Right {
   width: 400px;
   height: 200px;
 }
 
-/* line 96, ../../src/sass/_module.scss */
+/* line 97, ../../src/sass/_module.scss */
 .TimelineBox__container {
   width: 100%;
   display: flex;
@@ -400,7 +402,7 @@ a {
   padding-top: 61px;
 }
 
-/* line 103, ../../src/sass/_module.scss */
+/* line 104, ../../src/sass/_module.scss */
 .TimelineBox__wrapper {
   width: 100%;
   display: flex;
@@ -409,7 +411,7 @@ a {
   margin: 0;
 }
 
-/* line 112, ../../src/sass/_module.scss */
+/* line 113, ../../src/sass/_module.scss */
 .circle {
   content: '';
   width: 26px;
@@ -421,7 +423,7 @@ a {
   top: -13px;
 }
 
-/* line 123, ../../src/sass/_module.scss */
+/* line 124, ../../src/sass/_module.scss */
 .circle__title {
   height: 48px;
   width: 200px;
@@ -432,22 +434,22 @@ a {
   left: -98px;
 }
 @media (max-width: 767px) {
-  /* line 123, ../../src/sass/_module.scss */
+  /* line 124, ../../src/sass/_module.scss */
   .circle__title {
     left: -68px;
   }
 }
 
-/* line 138, ../../src/sass/_module.scss */
+/* line 139, ../../src/sass/_module.scss */
 .bigBubble {
-  background: linear-gradient(90deg, #ffffff 85%, #f44336 0%) repeat-y;
+  background: linear-gradient(0deg, #ffffff 85%, #f44336 0%) repeat-y;
   border: 0;
   border-radius: 30px 30px;
-  padding: 20px 80px 20px 20px;
+  padding: 60px 20px 20px 20px;
   margin: 0 auto;
 }
 
-/* line 147, ../../src/sass/_module.scss */
+/* line 148, ../../src/sass/_module.scss */
 .bigBubble--after {
   content: ' ';
   width: 0;
@@ -460,7 +462,7 @@ a {
   margin: 0 auto;
 }
 
-/* line 160, ../../src/sass/_module.scss */
+/* line 161, ../../src/sass/_module.scss */
 .jumbotron {
   width: 100vw;
   height: 43.92vw;
@@ -471,12 +473,12 @@ a {
   text-align: center;
 }
 
-/* line 170, ../../src/sass/_module.scss */
+/* line 171, ../../src/sass/_module.scss */
 .aboutImg {
   max-width: 590px;
 }
 
-/* line 173, ../../src/sass/_module.scss */
+/* line 174, ../../src/sass/_module.scss */
 .aboutImg img {
   max-width: 100%;
   height: auto;

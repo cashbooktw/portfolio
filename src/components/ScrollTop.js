@@ -36,18 +36,15 @@ var ScrollTop = React.createClass({
         padding: 12,
       },
       large: {
-        width: 120,
-        height: 120,
-        padding: 30,
+        width: 60,
+        height: 60
       },
     };
 
-    
+
     return (
       <MuiThemeProvider>
         <IconButton
-          tooltip="Scroll to Top"
-          tooltipPosition="top-right"
           touch={true}
           style={styles.large}
           iconStyle={styles.largeIcon}

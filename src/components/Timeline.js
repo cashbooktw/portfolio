@@ -48,10 +48,10 @@ var Timeline = React.createClass({
               <Article subTitle="participated in Soft & Share online meetups" />
               <Article subTitle="reading and programming" />
             </div>
-            <div className="bigBubble--after"></div>
+
             <TimelineBox
               myRef="A0"
-              visualColor={purple500}
+              visualColor={red500}
               scrollY={1000}
               year="2016"
               />
@@ -59,21 +59,41 @@ var Timeline = React.createClass({
         </div>
         <TimelineBox
           myRef="A1"
-          visualColor={indigo500}
+          visualColor={pink500}
           scrollY={this.state.scrollY}
           year="2015"
           side={(this.context.show)?"left":"right"}
-          content="This is the 2015 content"
+          content="Graduated from National Cheng Kung University and received Master of Science in Engineering Science."
           />
 
           <TimelineBox
             myRef="A2"
-            visualColor={cyan500}
+            visualColor={purple500}
             scrollY={this.state.scrollY}
             year="2014"
             side="right"
-            content="This is the 0214 content"
+            content="TECO Green Tech Contest Main Contest Entry Award upon
+            'Appliance Energy Management System Based on Cloud Appliance Recognition Computing'."
             />
+
+            <TimelineBox
+              myRef="A1"
+              visualColor={deepPurple500}
+              scrollY={this.state.scrollY}
+              year="2013"
+              side={(this.context.show)?"left":"right"}
+              content="Received bachelor degree of Science in Engineering Science, National Cheng Kung University.
+              Won second place in Network Communication Software and Innovative Application Contest held by Ministry of Education"
+              />
+
+              <TimelineBox
+                myRef="A2"
+                visualColor={indigo500}
+                scrollY={this.state.scrollY}
+                year="2012"
+                side="right"
+                content="Project: Sitting Posture Detection System"
+                />
       </div>
     );
   }
