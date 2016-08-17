@@ -132,8 +132,8 @@ h6, .h6 {
 
 /* line 40, ../../src/sass/_base.scss */
 .font__large {
-  font-size: 10vw;
-  line-height: 12vw;
+  font-size: 8vw;
+  line-height: 9.6vw;
   font-weight: 500;
 }
 

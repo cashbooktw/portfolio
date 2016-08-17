@@ -20,14 +20,14 @@ injectTapEventPlugin();
 // const App = () => (
 
 // );
-// var onRouteChange = function () {
-//     window.scrollTo(0, 0);
-//     console.log("Router.isActive = " + this.context.router.isActive({pathname: "/timeline"}));
-// }.bind(this);
+var onRouteChange = function () {
+    window.scrollTo(0, 0);
+    // console.log("Router.isActive = " + this.context.router.isActive({pathname: "/timeline"}));
+}.bind(this);
 
 //  onUpdate={onRouteChange}
 ReactDOM.render((
-  <Router history={hashHistory}>
+  <Router history={hashHistory} onUpdate={onRouteChange}>
       <Route path="/" component={App}>
         <IndexRoute component={Index}/>
         {/* make them children of `App` */}

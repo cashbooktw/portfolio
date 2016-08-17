@@ -44132,16 +44132,158 @@ module.exports = NavLink;
 
 var React = require('react');
 var PropTypes = React.PropTypes;
+var Article = require('./Article');
+var HeaderCenter = require('./HeaderCenter');
 // one of the profolios
 var PokemonIndex = React.createClass({
   displayName: 'PokemonIndex',
 
-
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
   render: function render() {
+    var styles = {
+      sectionStyle: {
+        padding: "3em 5%"
+      }
+    };
+    var aboutImgClass = "";
+    var aboutArticleClass = "";
+    if (this.context.show) {
+      // this.refs.aboutImg.classList.add("col-7");
+      aboutImgClass = "col-7";
+      aboutArticleClass = "col-5";
+    } else {
+      // this.refs.aboutImg.classList.remove("col-7");
+      // this.refs.aboutImg.classList.add("col-12");
+      aboutImgClass = "col-12";
+      aboutArticleClass = "col-12";
+    }
     return React.createElement(
       'div',
       null,
-      'PokemonIndex'
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { className: "col-12" + " animated fadeInUp" },
+          React.createElement(Article, {
+            title: 'Pokémon Index'
+          }),
+          React.createElement(
+            'h3',
+            null,
+            'This is implemeted by React and ReFlux. The css and RWD style were implemented by bootstrap.'
+          ),
+          React.createElement(
+            'h3',
+            null,
+            'The basic data is retrieved from ',
+            React.createElement(
+              'a',
+              { href: 'http://pokeapi.co/ by API' },
+              'pokeapi'
+            ),
+            '. To optimize the page loading, I uses hard code data instead.'
+          ),
+          React.createElement(
+            'h3',
+            null,
+            'Demo site ',
+            React.createElement(
+              'a',
+              { href: 'https://cashbooktw.github.io/react-pokedex/public/' },
+              'here'
+            )
+          )
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
+          React.createElement('img', { src: './images/pokedex/first-page.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass + " animated fadeInUp" },
+          React.createElement(Article, {
+            subTitle: 'Main page',
+            content: 'Each Pokemon will have : image, name, types ,and index'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/pokedex/search.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Search bar',
+            content: 'If the user enters a number or name,\r it will find all similar matches and hide/remove the other Pokemons.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/pokedex/name-z-to-a.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Sort drop down',
+            content: 'Sorts from A-Z, Z-A, Lowest Number First, or Highest Number first.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/pokedex/pikachu.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Details',
+            content: 'Clicking any Pokémon will show detail information of that Pokémon.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/pokedex/mobiledetail.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'RWD style',
+            content: 'Main page and detail pages changes along with viewport width'
+          })
+        )
+      )
     );
   }
 
@@ -44149,7 +44291,7 @@ var PokemonIndex = React.createClass({
 
 module.exports = PokemonIndex;
 
-},{"react":474}],506:[function(require,module,exports){
+},{"./Article":492,"./HeaderCenter":496,"react":474}],506:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44616,15 +44758,15 @@ var MultiplayerGame = require('./components/MultiplayerGame');
 // const App = () => (
 
 // );
-// var onRouteChange = function () {
-//     window.scrollTo(0, 0);
-//     console.log("Router.isActive = " + this.context.router.isActive({pathname: "/timeline"}));
-// }.bind(this);
+var onRouteChange = function () {
+  window.scrollTo(0, 0);
+  // console.log("Router.isActive = " + this.context.router.isActive({pathname: "/timeline"}));
+}.bind(undefined);
 
 //  onUpdate={onRouteChange}
 ReactDOM.render(React.createElement(
   _reactRouter.Router,
-  { history: _reactRouter.hashHistory },
+  { history: _reactRouter.hashHistory, onUpdate: onRouteChange },
   React.createElement(
     _reactRouter.Route,
     { path: '/', component: App },
