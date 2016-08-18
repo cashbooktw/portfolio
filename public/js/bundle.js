@@ -43483,18 +43483,99 @@ module.exports = Article;
 },{"react":474}],493:[function(require,module,exports){
 'use strict';
 
+var _Avatar = require('material-ui/Avatar');
+
+var _Avatar2 = _interopRequireDefault(_Avatar);
+
+var _List = require('material-ui/List');
+
+var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
+
+var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+var _getMuiTheme = require('material-ui/styles/getMuiTheme');
+
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var React = require('react');
 var PropTypes = React.PropTypes;
+
 
 var Contact = React.createClass({
   displayName: 'Contact',
 
-
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
   render: function render() {
+    var styles = {
+      sectionStyle: {
+        padding: "3em 5%"
+      }
+    };
+    var aboutImgClass = "";
+    var aboutArticleClass = "";
+    if (this.context.show) {
+      // this.refs.aboutImg.classList.add("col-7");
+      aboutImgClass = "col-7";
+      aboutArticleClass = "col-5";
+    } else {
+      // this.refs.aboutImg.classList.remove("col-7");
+      // this.refs.aboutImg.classList.add("col-12");
+      aboutImgClass = "col-12";
+      aboutArticleClass = "col-12";
+    }
     return React.createElement(
       'div',
       null,
-      'Contact'
+      React.createElement(
+        _MuiThemeProvider2.default,
+        null,
+        React.createElement(
+          'section',
+          { style: styles.sectionStyle, className: 'row viewPage' },
+          React.createElement(
+            'div',
+            { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
+            React.createElement('img', { src: './images/eat.jpg' })
+          ),
+          React.createElement(
+            'div',
+            { className: aboutArticleClass + " animated fadeInUp" },
+            React.createElement(
+              _List.List,
+              null,
+              React.createElement(_List.ListItem, {
+                primaryText: 'Star me on Github',
+                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/github.png' }),
+                onTouchTap: function onTouchTap() {
+                  window.open("https://github.com/cashbooktw/");
+                }
+              }),
+              React.createElement(_List.ListItem, {
+                primaryText: 'Like me on Codepen',
+                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/codepen.png' }),
+                onTouchTap: function onTouchTap() {
+                  window.open("http://codepen.io/cashbook/");
+                }
+              }),
+              React.createElement(_List.ListItem, {
+                primaryText: 'Discuss with me on Logdown',
+                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/logdown.png' }),
+                onTouchTap: function onTouchTap() {
+                  window.open("http://cashbook.logdown.com/");
+                }
+              }),
+              React.createElement(_List.ListItem, {
+                primaryText: 'Email: cashbooktw@gmail.com',
+                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/gmail.png' })
+              })
+            )
+          )
+        )
+      )
     );
   }
 
@@ -43502,7 +43583,7 @@ var Contact = React.createClass({
 
 module.exports = Contact;
 
-},{"react":474}],494:[function(require,module,exports){
+},{"material-ui/Avatar":199,"material-ui/List":223,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"react":474}],494:[function(require,module,exports){
 'use strict';
 
 var _Toolbar = require('material-ui/Toolbar');
