@@ -2,6 +2,7 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var Article = require('./Article');
 var AboutList = require('./AboutList');
+const ScrollTop = require('./ScrollTop');
 import {fullWhite, green500} from 'material-ui/styles/colors';
 
 /*
@@ -18,7 +19,7 @@ var About = React.createClass({
       },
       aboutListStyle: {
         backgroundColor: green500,
-        padding: "3em 5%"
+        padding: "3em 5%  0 5%"
       },
       flexBoxStyle: {
         display: "flex",
@@ -81,7 +82,13 @@ var About = React.createClass({
                   avatarSrc="./images/tools.png"/>
             </div>
           </div>
+          <div className="row horizontal-align-middle-parent">
+            <div className="col-12 horizontal-align-middle-child">
+              <ScrollTop />
+            </div>
+          </div>
         </section>
+
       </div>
     );
   }

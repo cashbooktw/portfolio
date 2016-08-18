@@ -43216,6 +43216,7 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var Article = require('./Article');
 var AboutList = require('./AboutList');
+var ScrollTop = require('./ScrollTop');
 
 
 /*
@@ -43234,7 +43235,7 @@ var About = React.createClass({
       },
       aboutListStyle: {
         backgroundColor: _colors.green500,
-        padding: "3em 5%"
+        padding: "3em 5%  0 5%"
       },
       flexBoxStyle: {
         display: "flex",
@@ -43311,6 +43312,15 @@ var About = React.createClass({
               items: ["Atom", "Git", "Gulp", "Chrome Developer Tools", "Photoshop"],
               avatarSrc: './images/tools.png' })
           )
+        ),
+        React.createElement(
+          'div',
+          { className: 'row horizontal-align-middle-parent' },
+          React.createElement(
+            'div',
+            { className: 'col-12 horizontal-align-middle-child' },
+            React.createElement(ScrollTop, null)
+          )
         )
       )
     );
@@ -43320,7 +43330,7 @@ var About = React.createClass({
 
 module.exports = About;
 
-},{"./AboutList":491,"./Article":492,"material-ui/styles/colors":256,"react":474}],491:[function(require,module,exports){
+},{"./AboutList":491,"./Article":492,"./ScrollTop":507,"material-ui/styles/colors":256,"react":474}],491:[function(require,module,exports){
 'use strict';
 
 var _List = require('material-ui/List');
@@ -44619,6 +44629,8 @@ var PropTypes = React.PropTypes;
 var getPosition = require('../services/getPosition');
 var TimelineBox = require('./TimelineBox');
 var Article = require('./Article');
+var ScrollTop = require('./ScrollTop');
+
 var Timeline = React.createClass({
   displayName: 'Timeline',
 
@@ -44710,14 +44722,23 @@ var Timeline = React.createClass({
         year: '2012',
         side: 'right',
         content: 'Project: Sitting Posture Detection System'
-      })
+      }),
+      React.createElement(
+        'div',
+        { className: 'row horizontal-align-middle-parent' },
+        React.createElement(
+          'div',
+          { className: 'col-12 horizontal-align-middle-child' },
+          React.createElement(ScrollTop, null)
+        )
+      )
     );
   }
 
 });
 module.exports = Timeline;
 
-},{"../services/getPosition":515,"./Article":492,"./TimelineBox":510,"material-ui/styles/colors":256,"react":474}],510:[function(require,module,exports){
+},{"../services/getPosition":515,"./Article":492,"./ScrollTop":507,"./TimelineBox":510,"material-ui/styles/colors":256,"react":474}],510:[function(require,module,exports){
 'use strict';
 
 var React = require('react');

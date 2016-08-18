@@ -4,6 +4,8 @@ import {red500,pink500,purple500,deepPurple500, indigo500, blue500, lightBlue500
 var getPosition = require('../services/getPosition');
 var TimelineBox = require('./TimelineBox');
 var Article = require('./Article');
+const ScrollTop = require('./ScrollTop');
+
 var Timeline = React.createClass({
   getInitialState: function() {
     return {
@@ -94,6 +96,12 @@ var Timeline = React.createClass({
                 side="right"
                 content="Project: Sitting Posture Detection System"
                 />
+
+              <div className="row horizontal-align-middle-parent">
+                <div className="col-12 horizontal-align-middle-child">
+                  <ScrollTop />
+                </div>
+              </div>
       </div>
     );
   }
