@@ -1,7 +1,6 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 const Article = require('./Article');
-const HeaderCenter = require('./HeaderCenter');
 // one of the profolios
 var PokemonIndex = React.createClass({
   contextTypes: {
@@ -16,12 +15,9 @@ var PokemonIndex = React.createClass({
     let aboutImgClass = "";
     let aboutArticleClass = "";
     if (this.context.show) {
-      // this.refs.aboutImg.classList.add("col-7");
       aboutImgClass = "col-7";
       aboutArticleClass = "col-5";
     } else {
-      // this.refs.aboutImg.classList.remove("col-7");
-      // this.refs.aboutImg.classList.add("col-12");
       aboutImgClass = "col-12";
       aboutArticleClass = "col-12";
     }
@@ -47,7 +43,7 @@ var PokemonIndex = React.createClass({
           <div className={aboutArticleClass + " animated fadeInUp"}>
             <Article
               subTitle="Main page"
-              content="Each Pokemon will have : image, name, types ,and index"
+              content="Each Pokemon will have: image, name, types ,and index."
             />
           </div>
         </section>
@@ -96,7 +92,7 @@ var PokemonIndex = React.createClass({
           <div className={aboutArticleClass}>
             <Article
               subTitle="RWD style"
-              content="Main page and detail pages changes along with viewport width"
+              content="Main page and detail pages changes along with viewport width."
             />
           </div>
         </section>

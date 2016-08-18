@@ -43876,15 +43876,102 @@ module.exports = Jumbotron;
 
 var React = require('react');
 var PropTypes = React.PropTypes;
+var Article = require('./Article');
 // one of the profolios
 var KaohsiungMRT = React.createClass({
   displayName: 'KaohsiungMRT',
 
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
   render: function render() {
+    var styles = {
+      sectionStyle: {
+        padding: "3em 5%"
+      }
+    };
+    var aboutImgClass = "";
+    var aboutArticleClass = "";
+    if (this.context.show) {
+      aboutImgClass = "col-7";
+      aboutArticleClass = "col-5";
+    } else {
+      aboutImgClass = "col-12";
+      aboutArticleClass = "col-12";
+    }
     return React.createElement(
       'div',
       null,
-      'KaohsiungMRT'
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { className: "col-12" + " animated fadeInUp" },
+          React.createElement(Article, {
+            title: 'Kaohsiung MRT Immediate Information'
+          }),
+          React.createElement(
+            'h3',
+            null,
+            'The map data is retrieved from Google Map API, and the MRT data is retrieved from ',
+            React.createElement(
+              'a',
+              { href: 'http://data.kaohsiung.gov.tw/Opendata/' },
+              'Open Data.Kaohsiung'
+            ),
+            '.'
+          ),
+          React.createElement(
+            'h3',
+            null,
+            'Demo site ',
+            React.createElement(
+              'a',
+              { href: 'http://kaohsiung-mrt.herokuapp.com' },
+              'here'
+            ),
+            '.'
+          )
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
+          React.createElement('img', { src: './images/khmrt/KHMRT1.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass + " animated fadeInUp" },
+          React.createElement(Article, {
+            subTitle: 'Refresh Information',
+            content: 'The information changes after a time period.\r The data is retrieved from node.js server on Heroku.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/khmrt/KHMRT2.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Interactive with map',
+            content: 'You can click the marker on the map.\r The marker you clicked would move to the center of the map.'
+          }),
+          React.createElement(Article, {
+            content: 'The table section shows the arriving time of the MRT.'
+          })
+        )
+      )
     );
   }
 
@@ -43892,7 +43979,7 @@ var KaohsiungMRT = React.createClass({
 
 module.exports = KaohsiungMRT;
 
-},{"react":474}],500:[function(require,module,exports){
+},{"./Article":492,"react":474}],500:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44009,16 +44096,85 @@ module.exports = ListItem;
 
 var React = require('react');
 var PropTypes = React.PropTypes;
+var Article = require('./Article');
 // one of the profolios
 var MultiplayerGame = React.createClass({
   displayName: 'MultiplayerGame',
 
-
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
   render: function render() {
+    var styles = {
+      sectionStyle: {
+        padding: "3em 5%"
+      }
+    };
+    var aboutImgClass = "";
+    var aboutArticleClass = "";
+    if (this.context.show) {
+      aboutImgClass = "col-7";
+      aboutArticleClass = "col-5";
+    } else {
+      aboutImgClass = "col-12";
+      aboutArticleClass = "col-12";
+    }
     return React.createElement(
       'div',
       null,
-      'MultiplayerGame'
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { className: "col-12" + " animated fadeInUp" },
+          React.createElement(Article, {
+            title: 'Multiplayer Game'
+          }),
+          React.createElement(
+            'h3',
+            null,
+            'The multiplayer game is implemented by WebSocket and WebGL. I use Three.js as the implement of WebGL. WebSocket server is built with Node.js'
+          )
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
+          React.createElement('img', { src: './images/mpgame/game.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass + " animated fadeInUp" },
+          React.createElement(Article, {
+            subTitle: 'Multiplayer Game Scene',
+            content: 'When a client connects to a server,\r the server sends the content and information to the client.'
+          }),
+          React.createElement(Article, {
+            content: 'If the client moves its character, the control messages are sent instantly.\r The other clients would receive the update messages and refresh their frames.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/mpgame/multiplayer.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Keep Synchronized.',
+            content: 'There is a playerlist recording statuses of all clients.\r When a client changes its\' status, the playerlist would refresh and broadcast to other clients.\r '
+          })
+        )
+      )
     );
   }
 
@@ -44026,7 +44182,7 @@ var MultiplayerGame = React.createClass({
 
 module.exports = MultiplayerGame;
 
-},{"react":474}],503:[function(require,module,exports){
+},{"./Article":492,"react":474}],503:[function(require,module,exports){
 'use strict';
 
 var _Drawer = require('material-ui/Drawer');
@@ -44133,7 +44289,6 @@ module.exports = NavLink;
 var React = require('react');
 var PropTypes = React.PropTypes;
 var Article = require('./Article');
-var HeaderCenter = require('./HeaderCenter');
 // one of the profolios
 var PokemonIndex = React.createClass({
   displayName: 'PokemonIndex',
@@ -44150,12 +44305,9 @@ var PokemonIndex = React.createClass({
     var aboutImgClass = "";
     var aboutArticleClass = "";
     if (this.context.show) {
-      // this.refs.aboutImg.classList.add("col-7");
       aboutImgClass = "col-7";
       aboutArticleClass = "col-5";
     } else {
-      // this.refs.aboutImg.classList.remove("col-7");
-      // this.refs.aboutImg.classList.add("col-12");
       aboutImgClass = "col-12";
       aboutArticleClass = "col-12";
     }
@@ -44212,7 +44364,7 @@ var PokemonIndex = React.createClass({
           { className: aboutArticleClass + " animated fadeInUp" },
           React.createElement(Article, {
             subTitle: 'Main page',
-            content: 'Each Pokemon will have : image, name, types ,and index'
+            content: 'Each Pokemon will have: image, name, types ,and index.'
           })
         )
       ),
@@ -44280,7 +44432,7 @@ var PokemonIndex = React.createClass({
           { className: aboutArticleClass },
           React.createElement(Article, {
             subTitle: 'RWD style',
-            content: 'Main page and detail pages changes along with viewport width'
+            content: 'Main page and detail pages changes along with viewport width.'
           })
         )
       )
@@ -44291,7 +44443,7 @@ var PokemonIndex = React.createClass({
 
 module.exports = PokemonIndex;
 
-},{"./Article":492,"./HeaderCenter":496,"react":474}],506:[function(require,module,exports){
+},{"./Article":492,"react":474}],506:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
