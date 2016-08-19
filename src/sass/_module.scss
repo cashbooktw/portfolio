@@ -1,28 +1,177 @@
-// .jumbotron img{
-//   width: 100%;
-//   height: auto;
-//   background-repeat: no-repeat;
-//   background-size: 100% auto;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin phone {
+  @media (max-width: #{$tablet-width - 1px})  {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+
+/* Speech Bubble */
+.speechBubble {
+  position: relative;
+  width: 300px;
+  min-height: 100px;
+  text-align: left;
+  line-height: 24px;
+  background: linear-gradient(90deg, #fff 85%, #F44336 0) repeat-y;
+  border: 0;
+  border-radius: 0 30px 30px;
+  box-shadow: 2px 2px 4px #212121;
+  padding: 10px 40px 10px 10px;
+  margin-left: 55px;
+  &:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -30px;
+    top: 0px;
+    border: 15px solid;
+    border-color: #fff #fff transparent transparent ;
+  }
+  @include phone {
+    margin-left: 70px;
+    width: 150px;
+  }
+}
+
+// .speechBubble:after {
+//   content: ' ';
+//   position: absolute;
+//   width: 0;
+//   height: 0;
+//   left: -30px;
+//   top: 0px;
+//   border: 15px solid;
+//   border-color: #fff #fff transparent transparent ;
 // }
 
-// .header-center {
-//   height: 1px;
-//   background: #DDD;
-//   border-bottom: #FFF solid 1px;
-//   margin-bottom: 30px;
-//   position: relative;
-//   vertical-align: bottom;
-// }
-//
-// .header-center span {
-//   background-color: #FFF;
-//   position: absolute;
-//   top: -10px;
-//   left: 50%; transform: translateX(-50%);
-//   width: 300px;
-//   text-align: center;
-//   display: block;
-//   color: #666666;//#666666
-//   text-transform: uppercase;
-//   letter-spacing: 1px;
-// }
+.speechBubble--left {
+  @extend .speechBubble;
+  background: linear-gradient(-90deg, #fff 85%, #F44336 0) repeat-y;
+  border-radius: 30px 0 30px 30px;
+  box-shadow: -2px 2px 4px #212121;
+  padding: 10px 10px 10px 40px;
+  margin-right: 55px;
+  margin-left: 0px;
+  &:after {
+    @extend .speechBubble:after;
+    left: 345px;
+    border-color: #fff transparent transparent #fff ;
+  }
+}
+
+.TimelineBox__Right {
+  // width: 400px;
+  // height: 200px;
+  @extend .TimelineBox__Left;
+  background: linear-gradient(0deg, #212121 75%, transparent 0) repeat-y;
+  background-size: 4px 16px ;
+  background-position: 0px 0px;
+  position: relative;
+}
+
+.TimelineBox__Left {
+  width: 400px;
+  height: 200px;
+  // background: linear-gradient(0deg, #212121 75%, transparent 0) repeat-y;
+  // background-size: 4px 16px ;
+  // background-position: 0px 0px;
+  // position: relative;
+}
+
+.TimelineBox__container {
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  padding-top: 61px;
+}
+
+.TimelineBox__wrapper {
+  width: 100%;
+  display: flex;
+  // background-color: #9E9E9E;
+  align-items: center;
+  flex-direction:column;
+  margin: 0;
+}
+
+.circle {
+  content: '';
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #F44336;
+  position: absolute;
+  left: -11px;
+  top: -13px;
+}
+
+.circle__title {
+  height: 48px;
+  width: 200px;
+  text-align: center;
+  font-size: 36px;
+  position: absolute;
+  // top: -48px;
+  // left: -98px;
+  top: -48px;
+  left: -98px;
+  @include phone {
+    left: -68px;
+  }
+}
+
+.bigBubble {
+  // position: relative;
+  background: linear-gradient(0deg, #fff 85%, #F44336 0) repeat-y;
+  border: 0;
+  border-radius: 30px 30px;
+  padding: 60px 20px 20px 20px;
+  margin: 0 auto;
+}
+
+.bigBubble--after{
+    content: ' ';
+    // position: relative;
+    width: 0;
+    height: 0;
+    left: 0px;
+    top: 0px;
+    border-style: solid;
+    border-width: 45px 30px 0 30px;
+    border-color: #fff transparent transparent transparent ;
+    margin: 0 auto;
+}
+
+.jumbotron {
+  width: 100vw;
+  height: 43.92vw;
+  background-image: url('../images/keyboard_1366x600.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.aboutImg {
+  max-width: 590px;
+}
+.aboutImg img {
+  max-width: 100%;
+  height: auto;
+}

@@ -5,6 +5,7 @@ var MyDrawer = require('./components/MyDrawer');
 var Footer = require('./components/Footer');
 import {fullWhite, blue500} from 'material-ui/styles/colors'
 
+
 var App = React.createClass({
   getInitialState: function() {
     return {
@@ -25,11 +26,14 @@ var App = React.createClass({
   },
   onHambugerBtnClick: function() {
     this.setState({isDrawerOpen: true});
-    console.log("onHambugerBtnClick, isDrawerOpen = " + this.state.isDrawerOpen);
+    // console.log("onHambugerBtnClick, isDrawerOpen = " + this.state.isDrawerOpen);
   },
   onDrawerClose: function() {
     this.setState({isDrawerOpen: false});
-    console.log("onDrawerClose, isDrawerOpen = " + this.state.isDrawerOpen);
+    // console.log("onDrawerClose, isDrawerOpen = " + this.state.isDrawerOpen);
+  },
+  getChildContext: function() {
+    return {show: this.state.show};
   },
   render: function() {
     var indexProps = {
@@ -38,13 +42,14 @@ var App = React.createClass({
     };
     var pageLinkItems = [
       {text: "About", link: "/about"},
-      {text: "Resume", link: "/resume"},
+      {text: "Timeline", link: "/timeline"},
       {text: "Portfolio", link: "/portfolio"},
       {text: "Contact", link: "/contact"}
     ];
     var footerStyle = {
       backgroundColor: blue500
     };
+
     return (
       <div>
         <header className="header row vertical-align-middle-parent">
@@ -52,7 +57,6 @@ var App = React.createClass({
             <Header
               items={pageLinkItems}
               color={fullWhite}
-              brand={{image: "http://fakeimg.pl/62x62/", link: "#"}}
               {...indexProps}
               />
           </div>
@@ -68,6 +72,7 @@ var App = React.createClass({
                 items={pageLinkItems}
                 color={blue500}
                 brandText="&copy; 2016 cashbook"
+                show={this.state.show}
                 />
             </div>
           </div>
@@ -77,5 +82,9 @@ var App = React.createClass({
   }
 
 });
+// items={pageLinkItems}
+App.childContextTypes = {
+  show  : React.PropTypes.bool
+};
 
 module.exports = App;

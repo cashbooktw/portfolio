@@ -7,12 +7,19 @@ import FlatButton from 'material-ui/FlatButton';
 import {fullWhite} from 'material-ui/styles/colors'
 var NavLink = require('./NavLink');
 
-var Header = React.createClass({
+var Footer = React.createClass({
 
   render: function() {
+    //dynamic page navlink items
+    let styles = {};
+    if (this.props.show) {
+      styles = {display: "block"};
+    } else {
+      styles = {display: "none"};
+    }
     const headerItems = this.props.items.map((item) => {
-       return <NavLink key={item.text} to={item.link} className="flexMiddle"><FlatButton label={item.text} hoverColor={fullWhite}/></NavLink>;
-// return <FlatButton label={item.text} hoverColor={fullWhite}/>;
+       return <NavLink key={item.text} to={item.link} className="flexMiddle"><FlatButton label={item.text} hoverColor={fullWhite} style={styles}/></NavLink>;
+
     });
     const muiTheme = getMuiTheme({
       toolbar: {
@@ -31,9 +38,10 @@ var Header = React.createClass({
             <ToolbarGroup>
               <ToolbarTitle text={this.props.brandText} style={toolbarTitleStyle}/>
             </ToolbarGroup>
-            <ToolbarGroup>
-              {headerItems}
-            </ToolbarGroup>
+              <ToolbarGroup>
+                {headerItems}
+              </ToolbarGroup>
+
           </Toolbar>
         </MuiThemeProvider>
       </div>
@@ -42,4 +50,4 @@ var Header = React.createClass({
 
 });
 
-module.exports = Header;
+module.exports = Footer;

@@ -8,9 +8,7 @@ import animateScroll from '../services/animationScroll';
 var ScrollTop = React.createClass({
   handleTouchTap: function (event){
     event.preventDefault();
-    console.log("TAP!");
-
-animateScroll(document.body, 0, 1000);
+    animateScroll(document.body, 0, 1000);
   },
 
   render: function() {
@@ -38,18 +36,15 @@ animateScroll(document.body, 0, 1000);
         padding: 12,
       },
       large: {
-        width: 120,
-        height: 120,
-        padding: 30,
+        width: 60,
+        height: 60
       },
     };
-              // style={styles.medium}
-                        // iconStyle={styles.mediumIcon}
+
+
     return (
       <MuiThemeProvider>
         <IconButton
-          tooltip="Scroll to Top"
-          tooltipPosition="top-right"
           touch={true}
           style={styles.large}
           iconStyle={styles.largeIcon}

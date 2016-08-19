@@ -5,6 +5,10 @@ var Jumbotron = require('./Jumbotron');
 var HeaderCenter = require('./HeaderCenter');
 var List = require('./List');
 var ScrollTop = require('./ScrollTop');
+/*
+This is the index page (home page)
+header and footer are defined in App.js
+*/
 
 var Index = React.createClass({
   render: function() {
@@ -19,12 +23,13 @@ var Index = React.createClass({
               subTitle="Front End Developer with passion for studying techonologies."
             />
           </section>
+
           <div className="row">
             <div className="col-12">
               <HeaderCenter text="Some of my latest work" />
             </div>
           </div>
-          <section className="content-groups row ">
+          <section className="content-groups row">
             <div className="col-12 ">
               <List />
             </div>
@@ -35,6 +40,7 @@ var Index = React.createClass({
             </div>
           </div>
         </div>
+
       </div>
     );
   }

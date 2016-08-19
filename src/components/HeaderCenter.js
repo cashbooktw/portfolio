@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 
+// Gives to thin grey line and title in the center
 var HeaderCenter = React.createClass({
 
   render: function() {

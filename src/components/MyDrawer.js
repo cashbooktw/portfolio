@@ -5,6 +5,7 @@ import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 var NavLink = require('./NavLink');
+// the drawer is to display hamburge button header items
 var MyDrawer = React.createClass({
   getInitialState: function() {
     return {
@@ -30,6 +31,7 @@ var MyDrawer = React.createClass({
             width={200}
             open={this.state.isDrawerOpen}
             onRequestChange={this.handleClose}
+            openSecondary={true}
             >
             {headerItems}
           </Drawer>
