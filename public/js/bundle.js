@@ -45020,7 +45020,7 @@ var onRouteChange = function () {
 //  onUpdate={onRouteChange}
 ReactDOM.render(React.createElement(
   _reactRouter.Router,
-  { history: _reactRouter.browserHistory, onUpdate: onRouteChange },
+  { history: _reactRouter.hashHistory, onUpdate: onRouteChange },
   React.createElement(
     _reactRouter.Route,
     { path: '/', component: App },
