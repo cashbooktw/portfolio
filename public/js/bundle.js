@@ -43539,7 +43539,7 @@ var Contact = React.createClass({
           React.createElement(
             'div',
             { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
-            React.createElement('img', { src: './images/eat.jpg' })
+            React.createElement('img', { src: './images/eat_590x440.jpg' })
           ),
           React.createElement(
             'div',
@@ -43549,28 +43549,28 @@ var Contact = React.createClass({
               null,
               React.createElement(_List.ListItem, {
                 primaryText: 'Star me on Github',
-                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/github.png' }),
+                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/github36.png' }),
                 onTouchTap: function onTouchTap() {
                   window.open("https://github.com/cashbooktw/");
                 }
               }),
               React.createElement(_List.ListItem, {
                 primaryText: 'Like me on Codepen',
-                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/codepen.png' }),
+                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/codepen36.png' }),
                 onTouchTap: function onTouchTap() {
                   window.open("http://codepen.io/cashbook/");
                 }
               }),
               React.createElement(_List.ListItem, {
                 primaryText: 'Discuss with me on Logdown',
-                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/logdown.png' }),
+                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/logdown36.png' }),
                 onTouchTap: function onTouchTap() {
                   window.open("http://cashbook.logdown.com/");
                 }
               }),
               React.createElement(_List.ListItem, {
                 primaryText: 'Email: cashbooktw@gmail.com',
-                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/gmail.png' })
+                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/gmail36.png' })
               })
             )
           )

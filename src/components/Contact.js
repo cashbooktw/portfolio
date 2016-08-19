@@ -32,28 +32,28 @@ var Contact = React.createClass({
         <MuiThemeProvider>
           <section style={styles.sectionStyle} className="row viewPage">
             <div id="aboutImg" className={aboutImgClass + " animated fadeInUp aboutImg"}>
-              <img src="./images/eat.jpg"></img>
+              <img src="./images/eat_590x440.jpg"></img>
             </div>
             <div className={aboutArticleClass + " animated fadeInUp"}>
               <List>
                 <ListItem
                 primaryText="Star me on Github"
-                leftAvatar={<Avatar src="images/github.png" />}
+                leftAvatar={<Avatar src="images/github36.png" />}
                 onTouchTap={() => {window.open("https://github.com/cashbooktw/")}}
                 />
                 <ListItem
                 primaryText="Like me on Codepen"
-                leftAvatar={<Avatar src="images/codepen.png" />}
+                leftAvatar={<Avatar src="images/codepen36.png" />}
                 onTouchTap={() => {window.open("http://codepen.io/cashbook/")}}
                 />
                 <ListItem
                 primaryText="Discuss with me on Logdown"
-                leftAvatar={<Avatar src="images/logdown.png" />}
+                leftAvatar={<Avatar src="images/logdown36.png" />}
                 onTouchTap={() => {window.open("http://cashbook.logdown.com/")}}
                 />
                 <ListItem
                 primaryText="Email: cashbooktw@gmail.com"
-                leftAvatar={<Avatar src="images/gmail.png" />}
+                leftAvatar={<Avatar src="images/gmail36.png" />}
                 />
               </List>
             </div>
