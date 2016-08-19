@@ -42829,21 +42829,25 @@ var App = React.createClass({
   },
   onHambugerBtnClick: function onHambugerBtnClick() {
     this.setState({ isDrawerOpen: true });
-    console.log("onHambugerBtnClick, isDrawerOpen = " + this.state.isDrawerOpen);
+    // console.log("onHambugerBtnClick, isDrawerOpen = " + this.state.isDrawerOpen);
   },
   onDrawerClose: function onDrawerClose() {
     this.setState({ isDrawerOpen: false });
-    console.log("onDrawerClose, isDrawerOpen = " + this.state.isDrawerOpen);
+    // console.log("onDrawerClose, isDrawerOpen = " + this.state.isDrawerOpen);
+  },
+  getChildContext: function getChildContext() {
+    return { show: this.state.show };
   },
   render: function render() {
     var indexProps = {
       show: this.state.show,
       _onHambugerBtnClick: this.onHambugerBtnClick
     };
-    var pageLinkItems = [{ text: "About", link: "/about" }, { text: "Resume", link: "/resume" }, { text: "Portfolio", link: "/portfolio" }, { text: "Contact", link: "/contact" }];
+    var pageLinkItems = [{ text: "About", link: "/about" }, { text: "Timeline", link: "/timeline" }, { text: "Portfolio", link: "/portfolio" }, { text: "Contact", link: "/contact" }];
     var footerStyle = {
       backgroundColor: _colors.blue500
     };
+
     return React.createElement(
       'div',
       null,
@@ -42855,8 +42859,7 @@ var App = React.createClass({
           { className: 'col-12 vertical-align-middle-child' },
           React.createElement(Header, _extends({
             items: pageLinkItems,
-            color: _colors.fullWhite,
-            brand: { image: "http://fakeimg.pl/62x62/", link: "#" }
+            color: _colors.fullWhite
           }, indexProps))
         )
       ),
@@ -42874,7 +42877,8 @@ var App = React.createClass({
             React.createElement(Footer, {
               items: pageLinkItems,
               color: _colors.blue500,
-              brandText: '© 2016 cashbook'
+              brandText: '© 2016 cashbook',
+              show: this.state.show
             })
           )
         )
@@ -42883,10 +42887,14 @@ var App = React.createClass({
   }
 
 });
+// items={pageLinkItems}
+App.childContextTypes = {
+  show: React.PropTypes.bool
+};
 
 module.exports = App;
 
-},{"./components/Footer":487,"./components/Header":488,"./components/MyDrawer":494,"material-ui/styles/colors":252,"react":469}],485:[function(require,module,exports){
+},{"./components/Footer":488,"./components/Header":489,"./components/MyDrawer":497,"material-ui/styles/colors":252,"react":469}],485:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -42909,6 +42917,56 @@ var About = React.createClass({
 module.exports = About;
 
 },{"react":469}],486:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+
+//Article contains three differnt font-size, title, subTitle, and content
+var Article = React.createClass({
+  displayName: "Article",
+
+  // contextTypes: {
+  //  show: React.PropTypes.bool
+  // },
+  render: function render() {
+    var myArticle = [];
+    if (this.props.title) {
+      myArticle.push(React.createElement(
+        "span",
+        { className: "font__middle", key: this.props.title },
+        this.props.title
+      ));
+      myArticle.push(React.createElement("br", { key: this.props.title + "x" }));
+    }
+    if (this.props.subTitle) {
+      myArticle.push(React.createElement("br", { key: this.props.subTitle + "x" }));
+      myArticle.push(React.createElement(
+        "h2",
+        { key: this.props.subTitle },
+        this.props.subTitle
+      ));
+    }
+    if (this.props.content) {
+      myArticle.push(React.createElement("br", { key: this.props.content + "x" }));
+      myArticle.push(React.createElement(
+        "h3",
+        { key: this.props.content },
+        this.props.content
+      ));
+    }
+    return React.createElement(
+      "div",
+      null,
+      myArticle
+    );
+  }
+
+});
+
+module.exports = Article;
+
+},{"react":469}],487:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -42930,7 +42988,7 @@ var Contact = React.createClass({
 
 module.exports = Contact;
 
-},{"react":469}],487:[function(require,module,exports){
+},{"react":469}],488:[function(require,module,exports){
 'use strict';
 
 var _Toolbar = require('material-ui/Toolbar');
@@ -43007,7 +43065,7 @@ var Header = React.createClass({
 
 module.exports = Header;
 
-},{"./NavLink":495,"material-ui/FlatButton":212,"material-ui/Toolbar":238,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/colors":252,"material-ui/styles/getMuiTheme":253,"react":469}],488:[function(require,module,exports){
+},{"./NavLink":498,"material-ui/FlatButton":212,"material-ui/Toolbar":238,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/colors":252,"material-ui/styles/getMuiTheme":253,"react":469}],489:[function(require,module,exports){
 'use strict';
 
 var _Toolbar = require('material-ui/Toolbar');
@@ -43099,7 +43157,7 @@ var Header = React.createClass({
 
 module.exports = Header;
 
-},{"./NavLink":495,"material-ui/FlatButton":212,"material-ui/RaisedButton":229,"material-ui/Toolbar":238,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/colors":252,"material-ui/styles/getMuiTheme":253,"material-ui/svg-icons/navigation/menu":263,"react":469}],489:[function(require,module,exports){
+},{"./NavLink":498,"material-ui/FlatButton":212,"material-ui/RaisedButton":229,"material-ui/Toolbar":238,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/colors":252,"material-ui/styles/getMuiTheme":253,"material-ui/svg-icons/navigation/menu":263,"react":469}],490:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -43148,7 +43206,7 @@ var HeaderCenter = React.createClass({
 
 module.exports = HeaderCenter;
 
-},{"react":469}],490:[function(require,module,exports){
+},{"react":469}],491:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -43213,7 +43271,7 @@ var Index = React.createClass({
 
 module.exports = Index;
 
-},{"./Header":488,"./HeaderCenter":489,"./Jumbotron":491,"./List":492,"./ScrollTop":498,"react":469}],491:[function(require,module,exports){
+},{"./Header":489,"./HeaderCenter":490,"./Jumbotron":492,"./List":494,"./ScrollTop":501,"react":469}],492:[function(require,module,exports){
 'use strict';
 
 var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
@@ -43289,7 +43347,115 @@ var Jumbotron = React.createClass({
 
 module.exports = Jumbotron;
 
-},{"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/getMuiTheme":253,"react":469}],492:[function(require,module,exports){
+},{"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/getMuiTheme":253,"react":469}],493:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var Article = require('./Article');
+// one of the profolios
+var KaohsiungMRT = React.createClass({
+  displayName: 'KaohsiungMRT',
+
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
+  render: function render() {
+    var styles = {
+      sectionStyle: {
+        padding: "3em 5%"
+      }
+    };
+    var aboutImgClass = "";
+    var aboutArticleClass = "";
+    if (this.context.show) {
+      aboutImgClass = "col-7";
+      aboutArticleClass = "col-5";
+    } else {
+      aboutImgClass = "col-12";
+      aboutArticleClass = "col-12";
+    }
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { className: "col-12" + " animated fadeInUp" },
+          React.createElement(Article, {
+            title: 'Kaohsiung MRT Immediate Information'
+          }),
+          React.createElement(
+            'h3',
+            null,
+            'The map data is retrieved from Google Map API, and the MRT data is retrieved from ',
+            React.createElement(
+              'a',
+              { href: 'http://data.kaohsiung.gov.tw/Opendata/' },
+              'Open Data.Kaohsiung'
+            ),
+            '.'
+          ),
+          React.createElement(
+            'h3',
+            null,
+            'Demo site ',
+            React.createElement(
+              'a',
+              { href: 'http://kaohsiung-mrt.herokuapp.com' },
+              'here'
+            ),
+            '.'
+          )
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
+          React.createElement('img', { src: './images/khmrt/KHMRT1.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass + " animated fadeInUp" },
+          React.createElement(Article, {
+            subTitle: 'Refresh Information',
+            content: 'The information changes after a time period.\r The data is retrieved from node.js server on Heroku.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/khmrt/KHMRT2.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Interactive with map',
+            content: 'You can click the marker on the map.\r The marker you clicked would move to the center of the map.'
+          }),
+          React.createElement(Article, {
+            content: 'The table section shows the arriving time of the MRT.'
+          })
+        )
+      )
+    );
+  }
+
+});
+
+module.exports = KaohsiungMRT;
+
+},{"./Article":486,"react":469}],494:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -43317,7 +43483,7 @@ var List = React.createClass({
 
 module.exports = List;
 
-},{"./ListItem":493,"react":469}],493:[function(require,module,exports){
+},{"./ListItem":495,"react":469}],495:[function(require,module,exports){
 'use strict';
 
 var _Card = require('material-ui/Card');
@@ -43372,7 +43538,98 @@ var ListItem = React.createClass({
 
 module.exports = ListItem;
 
-},{"material-ui/Card":207,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/getMuiTheme":253,"react":469}],494:[function(require,module,exports){
+},{"material-ui/Card":207,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/getMuiTheme":253,"react":469}],496:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var Article = require('./Article');
+// one of the profolios
+var MultiplayerGame = React.createClass({
+  displayName: 'MultiplayerGame',
+
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
+  render: function render() {
+    var styles = {
+      sectionStyle: {
+        padding: "3em 5%"
+      }
+    };
+    var aboutImgClass = "";
+    var aboutArticleClass = "";
+    if (this.context.show) {
+      aboutImgClass = "col-7";
+      aboutArticleClass = "col-5";
+    } else {
+      aboutImgClass = "col-12";
+      aboutArticleClass = "col-12";
+    }
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { className: "col-12" + " animated fadeInUp" },
+          React.createElement(Article, {
+            title: 'Multiplayer Game'
+          }),
+          React.createElement(
+            'h3',
+            null,
+            'The multiplayer game is implemented by WebSocket and WebGL. I use Three.js as the implement of WebGL. WebSocket server is built with Node.js'
+          )
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
+          React.createElement('img', { src: './images/mpgame/game.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass + " animated fadeInUp" },
+          React.createElement(Article, {
+            subTitle: 'Multiplayer Game Scene',
+            content: 'When a client connects to a server,\r the server sends the content and information to the client.'
+          }),
+          React.createElement(Article, {
+            content: 'If the client moves its character, the control messages are sent instantly.\r The other clients would receive the update messages and refresh their frames.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/mpgame/multiplayer.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Keep Synchronized.',
+            content: 'There is a playerlist recording statuses of all clients.\r When a client changes its\' status, the playerlist would refresh and broadcast to other clients.\r '
+          })
+        )
+      )
+    );
+  }
+
+});
+
+module.exports = MultiplayerGame;
+
+},{"./Article":486,"react":469}],497:[function(require,module,exports){
 'use strict';
 
 var _Drawer = require('material-ui/Drawer');
@@ -43450,7 +43707,7 @@ var MyDrawer = React.createClass({
 
 module.exports = MyDrawer;
 
-},{"./NavLink":495,"material-ui/Drawer":209,"material-ui/MenuItem":221,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/getMuiTheme":253,"react":469}],495:[function(require,module,exports){
+},{"./NavLink":498,"material-ui/Drawer":209,"material-ui/MenuItem":221,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/getMuiTheme":253,"react":469}],498:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -43471,7 +43728,167 @@ var NavLink = React.createClass({
 
 module.exports = NavLink;
 
-},{"react":469,"react-router":310}],496:[function(require,module,exports){
+},{"react":469,"react-router":310}],499:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var Article = require('./Article');
+// one of the profolios
+var PokemonIndex = React.createClass({
+  displayName: 'PokemonIndex',
+
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
+  render: function render() {
+    var styles = {
+      sectionStyle: {
+        padding: "3em 5%"
+      }
+    };
+    var aboutImgClass = "";
+    var aboutArticleClass = "";
+    if (this.context.show) {
+      aboutImgClass = "col-7";
+      aboutArticleClass = "col-5";
+    } else {
+      aboutImgClass = "col-12";
+      aboutArticleClass = "col-12";
+    }
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { className: "col-12" + " animated fadeInUp" },
+          React.createElement(Article, {
+            title: 'Pokémon Index'
+          }),
+          React.createElement(
+            'h3',
+            null,
+            'This is implemeted by React and ReFlux. The css and RWD style were implemented by bootstrap.'
+          ),
+          React.createElement(
+            'h3',
+            null,
+            'The basic data is retrieved from ',
+            React.createElement(
+              'a',
+              { href: 'http://pokeapi.co/ by API' },
+              'pokeapi'
+            ),
+            '. To optimize the page loading, I uses hard code data instead.'
+          ),
+          React.createElement(
+            'h3',
+            null,
+            'Demo site ',
+            React.createElement(
+              'a',
+              { href: 'https://cashbooktw.github.io/react-pokedex/public/' },
+              'here'
+            )
+          )
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
+          React.createElement('img', { src: './images/pokedex/first-page.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass + " animated fadeInUp" },
+          React.createElement(Article, {
+            subTitle: 'Main page',
+            content: 'Each Pokemon will have: image, name, types ,and index.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/pokedex/search.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Search bar',
+            content: 'If the user enters a number or name,\r it will find all similar matches and hide/remove the other Pokemons.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/pokedex/name-z-to-a.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Sort drop down',
+            content: 'Sorts from A-Z, Z-A, Lowest Number First, or Highest Number first.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/pokedex/pikachu.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'Details',
+            content: 'Clicking any Pokémon will show detail information of that Pokémon.'
+          })
+        )
+      ),
+      React.createElement(
+        'section',
+        { style: styles.sectionStyle, className: 'row' },
+        React.createElement(
+          'div',
+          { id: 'aboutImg', className: aboutImgClass + " aboutImg" },
+          React.createElement('img', { src: './images/pokedex/mobiledetail.png' })
+        ),
+        React.createElement(
+          'div',
+          { className: aboutArticleClass },
+          React.createElement(Article, {
+            subTitle: 'RWD style',
+            content: 'Main page and detail pages changes along with viewport width.'
+          })
+        )
+      )
+    );
+  }
+
+});
+
+module.exports = PokemonIndex;
+
+},{"./Article":486,"react":469}],500:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -43493,29 +43910,7 @@ var Portfolio = React.createClass({
 
 module.exports = Portfolio;
 
-},{"react":469}],497:[function(require,module,exports){
-'use strict';
-
-var React = require('react');
-var PropTypes = React.PropTypes;
-
-var Resume = React.createClass({
-  displayName: 'Resume',
-
-
-  render: function render() {
-    return React.createElement(
-      'div',
-      null,
-      'Resume'
-    );
-  }
-
-});
-
-module.exports = Resume;
-
-},{"react":469}],498:[function(require,module,exports){
+},{"react":469}],501:[function(require,module,exports){
 'use strict';
 
 var _IconButton = require('material-ui/IconButton');
@@ -43548,8 +43943,6 @@ var ScrollTop = React.createClass({
 
   handleTouchTap: function handleTouchTap(event) {
     event.preventDefault();
-    console.log("TAP!");
-
     (0, _animationScroll2.default)(document.body, 0, 1000);
   },
 
@@ -43578,21 +43971,17 @@ var ScrollTop = React.createClass({
         padding: 12
       },
       large: {
-        width: 120,
-        height: 120,
-        padding: 30
+        width: 60,
+        height: 60
       }
     };
-    // style={styles.medium}
-    // iconStyle={styles.mediumIcon}
+
     return React.createElement(
       _MuiThemeProvider2.default,
       null,
       React.createElement(
         _IconButton2.default,
         {
-          tooltip: 'Scroll to Top',
-          tooltipPosition: 'top-right',
           touch: true,
           style: styles.large,
           iconStyle: styles.largeIcon,
@@ -43607,7 +43996,316 @@ var ScrollTop = React.createClass({
 
 module.exports = ScrollTop;
 
-},{"../services/animationScroll":500,"material-ui/IconButton":216,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/getMuiTheme":253,"material-ui/svg-icons/hardware/keyboard-arrow-up":259,"react":469}],499:[function(require,module,exports){
+},{"../services/animationScroll":508,"material-ui/IconButton":216,"material-ui/styles/MuiThemeProvider":250,"material-ui/styles/getMuiTheme":253,"material-ui/svg-icons/hardware/keyboard-arrow-up":259,"react":469}],502:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+
+var SpeechBubble = React.createClass({
+  displayName: 'SpeechBubble',
+
+
+  render: function render() {
+    var speechBubblePosition = this.props.speechBubblePosition; //get props from TimelineBox
+    var styles = {
+      display: this.props.display,
+      background: this.props.backgroundStyle
+    };
+    return React.createElement(
+      'p',
+      { className: speechBubblePosition, style: styles },
+      this.props.content
+    );
+  }
+
+});
+
+module.exports = SpeechBubble;
+
+},{"react":469}],503:[function(require,module,exports){
+'use strict';
+
+var _colors = require('material-ui/styles/colors');
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+
+var getPosition = require('../services/getPosition');
+var TimelineBox = require('./TimelineBox');
+var Article = require('./Article');
+var ScrollTop = require('./ScrollTop');
+
+var Timeline = React.createClass({
+  displayName: 'Timeline',
+
+  getInitialState: function getInitialState() {
+    return {};
+  },
+  componentDidMount: function componentDidMount() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  componentWillUnmount: function componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  onScroll: function onScroll() {
+    this.setState({ scrollY: window.scrollY });
+    console.log("show = " + this.context.show);
+  },
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
+  render: function render() {
+    // var BlockStyle = {
+    //   width: 1000,
+    //   height: 500,
+    //   margin: 10,
+    //   backgroundColor: purple500,
+    //   padding: 10
+    // };
+    var styles = {
+      sectionStyle: {
+        padding: "3em 5%"
+      }
+    };
+    return React.createElement(
+      'div',
+      { className: 'timeline', ref: 'timeline' },
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(
+          'div',
+          { className: 'col-12' },
+          React.createElement(
+            'div',
+            { className: 'bigBubble' },
+            React.createElement(Article, {
+              title: 'What I did this year',
+              subTitle: 'Substitute Military Service in Taiwan Changhua District Court.'
+            }),
+            React.createElement(Article, { subTitle: 'self-learning Front End technonogies.' }),
+            React.createElement(Article, { subTitle: 'participated in Soft & Share online meetups' }),
+            React.createElement(Article, { subTitle: 'reading and programming' })
+          ),
+          React.createElement(TimelineBox, {
+            myRef: 'A0',
+            visualColor: _colors.red500,
+            scrollY: 1000,
+            year: '2016'
+          })
+        )
+      ),
+      React.createElement(TimelineBox, {
+        myRef: 'A1',
+        visualColor: _colors.pink500,
+        scrollY: this.state.scrollY,
+        year: '2015',
+        side: this.context.show ? "left" : "right",
+        content: 'Graduated from National Cheng Kung University and received Master of Science in Engineering Science.'
+      }),
+      React.createElement(TimelineBox, {
+        myRef: 'A2',
+        visualColor: _colors.purple500,
+        scrollY: this.state.scrollY,
+        year: '2014',
+        side: 'right',
+        content: 'TECO Green Tech Contest Main Contest Entry Award upon\r \'Appliance Energy Management System Based on Cloud Appliance Recognition Computing\'.'
+      }),
+      React.createElement(TimelineBox, {
+        myRef: 'A1',
+        visualColor: _colors.deepPurple500,
+        scrollY: this.state.scrollY,
+        year: '2013',
+        side: this.context.show ? "left" : "right",
+        content: 'Received bachelor degree of Science in Engineering Science, National Cheng Kung University.\r Won second place in Network Communication Software and Innovative Application Contest held by Ministry of Education'
+      }),
+      React.createElement(TimelineBox, {
+        myRef: 'A2',
+        visualColor: _colors.indigo500,
+        scrollY: this.state.scrollY,
+        year: '2012',
+        side: 'right',
+        content: 'Project: Sitting Posture Detection System'
+      }),
+      React.createElement(
+        'div',
+        { className: 'row horizontal-align-middle-parent' },
+        React.createElement(
+          'div',
+          { className: 'col-12 horizontal-align-middle-child' },
+          React.createElement(ScrollTop, null)
+        )
+      )
+    );
+  }
+
+});
+module.exports = Timeline;
+
+},{"../services/getPosition":509,"./Article":486,"./ScrollTop":501,"./TimelineBox":504,"material-ui/styles/colors":252,"react":469}],504:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var getPosition = require('../services/getPosition');
+var SpeechBubble = require('./SpeechBubble');
+var TimelineBoxRight = require('./TimelineBoxRight');
+var TimelineBoxLeft = require('./TimelineBoxLeft');
+
+var TimelineBox = React.createClass({
+  displayName: 'TimelineBox',
+
+  getInitialState: function getInitialState() {
+    return {
+      visibility: "hidden",
+      myClass: ""
+    };
+  },
+  componentDidMount: function componentDidMount() {
+    var myRef = this.refs[this.props.myRef];
+    var positionMyRef = getPosition(myRef).y - 300; // the position is on the block center, so it's a magic number
+    this.setState({ position: positionMyRef });
+    if (this.props.scrollY >= positionMyRef) {
+      this.setState({ visibility: "visible", myClass: "animated fadeInUp" });
+    }
+  },
+  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+    //only when user switch to "/timeline", the timeline can be seen and animate
+    if (nextProps.scrollY >= this.state.position && this.context.router.isActive({ pathname: "/timeline" })) {
+      this.setState({ visibility: "visible", myClass: "animated fadeInUp" });
+    }
+  },
+  contextTypes: {
+    router: React.PropTypes.object,
+    show: React.PropTypes.bool
+  },
+  render: function render() {
+    var BlockStyle = {
+      visibility: this.state.visibility
+    };
+    var _props = this.props;
+    var year = _props.year;
+    var side = _props.side;
+    var content = _props.content;
+    var visualColor = _props.visualColor;
+    // <TimelineBoxLeft side={side} visualColor={visualColor} content={content}/>
+
+    var showBox = this.context.show ? React.createElement(
+      'div',
+      null,
+      React.createElement(TimelineBoxLeft, { side: side, visualColor: visualColor, content: content }),
+      React.createElement(TimelineBoxRight, { side: side, visualColor: visualColor, content: content, year: year })
+    ) : React.createElement(
+      'div',
+      null,
+      React.createElement(TimelineBoxRight, { side: side, visualColor: visualColor, content: content, year: year })
+    );
+    // <TimelineBoxLeft side={side} visualColor={visualColor} content={content}/>
+    // <TimelineBoxRight side={side} visualColor={visualColor} content={content} year={year} />
+    return React.createElement(
+      'div',
+      { style: BlockStyle, ref: this.props.myRef, className: this.state.myClass },
+      React.createElement(
+        'div',
+        { className: 'TimelineBox__wrapper' },
+        React.createElement(
+          'div',
+          { className: 'TimelineBox__container' },
+          React.createElement(TimelineBoxLeft, { side: side, visualColor: visualColor, content: content }),
+          React.createElement(TimelineBoxRight, { side: side, visualColor: visualColor, content: content, year: year })
+        )
+      )
+    );
+  }
+
+});
+
+module.exports = TimelineBox;
+
+},{"../services/getPosition":509,"./SpeechBubble":502,"./TimelineBoxLeft":505,"./TimelineBoxRight":506,"react":469}],505:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var SpeechBubble = require('./SpeechBubble');
+var TimelineBoxRight = React.createClass({
+  displayName: 'TimelineBoxRight',
+
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
+  render: function render() {
+    var display = "block";
+    if (this.props.side === "left") {
+      display = "block";
+    } else {
+      display = "none";
+    }
+    // let backgroundStyle = "linear-gradient(-90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    var backgroundStyle = "linear-gradient(90deg, " + this.props.visualColor + " 35px, #fff 0) repeat-y";
+    var styles = {};
+    if (this.context.show) {
+      styles = { display: "block" };
+    } else {
+      styles = { display: "none" };
+    }
+    return React.createElement(
+      'div',
+      { className: 'TimelineBox__Left', style: styles },
+      React.createElement(SpeechBubble, { speechBubblePosition: 'speechBubble--left', content: this.props.content, display: display, visualColor: this.props.visualColor, backgroundStyle: backgroundStyle })
+    );
+  }
+});
+
+module.exports = TimelineBoxRight;
+
+},{"./SpeechBubble":502,"react":469}],506:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+var SpeechBubble = require('./SpeechBubble');
+var TimelineBoxRight = React.createClass({
+  displayName: 'TimelineBoxRight',
+
+  contextTypes: {
+    show: React.PropTypes.bool
+  },
+  render: function render() {
+    var display = "block";
+    if (this.props.side === "right") {
+      display = "block";
+    } else {
+      display = "none";
+    }
+    var circleStyle = {
+      backgroundColor: this.props.visualColor
+    };
+    // let backgroundStyle = "linear-gradient(90deg, #fff 85%, " + this.props.visualColor + " 0) repeat-y";
+    var backgroundStyle = "linear-gradient(-90deg, " + this.props.visualColor + " 35px, #fff 0) repeat-y";
+    // let timelineBoxRightMargin = (this.context.show)?0:20;
+    // var test = {
+    //   marginLeft: timelineBoxRightMargin
+    // };
+
+    return React.createElement(
+      'div',
+      { className: 'TimelineBox__Right' },
+      React.createElement(
+        'div',
+        { className: 'circle__title' },
+        this.props.year
+      ),
+      React.createElement('div', { className: 'circle', style: circleStyle }),
+      React.createElement(SpeechBubble, { speechBubblePosition: 'speechBubble', content: this.props.content, display: display, visualColor: this.props.visualColor, backgroundStyle: backgroundStyle })
+    );
+  }
+});
+
+module.exports = TimelineBoxRight;
+
+},{"./SpeechBubble":502,"react":469}],507:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -43623,10 +44321,13 @@ var ReactDOM = require('react-dom');
 
 var Index = require('./components/Index');
 var About = require('./components/About');
-var Resume = require('./components/Resume');
+var Timeline = require('./components/Timeline');
 var Portfolio = require('./components/Portfolio');
 var Contact = require('./components/Contact');
 var App = require('./App');
+var PokemonIndex = require('./components/PokemonIndex');
+var KaohsiungMRT = require('./components/KaohsiungMRT');
+var MultiplayerGame = require('./components/MultiplayerGame');
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -43635,23 +44336,33 @@ var App = require('./App');
 // const App = () => (
 
 // );
+var onRouteChange = function () {
+  window.scrollTo(0, 0);
+  // console.log("Router.isActive = " + this.context.router.isActive({pathname: "/timeline"}));
+}.bind(undefined);
 
-
+//  onUpdate={onRouteChange}
 ReactDOM.render(React.createElement(
   _reactRouter.Router,
-  { history: _reactRouter.hashHistory },
+  { history: _reactRouter.browserHistory, onUpdate: onRouteChange },
   React.createElement(
     _reactRouter.Route,
     { path: '/', component: App },
     React.createElement(_reactRouter.IndexRoute, { component: Index }),
     React.createElement(_reactRouter.Route, { path: '/about', component: About }),
-    React.createElement(_reactRouter.Route, { path: '/resume', component: Resume }),
-    React.createElement(_reactRouter.Route, { path: '/portfolio', component: Portfolio }),
+    React.createElement(_reactRouter.Route, { path: '/timeline', component: Timeline }),
+    React.createElement(
+      _reactRouter.Route,
+      { path: '/portfolio', component: Portfolio },
+      React.createElement(_reactRouter.Route, { path: '/portfolio/pokemon-index', component: PokemonIndex }),
+      React.createElement(_reactRouter.Route, { path: '/portfolio/kaohsiung-MRT', component: KaohsiungMRT }),
+      React.createElement(_reactRouter.Route, { path: '/portfolio/multiplayer-game', component: MultiplayerGame })
+    ),
     React.createElement(_reactRouter.Route, { path: '/contact', component: Contact })
   )
 ), document.getElementById('app'));
 
-},{"./App":484,"./components/About":485,"./components/Contact":486,"./components/Index":490,"./components/Portfolio":496,"./components/Resume":497,"react":469,"react-dom":279,"react-router":310,"react-tap-event-plugin":324}],500:[function(require,module,exports){
+},{"./App":484,"./components/About":485,"./components/Contact":487,"./components/Index":491,"./components/KaohsiungMRT":493,"./components/MultiplayerGame":496,"./components/PokemonIndex":499,"./components/Portfolio":500,"./components/Timeline":503,"react":469,"react-dom":279,"react-router":310,"react-tap-event-plugin":324}],508:[function(require,module,exports){
 "use strict";
 
 var animateScroll = function animateScroll(element, target, duration) {
@@ -43727,4 +44438,35 @@ var animateScroll = function animateScroll(element, target, duration) {
 
 module.exports = animateScroll;
 
-},{}]},{},[499]);
+},{}],509:[function(require,module,exports){
+"use strict";
+
+var getPosition = function getPosition(el) {
+  var xPos = 0;
+  var yPos = 0;
+
+  while (el) {
+    if (el.tagName == "BODY") {
+      // deal with browser quirks with body/window/document and page scroll
+      var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+      var yScroll = el.scrollTop || document.documentElement.scrollTop;
+
+      xPos += el.offsetLeft - xScroll + el.clientLeft;
+      yPos += el.offsetTop - yScroll + el.clientTop;
+    } else {
+      // for all other non-BODY elements
+      xPos += el.offsetLeft - el.scrollLeft + el.clientLeft;
+      yPos += el.offsetTop - el.scrollTop + el.clientTop;
+    }
+
+    el = el.offsetParent;
+  }
+  return {
+    x: xPos,
+    y: yPos
+  };
+};
+
+module.exports = getPosition;
+
+},{}]},{},[507]);
