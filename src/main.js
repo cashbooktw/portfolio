@@ -27,7 +27,7 @@ var onRouteChange = function () {
 
 //  onUpdate={onRouteChange}
 ReactDOM.render((
-  <Router history={hashHistory} onUpdate={onRouteChange}>
+  <Router history={browserHistory} onUpdate={onRouteChange}>
       <Route path="/" component={App}>
         <IndexRoute component={Index}/>
         {/* make them children of `App` */}
