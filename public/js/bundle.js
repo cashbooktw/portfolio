@@ -43217,6 +43217,7 @@ var PropTypes = React.PropTypes;
 var Article = require('./Article');
 var AboutList = require('./AboutList');
 var ScrollTop = require('./ScrollTop');
+var MyPaper = require('./MyPaper');
 
 
 /*
@@ -43261,7 +43262,7 @@ var About = React.createClass({
       null,
       React.createElement(
         'section',
-        { style: styles.sectionStyle, className: 'row viewPage' },
+        { className: 'row viewPage' },
         React.createElement(
           'div',
           { id: 'aboutImg', className: aboutImgClass + " animated fadeInUp aboutImg" },
@@ -43330,7 +43331,7 @@ var About = React.createClass({
 
 module.exports = About;
 
-},{"./AboutList":491,"./Article":492,"./ScrollTop":507,"material-ui/styles/colors":256,"react":474}],491:[function(require,module,exports){
+},{"./AboutList":491,"./Article":492,"./MyPaper":504,"./ScrollTop":508,"material-ui/styles/colors":256,"react":474}],491:[function(require,module,exports){
 'use strict';
 
 var _List = require('material-ui/List');
@@ -43666,7 +43667,7 @@ var Footer = React.createClass({
 
 module.exports = Footer;
 
-},{"./NavLink":504,"material-ui/FlatButton":214,"material-ui/Toolbar":242,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/colors":256,"material-ui/styles/getMuiTheme":257,"react":474}],495:[function(require,module,exports){
+},{"./NavLink":505,"material-ui/FlatButton":214,"material-ui/Toolbar":242,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/colors":256,"material-ui/styles/getMuiTheme":257,"react":474}],495:[function(require,module,exports){
 'use strict';
 
 var _Toolbar = require('material-ui/Toolbar');
@@ -43752,7 +43753,7 @@ var Header = React.createClass({
             React.createElement(
               NavLink,
               { className: 'flexMiddle', to: '/' },
-              'Gary Yeh'
+              React.createElement(_FlatButton2.default, { label: 'Gary Yeh' })
             )
           ),
           React.createElement(
@@ -43769,7 +43770,7 @@ var Header = React.createClass({
 
 module.exports = Header;
 
-},{"./NavLink":504,"material-ui/FlatButton":214,"material-ui/RaisedButton":233,"material-ui/Toolbar":242,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/colors":256,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/navigation/menu":268,"react":474}],496:[function(require,module,exports){
+},{"./NavLink":505,"material-ui/FlatButton":214,"material-ui/RaisedButton":233,"material-ui/Toolbar":242,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/colors":256,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/navigation/menu":268,"react":474}],496:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -43888,7 +43889,7 @@ var Index = React.createClass({
 
 module.exports = Index;
 
-},{"./Header":495,"./HeaderCenter":496,"./Jumbotron":498,"./List":500,"./ScrollTop":507,"react":474}],498:[function(require,module,exports){
+},{"./Header":495,"./HeaderCenter":496,"./Jumbotron":498,"./List":500,"./ScrollTop":508,"react":474}],498:[function(require,module,exports){
 'use strict';
 
 var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
@@ -44127,7 +44128,7 @@ var List = React.createClass({
 
 module.exports = List;
 
-},{"./ListItem":501,"./NavLink":504,"react":474}],501:[function(require,module,exports){
+},{"./ListItem":501,"./NavLink":505,"react":474}],501:[function(require,module,exports){
 'use strict';
 
 var _Card = require('material-ui/Card');
@@ -44353,7 +44354,61 @@ var MyDrawer = React.createClass({
 
 module.exports = MyDrawer;
 
-},{"./NavLink":504,"material-ui/Drawer":211,"material-ui/MenuItem":225,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"react":474}],504:[function(require,module,exports){
+},{"./NavLink":505,"material-ui/Drawer":211,"material-ui/MenuItem":225,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"react":474}],504:[function(require,module,exports){
+'use strict';
+
+var _Paper = require('material-ui/Paper');
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
+var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
+
+var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+var _getMuiTheme = require('material-ui/styles/getMuiTheme');
+
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var React = require('react');
+var PropTypes = React.PropTypes;
+
+var MyPaper = React.createClass({
+  displayName: 'MyPaper',
+
+
+  render: function render() {
+    var paperStyle = {
+      height: 140,
+      width: 140,
+      margin: 20,
+      textAlign: 'center',
+      display: 'inline-block'
+    };
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        _MuiThemeProvider2.default,
+        null,
+        React.createElement(
+          'div',
+          null,
+          React.createElement(_Paper2.default, { style: paperStyle, zDepth: 3, circle: false }),
+          React.createElement(_Paper2.default, { style: paperStyle, zDepth: 4, circle: false }),
+          React.createElement(_Paper2.default, { style: paperStyle, zDepth: 5, circle: false }),
+          React.createElement(_Paper2.default, { style: paperStyle, zDepth: 5, circle: false })
+        )
+      )
+    );
+  }
+
+});
+
+module.exports = MyPaper;
+
+},{"material-ui/Paper":229,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"react":474}],505:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -44374,7 +44429,7 @@ var NavLink = React.createClass({
 
 module.exports = NavLink;
 
-},{"react":474,"react-router":315}],505:[function(require,module,exports){
+},{"react":474,"react-router":315}],506:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44534,7 +44589,7 @@ var PokemonIndex = React.createClass({
 
 module.exports = PokemonIndex;
 
-},{"./Article":492,"react":474}],506:[function(require,module,exports){
+},{"./Article":492,"react":474}],507:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44586,7 +44641,7 @@ var Portfolio = React.createClass({
 
 module.exports = Portfolio;
 
-},{"./HeaderCenter":496,"./List":500,"./NavLink":504,"./ScrollTop":507,"react":474}],507:[function(require,module,exports){
+},{"./HeaderCenter":496,"./List":500,"./NavLink":505,"./ScrollTop":508,"react":474}],508:[function(require,module,exports){
 'use strict';
 
 var _IconButton = require('material-ui/IconButton');
@@ -44672,7 +44727,7 @@ var ScrollTop = React.createClass({
 
 module.exports = ScrollTop;
 
-},{"../services/animationScroll":514,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],508:[function(require,module,exports){
+},{"../services/animationScroll":515,"material-ui/IconButton":218,"material-ui/styles/MuiThemeProvider":254,"material-ui/styles/getMuiTheme":257,"material-ui/svg-icons/hardware/keyboard-arrow-up":264,"react":474}],509:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44699,7 +44754,7 @@ var SpeechBubble = React.createClass({
 
 module.exports = SpeechBubble;
 
-},{"react":474}],509:[function(require,module,exports){
+},{"react":474}],510:[function(require,module,exports){
 'use strict';
 
 var _colors = require('material-ui/styles/colors');
@@ -44794,7 +44849,7 @@ var Timeline = React.createClass({
         scrollY: this.state.scrollY,
         year: '2013',
         side: this.context.show ? "left" : "right",
-        content: 'Received bachelor degree of Science in Engineering Science, National Cheng Kung University.\r Won second place in Network Communication Software and Innovative Application Contest held by Ministry of Education'
+        content: 'Won second place in Network Communication Software and Innovative Application Contest held by Ministry of Education'
       }),
       React.createElement(TimelineBox, {
         myRef: 'A2',
@@ -44802,7 +44857,7 @@ var Timeline = React.createClass({
         scrollY: this.state.scrollY,
         year: '2012',
         side: 'right',
-        content: 'Project: Sitting Posture Detection System'
+        content: 'Project: Sitting Posture Detection System.'
       }),
       React.createElement(
         'div',
@@ -44819,7 +44874,7 @@ var Timeline = React.createClass({
 });
 module.exports = Timeline;
 
-},{"../services/getPosition":515,"./Article":492,"./ScrollTop":507,"./TimelineBox":510,"material-ui/styles/colors":256,"react":474}],510:[function(require,module,exports){
+},{"../services/getPosition":516,"./Article":492,"./ScrollTop":508,"./TimelineBox":511,"material-ui/styles/colors":256,"react":474}],511:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44899,7 +44954,7 @@ var TimelineBox = React.createClass({
 
 module.exports = TimelineBox;
 
-},{"../services/getPosition":515,"./SpeechBubble":508,"./TimelineBoxLeft":511,"./TimelineBoxRight":512,"react":474}],511:[function(require,module,exports){
+},{"../services/getPosition":516,"./SpeechBubble":509,"./TimelineBoxLeft":512,"./TimelineBoxRight":513,"react":474}],512:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44936,7 +44991,7 @@ var TimelineBoxRight = React.createClass({
 
 module.exports = TimelineBoxRight;
 
-},{"./SpeechBubble":508,"react":474}],512:[function(require,module,exports){
+},{"./SpeechBubble":509,"react":474}],513:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -44981,7 +45036,7 @@ var TimelineBoxRight = React.createClass({
 
 module.exports = TimelineBoxRight;
 
-},{"./SpeechBubble":508,"react":474}],513:[function(require,module,exports){
+},{"./SpeechBubble":509,"react":474}],514:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -45038,7 +45093,7 @@ ReactDOM.render(React.createElement(
   )
 ), document.getElementById('app'));
 
-},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/KaohsiungMRT":499,"./components/MultiplayerGame":502,"./components/PokemonIndex":505,"./components/Portfolio":506,"./components/Timeline":509,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],514:[function(require,module,exports){
+},{"./App":489,"./components/About":490,"./components/Contact":493,"./components/Index":497,"./components/KaohsiungMRT":499,"./components/MultiplayerGame":502,"./components/PokemonIndex":506,"./components/Portfolio":507,"./components/Timeline":510,"react":474,"react-dom":284,"react-router":315,"react-tap-event-plugin":329}],515:[function(require,module,exports){
 "use strict";
 
 var animateScroll = function animateScroll(element, target, duration) {
@@ -45114,7 +45169,7 @@ var animateScroll = function animateScroll(element, target, duration) {
 
 module.exports = animateScroll;
 
-},{}],515:[function(require,module,exports){
+},{}],516:[function(require,module,exports){
 "use strict";
 
 var getPosition = function getPosition(el) {
@@ -45145,4 +45200,4 @@ var getPosition = function getPosition(el) {
 
 module.exports = getPosition;
 
-},{}]},{},[513]);
+},{}]},{},[514]);

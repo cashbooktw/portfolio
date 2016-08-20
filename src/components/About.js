@@ -3,6 +3,7 @@ var PropTypes = React.PropTypes;
 var Article = require('./Article');
 var AboutList = require('./AboutList');
 const ScrollTop = require('./ScrollTop');
+const MyPaper = require('./MyPaper');
 import {fullWhite, green500} from 'material-ui/styles/colors';
 
 /*
@@ -42,7 +43,7 @@ var About = React.createClass({
     }
     return (
       <div>
-        <section style={styles.sectionStyle} className="row viewPage">
+        <section  className="row viewPage">
           <div id="aboutImg" className={aboutImgClass + " animated fadeInUp aboutImg"}>
             <img src="./images/about_590x440.jpg"></img>
           </div>
@@ -55,6 +56,16 @@ var About = React.createClass({
             />
           </div>
         </section>
+
+{/*
+        <section style={styles.sectionStyle}>
+          <div className="row">
+            <div className="col-12" style={styles.flexBoxStyle}>
+              <MyPaper />
+            </div>
+          </div>
+        </section>
+*/}
         <section style={styles.aboutListStyle}>
           <div className="row">
             <div className="col-12 flexMiddle">

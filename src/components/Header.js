@@ -43,7 +43,7 @@ var Header = React.createClass({
         <MuiThemeProvider muiTheme={muiTheme}>
           <Toolbar>
             <ToolbarGroup>
-              <NavLink className="flexMiddle" to="/">Gary Yeh</NavLink>
+              <NavLink className="flexMiddle" to="/"><FlatButton label="Gary Yeh" /></NavLink>
             </ToolbarGroup>
             <ToolbarGroup >
               {headerItems}
