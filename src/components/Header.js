@@ -12,7 +12,7 @@ var NavLink = require('./NavLink');
 var Header = React.createClass({
   getInitialState: function() {
     return {
-      show: true //false to display HamburgerButton
+      show: this.props.show //false to display HamburgerButton
     };
   },
   componentWillReceiveProps: function(nextProps) {

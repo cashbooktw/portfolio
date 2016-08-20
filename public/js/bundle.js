@@ -43706,7 +43706,7 @@ var Header = React.createClass({
 
   getInitialState: function getInitialState() {
     return {
-      show: true //false to display HamburgerButton
+      show: this.props.show //false to display HamburgerButton
     };
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
