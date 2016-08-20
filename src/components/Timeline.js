@@ -84,8 +84,7 @@ var Timeline = React.createClass({
               scrollY={this.state.scrollY}
               year="2013"
               side={(this.context.show)?"left":"right"}
-              content="Received bachelor degree of Science in Engineering Science, National Cheng Kung University.
-              Won second place in Network Communication Software and Innovative Application Contest held by Ministry of Education"
+              content="Won second place in Network Communication Software and Innovative Application Contest held by Ministry of Education"
               />
 
               <TimelineBox
@@ -94,7 +93,7 @@ var Timeline = React.createClass({
                 scrollY={this.state.scrollY}
                 year="2012"
                 side="right"
-                content="Project: Sitting Posture Detection System"
+                content="Project: Sitting Posture Detection System."
                 />
 
               <div className="row horizontal-align-middle-parent">
