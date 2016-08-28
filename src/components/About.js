@@ -52,7 +52,7 @@ var About = React.createClass({
               title="about me"
               subTitle="A Front End Developer from Changhua, Taiwan."
               content="I'm creative and have a passion for programming.
-                I sometimes participated in community activities to discuss Web development."
+                I participate in community activities to discuss Web development."
             />
           </div>
         </section>

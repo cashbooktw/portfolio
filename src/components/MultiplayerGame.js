@@ -45,7 +45,7 @@ var MultiplayerGame = React.createClass({
             />
           <Article
             content="If the client moves its character, the control messages are sent instantly.
-            The other clients would receive the update messages and refresh their frames."
+            The other clients receive the update messages and refresh their frames."
           />
           </div>
         </section>
@@ -58,7 +58,7 @@ var MultiplayerGame = React.createClass({
             <Article
               subTitle="Keep Synchronized."
               content="There is a playerlist recording statuses of all clients.
-              When a client changes its' status, the playerlist would refresh and broadcast to other clients.
+              When a client changes its' status, the playerlist refreshes and is broadcast to other clients.
               "
             />
           </div>

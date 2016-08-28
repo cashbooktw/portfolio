@@ -43274,7 +43274,7 @@ var About = React.createClass({
           React.createElement(Article, {
             title: 'about me',
             subTitle: 'A Front End Developer from Changhua, Taiwan.',
-            content: 'I\'m creative and have a passion for programming.\r I sometimes participated in community activities to discuss Web development.'
+            content: 'I\'m creative and have a passion for programming.\r I participate in community activities to discuss Web development.'
           })
         )
       ),
@@ -44057,7 +44057,7 @@ var KaohsiungMRT = React.createClass({
           { className: aboutArticleClass },
           React.createElement(Article, {
             subTitle: 'Interactive with map',
-            content: 'You can click the marker on the map.\r The marker you clicked would move to the center of the map.'
+            content: 'The markers on the map are clickable.\r The marker moves to the center of the map after being clicked.'
           }),
           React.createElement(Article, {
             content: 'The table section shows the arriving time of the MRT.'
@@ -44246,7 +44246,7 @@ var MultiplayerGame = React.createClass({
             content: 'When a client connects to a server,\r the server sends the content and information to the client.'
           }),
           React.createElement(Article, {
-            content: 'If the client moves its character, the control messages are sent instantly.\r The other clients would receive the update messages and refresh their frames.'
+            content: 'If the client moves its character, the control messages are sent instantly.\r The other clients receive the update messages and refresh their frames.'
           })
         )
       ),
@@ -44263,7 +44263,7 @@ var MultiplayerGame = React.createClass({
           { className: aboutArticleClass },
           React.createElement(Article, {
             subTitle: 'Keep Synchronized.',
-            content: 'There is a playerlist recording statuses of all clients.\r When a client changes its\' status, the playerlist would refresh and broadcast to other clients.\r '
+            content: 'There is a playerlist recording statuses of all clients.\r When a client changes its\' status, the playerlist refreshes and is broadcast to other clients.\r '
           })
         )
       )
@@ -44472,7 +44472,7 @@ var PokemonIndex = React.createClass({
           React.createElement(
             'h3',
             null,
-            'This is implemeted by React and ReFlux. The css and RWD style were implemented by bootstrap.'
+            'This is implemeted by React and ReFlux. The css and RWD style are implemented by bootstrap.'
           ),
           React.createElement(
             'h3',
@@ -44510,7 +44510,7 @@ var PokemonIndex = React.createClass({
           { className: aboutArticleClass + " animated fadeInUp" },
           React.createElement(Article, {
             subTitle: 'Main page',
-            content: 'Each Pokemon will have: image, name, types ,and index.'
+            content: 'Each Pokemon has: image, name, types, and index.'
           })
         )
       ),
@@ -44527,7 +44527,7 @@ var PokemonIndex = React.createClass({
           { className: aboutArticleClass },
           React.createElement(Article, {
             subTitle: 'Search bar',
-            content: 'If the user enters a number or name,\r it will find all similar matches and hide/remove the other Pokemons.'
+            content: 'It finds all similar matches and hide/remove the other\r Pokemons when user enters a number or a name.'
           })
         )
       ),
@@ -44561,7 +44561,7 @@ var PokemonIndex = React.createClass({
           { className: aboutArticleClass },
           React.createElement(Article, {
             subTitle: 'Details',
-            content: 'Clicking any Pokémon will show detail information of that Pokémon.'
+            content: 'Clicking any Pokémon shows detail information of that Pokémon.'
           })
         )
       ),
@@ -44813,11 +44813,11 @@ var Timeline = React.createClass({
             { className: 'bigBubble' },
             React.createElement(Article, {
               title: 'What I did this year',
-              subTitle: 'Substitute Military Service in Taiwan Changhua District Court.'
+              subTitle: '• Substitute Military Service in Taiwan Changhua District Court.'
             }),
-            React.createElement(Article, { subTitle: 'self-learning Front End technonogies.' }),
-            React.createElement(Article, { subTitle: 'participated in Soft & Share online meetups' }),
-            React.createElement(Article, { subTitle: 'reading and programming' })
+            React.createElement(Article, { subTitle: '• Self-learning Front End technonogies.' }),
+            React.createElement(Article, { subTitle: '• Participated in Soft & Share online meetups' }),
+            React.createElement(Article, { subTitle: '• Reading and programming' })
           ),
           React.createElement(TimelineBox, {
             myRef: 'A0',

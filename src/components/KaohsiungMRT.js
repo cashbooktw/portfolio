@@ -54,8 +54,8 @@ var KaohsiungMRT = React.createClass({
           <div className={aboutArticleClass}>
             <Article
               subTitle="Interactive with map"
-              content="You can click the marker on the map.
-              The marker you clicked would move to the center of the map."
+              content="The markers on the map are clickable.
+              The marker moves to the center of the map after being clicked."
             />
             <Article
               content="The table section shows the arriving time of the MRT."

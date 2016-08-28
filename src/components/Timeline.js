@@ -44,11 +44,11 @@ var Timeline = React.createClass({
             <div className="bigBubble">
               <Article
                 title="What I did this year"
-                subTitle="Substitute Military Service in Taiwan Changhua District Court."
+                subTitle="&bull; Substitute Military Service in Taiwan Changhua District Court."
               />
-            <Article subTitle="self-learning Front End technonogies." />
-              <Article subTitle="participated in Soft & Share online meetups" />
-              <Article subTitle="reading and programming" />
+            <Article subTitle="&bull; Self-learning Front End technonogies." />
+              <Article subTitle="&bull; Participated in Soft & Share online meetups" />
+              <Article subTitle="&bull; Reading and programming" />
             </div>
 
             <TimelineBox

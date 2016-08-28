@@ -29,7 +29,7 @@ var PokemonIndex = React.createClass({
               title="Pokémon Index"
             />
           <h3>This is implemeted by React and ReFlux.
-            The css and RWD style were implemented by bootstrap.</h3>
+            The css and RWD style are implemented by bootstrap.</h3>
           <h3>The basic data is retrieved from <a href="http://pokeapi.co/ by API">pokeapi</a>.
             To optimize the page loading, I uses hard code data instead.</h3>
           <h3>Demo site <a href="https://cashbooktw.github.io/react-pokedex/public/">here</a></h3>
@@ -43,7 +43,7 @@ var PokemonIndex = React.createClass({
           <div className={aboutArticleClass + " animated fadeInUp"}>
             <Article
               subTitle="Main page"
-              content="Each Pokemon will have: image, name, types ,and index."
+              content="Each Pokemon has: image, name, types, and index."
             />
           </div>
         </section>
@@ -55,8 +55,8 @@ var PokemonIndex = React.createClass({
           <div className={aboutArticleClass}>
             <Article
               subTitle="Search bar"
-              content="If the user enters a number or name,
-                it will find all similar matches and hide/remove the other Pokemons."
+              content="It finds all similar matches and hide/remove the other
+                Pokemons when user enters a number or a name."
             />
           </div>
         </section>
@@ -80,7 +80,7 @@ var PokemonIndex = React.createClass({
           <div className={aboutArticleClass}>
             <Article
               subTitle="Details"
-              content="Clicking any Pokémon will show detail information of that Pokémon."
+              content="Clicking any Pokémon shows detail information of that Pokémon."
             />
           </div>
         </section>
