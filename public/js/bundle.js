@@ -43310,7 +43310,7 @@ var About = React.createClass({
               avatarSrc: './images/JS_36x36.png' }),
             React.createElement(AboutList, {
               title: "Development Tool",
-              items: ["Atom", "Git", "Gulp", "Chrome Developer Tools", "Photoshop"],
+              items: ["Atom", "Git", "Webpack", "Chrome Developer Tools", "Photoshop"],
               avatarSrc: './images/tools.png' })
           )
         ),
