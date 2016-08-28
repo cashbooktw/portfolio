@@ -30,9 +30,9 @@ var PokemonIndex = React.createClass({
             />
           <h3>This is implemeted by React and ReFlux.
             The css and RWD style are implemented by bootstrap.</h3>
-          <h3>The basic data is retrieved from <a href="http://pokeapi.co/ by API">pokeapi</a>.
+          <h3>The basic data is retrieved from <a href="http://pokeapi.co/ by API" target="_blank">pokeapi</a>.
             To optimize the page loading, I uses hard code data instead.</h3>
-          <h3>Demo site <a href="https://cashbooktw.github.io/react-pokedex/public/">here</a></h3>
+          <h3>Demo site <a href="https://cashbooktw.github.io/react-pokedex/public/" target="_blank">here</a></h3>
           </div>
         </section>
 

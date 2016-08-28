@@ -52,9 +52,15 @@ var Contact = React.createClass({
                 onTouchTap={() => {window.open("http://cashbook.logdown.com/")}}
                 />
                 <ListItem
+                primaryText="Star me on Speaker Deck"
+                leftAvatar={<Avatar src="images/SpeakerDeck36.png" />}
+                onTouchTap={() => {window.open("https://speakerdeck.com/cashbooktw/")}}
+                />
+                <ListItem
                 primaryText="Email: cashbooktw@gmail.com"
                 leftAvatar={<Avatar src="images/gmail36.png" />}
                 />
+
               </List>
             </div>
           </section>

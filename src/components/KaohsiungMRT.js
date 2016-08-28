@@ -29,8 +29,8 @@ var KaohsiungMRT = React.createClass({
               title="Kaohsiung MRT Immediate Information"
             />
           <h3>The map data is retrieved from Google Map API, and the MRT data is
-            retrieved from <a href="http://data.kaohsiung.gov.tw/Opendata/">Open Data.Kaohsiung</a>.</h3>
-          <h3>Demo site <a href="http://kaohsiung-mrt.herokuapp.com">here</a>.</h3>
+            retrieved from <a href="http://data.kaohsiung.gov.tw/Opendata/" target="_blank">Open Data.Kaohsiung</a>.</h3>
+          <h3>Demo site <a href="http://kaohsiung-mrt.herokuapp.com" target="_blank">here</a>.</h3>
           </div>
         </section>
 

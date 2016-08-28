@@ -43570,6 +43570,13 @@ var Contact = React.createClass({
                 }
               }),
               React.createElement(_List.ListItem, {
+                primaryText: 'Star me on Speaker Deck',
+                leftAvatar: React.createElement(_Avatar2.default, { src: 'images/SpeakerDeck36.png' }),
+                onTouchTap: function onTouchTap() {
+                  window.open("https://speakerdeck.com/cashbooktw/");
+                }
+              }),
+              React.createElement(_List.ListItem, {
                 primaryText: 'Email: cashbooktw@gmail.com',
                 leftAvatar: React.createElement(_Avatar2.default, { src: 'images/gmail36.png' })
               })
@@ -44009,7 +44016,7 @@ var KaohsiungMRT = React.createClass({
             'The map data is retrieved from Google Map API, and the MRT data is retrieved from ',
             React.createElement(
               'a',
-              { href: 'http://data.kaohsiung.gov.tw/Opendata/' },
+              { href: 'http://data.kaohsiung.gov.tw/Opendata/', target: '_blank' },
               'Open Data.Kaohsiung'
             ),
             '.'
@@ -44020,7 +44027,7 @@ var KaohsiungMRT = React.createClass({
             'Demo site ',
             React.createElement(
               'a',
-              { href: 'http://kaohsiung-mrt.herokuapp.com' },
+              { href: 'http://kaohsiung-mrt.herokuapp.com', target: '_blank' },
               'here'
             ),
             '.'
@@ -44480,7 +44487,7 @@ var PokemonIndex = React.createClass({
             'The basic data is retrieved from ',
             React.createElement(
               'a',
-              { href: 'http://pokeapi.co/ by API' },
+              { href: 'http://pokeapi.co/ by API', target: '_blank' },
               'pokeapi'
             ),
             '. To optimize the page loading, I uses hard code data instead.'
@@ -44491,7 +44498,7 @@ var PokemonIndex = React.createClass({
             'Demo site ',
             React.createElement(
               'a',
-              { href: 'https://cashbooktw.github.io/react-pokedex/public/' },
+              { href: 'https://cashbooktw.github.io/react-pokedex/public/', target: '_blank' },
               'here'
             )
           )
